@@ -111,7 +111,7 @@ const App = () => {
   const [terrainFilter, setTerrainFilter] = useState('all');
   const [planResults, setPlanResults] = useState(null);
   const [getHomeResults, setGetHomeResults] = useState(null);
- Results] = use const [selectedBase, setSelectedBase] = useState('Park City');
+  const [selectedBase, setSelectedBase] = useState('Park City');
 
   useEffect(() => {
     localStorage.setItem('parkcity_lifts', JSON.stringify(liftStatus));
