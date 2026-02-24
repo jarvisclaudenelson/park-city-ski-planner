@@ -260,6 +260,7 @@ const parkCityData = {
     { id: 'ice_crystal', name: 'Ice Crystal', difficulty: 'black', terrain: 'trees', lift: 'frostwood', length: 1.2, peak: 'Red Pine' },
     { id: 'snowflake', name: 'Snowflake', difficulty: 'blue', terrain: 'trees', lift: 'frostwood', length: 1.4, peak: 'Red Pine' },
     { id: 'icicle', name: 'Icicle', difficulty: 'black', terrain: 'powders', lift: 'frostwood', length: 1.1, peak: 'Red Pine' },
+  ],
   chalets: [
     { id: 'midmountain', name: 'Mid-Mountain Lodge' },
     { id: 'summit', name: 'Summit House' },
