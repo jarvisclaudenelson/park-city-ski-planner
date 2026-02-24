@@ -33,6 +33,7 @@ const App = () => {
   const [endBase, setEndBase] = useState('Park City');
   const [difficultyPref, setDifficultyPref] = useState('mix');
   const [terrainPref, setTerrainPref] = useState('any');
+  const [optimizationMode, setOptimizationMode] = useState('maximize');
   const [skillLevel, setSkillLevel] = useState('intermediate');
   const [startTime, setStartTime] = useState('09:00');
   const [endTime, setEndTime] = useState('16:00');
@@ -131,6 +132,17 @@ const App = () => {
     if (selectedPeaks.length) availableRuns = availableRuns.filter(r => selectedPeaks.includes(r.peak));
     if (difficultyPref !== 'mix') availableRuns = availableRuns.filter(r => r.difficulty === difficultyPref);
     if (terrainPref !== 'any') availableRuns = availableRuns.filter(r => r.terrain === terrainPref);
+    
+    // Apply optimization mode
+    let usedPeaks = new Set();
+    let usedLifts = new Set();
+    if (optimizationMode === 'onepeak' && selectedPeaks.length > 0) {
+      const targetPeak = selectedPeaks[0];
+      availableRuns = availableRuns.filter(r => r.peak === targetPeak);
+    } else if (optimizationMode === 'favorites') {
+      availableRuns = availableRuns.filter(r => r.favorite);
+    }
+    
     const startLifts = parkCityData.lifts.filter(l => l.base === startBase && isOpen(l.id, 'lift'));
     if (startLifts.length === 0) {
       alert('No open lifts available at the start base!');
@@ -366,6 +378,15 @@ const App = () => {
                     <option value="moguls">Moguls</option>
                     <option value="powders">Powder</option>
                     <option value="trees">Trees</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">Optimization</label>
+                  <select value={optimizationMode} onChange={(e) => setOptimizationMode(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2">
+                    <option value="maximize">Maximize Terrain</option>
+                    <option value="favorites">Favorites Only</option>
+                    <option value="difficulty">Difficulty Filter</option>
+                    <option value="onepeak">One Peak</option>
                   </select>
                 </div>
               </div>
