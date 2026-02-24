@@ -5,7 +5,7 @@
 
 export const lifts = [
   // Existing 22 lifts
-  { id: 'quicksilver', name: 'Quicksilver Gondola', base: 'Canyons Village', peak: 'Silver Cloud' },
+  { id: 'quicksilver', name: 'Quicksilver Gondola', base: 'Canyons Village', peak: 'Silver Cloud', x: 20, y: 80 },
   { id: 'canyons', name: 'Canyons Gondola', base: 'Canyons Village', peak: 'Canyons Peak' },
   { id: 'tombstone', name: 'Tombstone Lift', base: 'Canyons Village', peak: 'Tombstone' },
   { id: 'saddleback', name: 'Saddleback Lift', base: 'Canyons Village', peak: 'Saddleback' },
@@ -14,8 +14,8 @@ export const lifts = [
   { id: 'frostwood', name: 'Frostwood Lift', base: 'Canyons Village', peak: 'Red Pine' },
   { id: 'peak9990', name: 'Peak 9990 Lift', base: 'Canyons Village', peak: 'Peak 9990' },
   { id: 'ironwood', name: 'Ironwood Lift', base: 'Canyons Village', peak: 'Red Pine' },
-  { id: 'payday', name: 'Payday Lift', base: 'Park City', peak: 'Treasure' },
-  { id: 'bonanza', name: 'Bonanza Lift', base: 'Park City', peak: 'Bonanza' },
+  { id: 'payday', name: 'Payday Lift', base: 'Park City', peak: 'Treasure', x: 55, y: 83 },
+  { id: 'bonanza', name: 'Bonanza Lift', base: 'Park City', peak: 'Bonanza', x: 45, y: 70 },
   { id: 'crescent', name: 'Crescent Lift', base: 'Park City', peak: 'Crescent' },
   { id: 'townlift', name: 'Town Lift', base: 'Park City', peak: 'Town' },
   { id: 'silvercloud', name: 'Silver Cloud Lift', base: 'Park City', peak: 'Silver Cloud' },
