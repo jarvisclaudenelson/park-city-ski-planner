@@ -182,11 +182,23 @@ const App = () => {
         currentTime += getLiftDuration();
         continue;
       }
-      const run = possibleRuns[Math.floor(Math.random() * possibleRuns.length)];
-      runsTaken.add(run.id);
-      segments.push({ type: 'run', run: { ...run, duration: getRunDuration(run) }, time: `${Math.floor(currentTime / 60).toString().padStart(2, '0')}:${(currentTime % 60).toString().padStart(2, '0')}`, duration: getRunDuration(run) });
-      currentTime += getRunDuration(run);
-      const liftsAtPeak = parkCityData.lifts.filter(l => l.peak === run.peak && isOpen(l.id, 'lift'));
+      // Chain multiple runs before taking another lift
+      const run1 = possibleRuns[Math.floor(Math.random() * possibleRuns.length)];
+      runsTaken.add(run1.id);
+      segments.push({ type: 'run', run: { ...run1, duration: getRunDuration(run1) }, time: `${Math.floor(currentTime / 60).toString().padStart(2, '0')}:${(currentTime % 60).toString().padStart(2, '0')}`, duration: getRunDuration(run1) });
+      currentTime += getRunDuration(run1);
+
+      // Attempt to chain an additional run from the same lift if available
+      let additionalRuns = availableRuns.filter(r => r.lift === currentLift.id && !runsTaken.has(r.id));
+      if(additionalRuns.length > 0) {
+        const run2 = additionalRuns[Math.floor(Math.random() * additionalRuns.length)];
+        runsTaken.add(run2.id);
+        segments.push({ type: 'run', run: { ...run2, duration: getRunDuration(run2) }, time: `${Math.floor(currentTime / 60).toString().padStart(2, '0')}:${(currentTime % 60).toString().padStart(2, '0')}`, duration: getRunDuration(run2) });
+        currentTime += getRunDuration(run2);
+      }
+
+      // After chaining runs, take the next lift from the current peak to continue the plan
+      const liftsAtPeak = parkCityData.lifts.filter(l => l.peak === run1.peak && isOpen(l.id, 'lift'));
       if (liftsAtPeak.length === 0) break;
       currentLift = liftsAtPeak[Math.floor(Math.random() * liftsAtPeak.length)];
       segments.push({ type: 'lift', lift: currentLift, time: `${Math.floor(currentTime / 60).toString().padStart(2, '0')}:${(currentTime % 60).toString().padStart(2, '0')}`, duration: getLiftDuration() });
