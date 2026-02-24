@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 
 // Park City trail map background image URL
-const TRAIL_MAP_URL = 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=1200&h=800&fit=crop';
+// Removed Unsplash URL; using SVG topographic background instead
 
 // Park City mountain layout data with coordinates (percentage-based for responsive scaling)
 export const mountainLayout = {
@@ -189,21 +189,20 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
         <div className="absolute inset-0 cursor-grab active:cursor-grabbing" onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp} onWheel={handleWheel}>
           {/* Background Image */}
           <div className="absolute inset-0 overflow-hidden">
-            <img 
-              src={TRAIL_MAP_URL}
-              alt="Park City Trail Map"
-              className="w-full h-full object-cover opacity-40"
-              style={{
+            {/* Inline SVG Topographic Background */}
+            <svg viewBox="0 0 100 100" className="w-full h-full opacity-40" style={{
                 transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
                 transformOrigin: 'center center',
-              }}
-              onLoad={() => setImageLoaded(true)}
-            />
-            {!imageLoaded && (
-              <div className="absolute inset-0 flex items-center justify-center bg-slate-900">
-                <span className="text-slate-500">Loading trail map...</span>
-              </div>
-            )}
+              }}>
+              <defs>
+                <linearGradient id="mountainGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#a3a3a3" />
+                  <stop offset="100%" stopColor="#0f172a" />
+                </linearGradient>
+              </defs>
+              <rect width="100" height="100" fill="url(#mountainGradient)" />
+              <path d="M10,80 Q30,20 50,60 T90,50" fill="none" stroke="#4b5563" strokeWidth="1" />
+            </svg>
           </div>
           
           {/* SVG Overlay */}
