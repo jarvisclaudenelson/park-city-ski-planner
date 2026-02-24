@@ -100,7 +100,7 @@ export const runs = [
   // For runs in areas with base "Canyons Village", use: ['silvercloud', 'tombstone', 'saddleback', 'redpine']
 
     // Example run with connectsToLifts added. Update other runs similarly based on their lift and peak.
-  { id: 'payday_run', name: 'Payday', difficulty: 'blue', terrain: 'groomed', lift: 'payday', length: 0.6, peak: 'Treasure', connectsToLifts: ['bonanza', 'silvercloud', 'town'] }
+  { id: 'payday_run', name: 'Payday', difficulty: 'blue', terrain: 'groomed', lift: 'payday', length: 0.6, peak: 'Treasure', connectsToLifts: ['payday', 'bonanza', 'silvercloud'] }
 ];
 
 export const chalets = [
