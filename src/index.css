@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for Park City Ski Planner */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
