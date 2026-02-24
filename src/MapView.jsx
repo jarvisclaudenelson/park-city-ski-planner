@@ -1,8 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
+
+// Park City trail map background image URL
+const TRAIL_MAP_URL = 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=1200&h=800&fit=crop';
 
 // Park City mountain layout data with coordinates (percentage-based for responsive scaling)
 export const mountainLayout = {
-  // Peaks with their relative positions on the map
   peaks: {
     'Treasure': { x: 55, y: 75, name: 'Treasure Peak' },
     'Bonanza': { x: 45, y: 60, name: 'Bonanza Peak' },
@@ -18,8 +20,10 @@ export const mountainLayout = {
     'Eagle': { x: 5, y: 50, name: 'Eagle Peak' },
     'Golf': { x: 70, y: 70, name: 'Golf Peak' },
     'Peak 9990': { x: 8, y: 40, name: 'Peak 9990' },
+    'Jupiter Peak': { x: 42, y: 25, name: 'Jupiter Peak' },
+    'Murdoch': { x: 12, y: 35, name: 'Murdoch' },
+    'Pioneer Ridge': { x: 60, y: 30, name: 'Pioneer Ridge' },
   },
-  // Lifts with their start/end positions
   lifts: {
     'payday': { name: 'Payday Lift', x1: 55, y1: 90, x2: 55, y2: 75 },
     'bonanza': { name: 'Bonanza Lift', x1: 45, y1: 80, x2: 45, y2: 60 },
@@ -43,8 +47,10 @@ export const mountainLayout = {
     'cleavage': { name: 'Cleavage Lift', x1: 43, y1: 75, x2: 45, y2: 60 },
     'spur': { name: 'Spur Lift', x1: 63, y1: 90, x2: 65, y2: 85 },
     'frostwood': { name: 'Frostwood Lift', x1: 28, y1: 50, x2: 30, y2: 40 },
+    'jupiter': { name: 'Jupiter Lift', x1: 42, y1: 40, x2: 42, y2: 25 },
+    'murdoch': { name: 'Murdoch Lift', x1: 12, y1: 50, x2: 12, y2: 35 },
+    'pioneer': { name: 'Pioneer Lift', x1: 58, y1: 45, x2: 60, y2: 30 },
   },
-  // Key connection routes between peaks (simplified trail network)
   connections: [
     { from: 'Treasure', to: 'Bonanza', difficulty: 'blue' },
     { from: 'Bonanza', to: 'Crescent', difficulty: 'blue' },
@@ -61,6 +67,8 @@ export const mountainLayout = {
     { from: 'Eagle', to: 'Homestake', difficulty: 'blue' },
     { from: 'Peak 9990', to: 'Eagle', difficulty: 'black' },
     { from: 'Golf', to: 'Treasure', difficulty: 'green' },
+    { from: 'Jupiter Peak', to: 'Crescent', difficulty: 'black' },
+    { from: 'Pioneer Ridge', to: 'Silver Cloud', difficulty: 'blue' },
   ]
 };
 
@@ -86,35 +94,23 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
   const [showLifts, setShowLifts] = useState(true);
   const [showTrails, setShowTrails] = useState(true);
   const [showPlanRoute, setShowPlanRoute] = useState(true);
-  const svgRef = useRef(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const containerRef = useRef(null);
 
-  // Get active plan route data
   const getPlanRoute = () => {
-    if (!planResults || !planResults.runs || planResults.runs.length === 0) return null;
-    
+    if (!planResults || !planResults.segments || planResults.segments.length === 0) return null;
     const route = [];
-    planResults.runs.forEach((run, index) => {
-      const lift = parkCityData.lifts.find(l => l.id === run.lift);
-      const peak = mountainLayout.peaks[run.peak];
-      
-      if (lift && peak) {
-        route.push({
-          type: 'lift',
-          name: lift.name,
-          id: lift.id,
-          ...mountainLayout.lifts[run.lift],
-          index,
-        });
-        route.push({
-          type: 'run',
-          name: run.name,
-          id: run.id,
-          difficulty: run.difficulty,
-          peak: run.peak,
-          x: peak.x,
-          y: peak.y,
-          index,
-        });
+    planResults.segments.forEach((segment, index) => {
+      if (segment.type === 'lift') {
+        const liftLayout = mountainLayout.lifts[segment.lift.id];
+        if (liftLayout) {
+          route.push({ type: 'lift', name: segment.lift.name, ...liftLayout, index });
+        }
+      } else if (segment.type === 'run') {
+        const peak = mountainLayout.peaks[segment.run.peak];
+        if (peak) {
+          route.push({ type: 'run', name: segment.run.name, difficulty: segment.run.difficulty, peak: segment.run.peak, x: peak.x, y: peak.y, index });
+        }
       }
     });
     return route;
@@ -122,15 +118,10 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
 
   const planRoute = getPlanRoute();
 
-  // Zoom handlers
   const handleZoomIn = () => setZoom(z => Math.min(z * 1.2, 4));
   const handleZoomOut = () => setZoom(z => Math.max(z / 1.2, 0.5));
-  const handleReset = () => {
-    setZoom(1);
-    setPan({ x: 0, y: 0 });
-  };
+  const handleReset = () => { setZoom(1); setPan({ x: 0, y: 0 }); };
 
-  // Pan handlers
   const handleMouseDown = (e) => {
     setIsDragging(true);
     setDragStart({ x: e.clientX - pan.x, y: e.clientY - pan.y });
@@ -138,15 +129,10 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
 
   const handleMouseMove = (e) => {
     if (!isDragging) return;
-    setPan({
-      x: e.clientX - dragStart.x,
-      y: e.clientY - dragStart.y,
-    });
+    setPan({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y });
   };
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
+  const handleMouseUp = () => setIsDragging(false);
 
   const handleWheel = (e) => {
     e.preventDefault();
@@ -154,23 +140,16 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
     setZoom(z => Math.max(0.5, Math.min(4, z * delta)));
   };
 
-  // Get run coordinates (offset slightly from peak for visual variety)
   const getRunPosition = (runId, peakName, index) => {
     const peak = mountainLayout.peaks[peakName];
     if (!peak) return { x: 50, y: 50 };
-    
-    // Offset runs slightly based on index for visual separation
     const offsetX = (index % 3 - 1) * 3;
     const offsetY = Math.floor(index / 3) * 2;
-    return {
-      x: peak.x + offsetX,
-      y: peak.y + offsetY + 5,
-    };
+    return { x: peak.x + offsetX, y: peak.y + offsetY + 5 };
   };
 
   return (
     <div className="space-y-4">
-      {/* Controls */}
       <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
         <div className="flex flex-wrap items-center gap-4">
           <div className="flex items-center gap-2">
@@ -180,101 +159,63 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
             <button onClick={handleZoomIn} className="px-3 py-1 bg-slate-700 hover:bg-slate-600 rounded-lg text-sm">+</button>
             <button onClick={handleReset} className="px-3 py-1 bg-slate-700 hover:bg-slate-600 rounded-lg text-sm">Reset</button>
           </div>
-          
           <div className="h-6 w-px bg-slate-600"></div>
-          
           <div className="flex items-center gap-4">
             <label className="flex items-center gap-2 cursor-pointer">
-              <input 
-                type="checkbox" 
-                checked={showLifts} 
-                onChange={(e) => setShowLifts(e.target.checked)}
-                className="w-4 h-4 rounded accent-cyan-500"
-              />
+              <input type="checkbox" checked={showLifts} onChange={(e) => setShowLifts(e.target.checked)} className="w-4 h-4 rounded accent-cyan-500" />
               <span className="text-sm text-slate-300">Lifts</span>
             </label>
             <label className="flex items-center gap-2 cursor-pointer">
-              <input 
-                type="checkbox" 
-                checked={showTrails} 
-                onChange={(e) => setShowTrails(e.target.checked)}
-                className="w-4 h-4 rounded accent-cyan-500"
-              />
+              <input type="checkbox" checked={showTrails} onChange={(e) => setShowTrails(e.target.checked)} className="w-4 h-4 rounded accent-cyan-500" />
               <span className="text-sm text-slate-300">Trails</span>
             </label>
             {planRoute && (
               <label className="flex items-center gap-2 cursor-pointer">
-                <input 
-                  type="checkbox" 
-                  checked={showPlanRoute} 
-                  onChange={(e) => setShowPlanRoute(e.target.checked)}
-                  className="w-4 h-4 rounded accent-cyan-500"
-                />
+                <input type="checkbox" checked={showPlanRoute} onChange={(e) => setShowPlanRoute(e.target.checked)} className="w-4 h-4 rounded accent-cyan-500" />
                 <span className="text-sm text-cyan-400 font-medium">Plan Route</span>
               </label>
             )}
           </div>
-          
           <div className="flex-1"></div>
-          
-          {/* Legend */}
           <div className="flex items-center gap-3 text-xs">
             {Object.entries(difficultyLabels).map(([key, label]) => (
-              <span key={key} style={{ color: difficultyColors[key] }} className="font-medium">
-                {label}
-              </span>
+              <span key={key} style={{ color: difficultyColors[key] }} className="font-medium">{label}</span>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Map Container */}
-      <div 
-        className="relative bg-slate-800/50 rounded-xl border border-slate-700 overflow-hidden"
-        style={{ height: '600px' }}
-      >
-        <div 
-          className="absolute inset-0 cursor-grab active:cursor-grabbing"
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          onWheel={handleWheel}
-        >
-          <svg 
-            ref={svgRef}
-            viewBox="0 0 100 100"
-            className="w-full h-full"
-            style={{
-              transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
-              transformOrigin: 'center center',
-            }}
-          >
-            {/* Background */}
-            <rect x="0" y="0" width="100" height="100" fill="#0f172a" />
-            
-            {/* Mountain area background */}
-            <ellipse cx="35" cy="50" rx="30" ry="40" fill="#1e293b" opacity="0.5" />
-            <ellipse cx="55" cy="65" rx="25" ry="30" fill="#1e293b" opacity="0.5" />
+      <div ref={containerRef} className="relative bg-slate-800/50 rounded-xl border border-slate-700 overflow-hidden" style={{ height: '600px' }}>
+        <div className="absolute inset-0 cursor-grab active:cursor-grabbing" onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp} onWheel={handleWheel}>
+          {/* Background Image */}
+          <div className="absolute inset-0 overflow-hidden">
+            <img 
+              src={TRAIL_MAP_URL}
+              alt="Park City Trail Map"
+              className="w-full h-full object-cover opacity-40"
+              style={{
+                transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
+                transformOrigin: 'center center',
+              }}
+              onLoad={() => setImageLoaded(true)}
+            />
+            {!imageLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center bg-slate-900">
+                <span className="text-slate-500">Loading trail map...</span>
+              </div>
+            )}
+          </div>
+          
+          {/* SVG Overlay */}
+          <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full" style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, transformOrigin: 'center center' }}>
+            {/* Semi-transparent overlay for better visibility */}
+            <rect x="0" y="0" width="100" height="100" fill="#0f172a" opacity="0.3" />
             
             {/* Peak areas */}
             {Object.entries(mountainLayout.peaks).map(([key, peak]) => (
               <g key={key}>
-                <circle 
-                  cx={peak.x} 
-                  cy={peak.y} 
-                  r="8" 
-                  fill="#334155" 
-                  opacity="0.3"
-                />
-                <text 
-                  x={peak.x} 
-                  y={peak.y - 12} 
-                  textAnchor="middle" 
-                  fill="#94a3b8" 
-                  fontSize="2.5"
-                  fontWeight="bold"
-                >
+                <circle cx={peak.x} cy={peak.y} r="8" fill="#334155" opacity="0.3" />
+                <text x={peak.x} y={peak.y - 12} textAnchor="middle" fill="#e2e8f0" fontSize="2.5" fontWeight="bold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
                   {peak.name}
                 </text>
               </g>
@@ -286,17 +227,7 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
               const to = mountainLayout.peaks[conn.to];
               if (!from || !to) return null;
               return (
-                <line
-                  key={i}
-                  x1={from.x}
-                  y1={from.y}
-                  x2={to.x}
-                  y2={to.y}
-                  stroke={difficultyColors[conn.difficulty]}
-                  strokeWidth="0.8"
-                  opacity="0.4"
-                  strokeDasharray="2,1"
-                />
+                <line key={i} x1={from.x} y1={from.y} x2={to.x} y2={to.y} stroke={difficultyColors[conn.difficulty]} strokeWidth="0.8" opacity="0.6" strokeDasharray="2,1" />
               );
             })}
 
@@ -305,26 +236,10 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
               const isClosed = liftStatus[key] === 'closed';
               return (
                 <g key={key} opacity={isClosed ? 0.3 : 1}>
-                  <line
-                    x1={lift.x1}
-                    y1={lift.y1}
-                    x2={lift.x2}
-                    y2={lift.y2}
-                    stroke={isClosed ? '#ef4444' : '#06b6d4'}
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                  />
-                  {/* Lift stations */}
-                  <circle cx={lift.x1} cy={lift.y1} r="1.5" fill="#06b6d4" />
-                  <circle cx={lift.x2} cy={lift.y2} r="1.5" fill="#06b6d4" />
-                  {/* Lift name */}
-                  <text 
-                    x={(lift.x1 + lift.x2) / 2} 
-                    y={(lift.y1 + lift.y2) / 2 - 2} 
-                    textAnchor="middle" 
-                    fill="#22d3ee" 
-                    fontSize="2"
-                  >
+                  <line x1={lift.x1} y1={lift.y1} x2={lift.x2} y2={lift.y2} stroke={isClosed ? '#ef4444' : '#06b6d4'} strokeWidth="1.2" strokeLinecap="round" />
+                  <circle cx={lift.x1} cy={lift.y1} r="1.8" fill="#06b6d4" />
+                  <circle cx={lift.x2} cy={lift.y2} r="1.8" fill="#06b6d4" />
+                  <text x={(lift.x1 + lift.x2) / 2} y={(lift.y1 + lift.y2) / 2 - 2} textAnchor="middle" fill="#22d3ee" fontSize="2" fontWeight="bold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
                     {lift.name}
                   </text>
                 </g>
@@ -336,13 +251,8 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
               const pos = getRunPosition(run.id, run.peak, i);
               const isClosed = runStatus[run.id] === 'closed' || liftStatus[run.lift] === 'closed';
               return (
-                <g key={run.id} opacity={isClosed ? 0.2 : 0.6}>
-                  <circle
-                    cx={pos.x}
-                    cy={pos.y}
-                    r="1.2"
-                    fill={difficultyColors[run.difficulty] || '#64748b'}
-                  />
+                <g key={run.id} opacity={isClosed ? 0.2 : 0.7}>
+                  <circle cx={pos.x} cy={pos.y} r="1.5" fill={difficultyColors[run.difficulty] || '#64748b'} stroke="#000" strokeWidth="0.3" />
                 </g>
               );
             })}
@@ -352,82 +262,20 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
               if (item.type === 'lift') {
                 return (
                   <g key={`plan-${i}`}>
-                    {/* Highlighted lift line */}
-                    <line
-                      x1={item.x1}
-                      y1={item.y1}
-                      x2={item.x2}
-                      y2={item.y2}
-                      stroke="#fbbf24"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      opacity="0.9"
-                    />
-                    {/* Animated dash effect */}
-                    <line
-                      x1={item.x1}
-                      y1={item.y1}
-                      x2={item.x2}
-                      y2={item.y2}
-                      stroke="#f59e0b"
-                      strokeWidth="1"
-                      strokeLinecap="round"
-                      strokeDasharray="3,2"
-                      opacity="0.7"
-                    >
-                      <animate
-                        attributeName="stroke-dashoffset"
-                        from="0"
-                        to="5"
-                        dur="1s"
-                        repeatCount="indefinite"
-                      />
+                    <line x1={item.x1} y1={item.y1} x2={item.x2} y2={item.y2} stroke="#fbbf24" strokeWidth="2.5" strokeLinecap="round" opacity="0.95" />
+                    <line x1={item.x1} y1={item.y1} x2={item.x2} y2={item.y2} stroke="#f59e0b" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="3,2" opacity="0.8">
+                      <animate attributeName="stroke-dashoffset" from="0" to="5" dur="1s" repeatCount="indefinite" />
                     </line>
-                    {/* Sequence number */}
-                    <circle cx={item.x2} cy={item.y2} r="3" fill="#fbbf24" />
-                    <text 
-                      x={item.x2} 
-                      y={item.y2 + 1} 
-                      textAnchor="middle" 
-                      fill="#000" 
-                      fontSize="3"
-                      fontWeight="bold"
-                    >
-                      {item.index + 1}
-                    </text>
+                    <circle cx={item.x2} cy={item.y2} r="3.5" fill="#fbbf24" stroke="#000" strokeWidth="0.5" />
+                    <text x={item.x2} y={item.y2 + 1} textAnchor="middle" fill="#000" fontSize="3" fontWeight="bold">{item.index + 1}</text>
                   </g>
                 );
               } else {
                 return (
                   <g key={`plan-${i}`}>
-                    {/* Highlighted run */}
-                    <circle
-                      cx={item.x}
-                      cy={item.y}
-                      r="3"
-                      fill={difficultyColors[item.difficulty] || '#3b82f6'}
-                      stroke="#fbbf24"
-                      strokeWidth="1"
-                      opacity="0.9"
-                    />
-                    {/* Run label */}
-                    <rect
-                      x={item.x - 8}
-                      y={item.y - 12}
-                      width="16"
-                      height="4"
-                      fill="#1e293b"
-                      rx="1"
-                      opacity="0.9"
-                    />
-                    <text 
-                      x={item.x} 
-                      y={item.y - 9} 
-                      textAnchor="middle" 
-                      fill="#fbbf24" 
-                      fontSize="2.5"
-                      fontWeight="bold"
-                    >
+                    <circle cx={item.x} cy={item.y} r="3.5" fill={difficultyColors[item.difficulty] || '#3b82f6'} stroke="#fbbf24" strokeWidth="1.5" opacity="0.95" />
+                    <rect x={item.x - 10} y={item.y - 14} width="20" height="5" fill="#1e293b" rx="1" opacity="0.9" />
+                    <text x={item.x} y={item.y - 10} textAnchor="middle" fill="#fbbf24" fontSize="2.5" fontWeight="bold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
                       {item.name}
                     </text>
                   </g>
@@ -438,112 +286,56 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
             {/* Start point marker */}
             {showPlanRoute && planRoute && planRoute[0] && (
               <g>
-                <circle
-                  cx={planRoute[0].x2 || planRoute[0].x}
-                  cy={planRoute[0].y2 || planRoute[0].y}
-                  r="4"
-                  fill="none"
-                  stroke="#22c55e"
-                  strokeWidth="1"
-                  opacity="0.8"
-                >
-                  <animate
-                    attributeName="r"
-                    values="4;6;4"
-                    dur="2s"
-                    repeatCount="indefinite"
-                  />
+                <circle cx={planRoute[0].x2 || planRoute[0].x} cy={planRoute[0].y2 || planRoute[0].y} r="5" fill="none" stroke="#22c55e" strokeWidth="2" opacity="0.9">
+                  <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite" />
                 </circle>
-                <text
-                  x={planRoute[0].x2 || planRoute[0].x}
-                  y={(planRoute[0].y2 || planRoute[0].y) - 6}
-                  textAnchor="middle"
-                  fill="#22c55e"
-                  fontSize="2.5"
-                  fontWeight="bold"
-                >
+                <text x={planRoute[0].x2 || planRoute[0].x} y={(planRoute[0].y2 || planRoute[0].y) - 8} textAnchor="middle" fill="#22c55e" fontSize="3" fontWeight="bold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
                   START
                 </text>
               </g>
             )}
 
             {/* End point marker */}
-            {showPlanRoute && planRoute && planRoute[planRoute.length - 1] && (
+            {showPlanRoute && planRoute && planRoute.length > 0 && (
               <g>
-                <circle
-                  cx={planRoute[planRoute.length - 1].x || planRoute[planRoute.length - 2]?.x}
-                  cy={planRoute[planRoute.length - 1].y || planRoute[planRoute.length - 2]?.y}
-                  r="4"
-                  fill="none"
-                  stroke="#ef4444"
-                  strokeWidth="1"
-                  opacity="0.8"
-                >
-                  <animate
-                    attributeName="r"
-                    values="4;6;4"
-                    dur="2s"
-                    repeatCount="indefinite"
-                  />
-                </circle>
-                <text
-                  x={planRoute[planRoute.length - 1].x || planRoute[planRoute.length - 2]?.x}
-                  y={(planRoute[planRoute.length - 1].y || planRoute[planRoute.length - 2]?.y) - 6}
-                  textAnchor="middle"
-                  fill="#ef4444"
-                  fontSize="2.5"
-                  fontWeight="bold"
-                >
-                  END
-                </text>
+                {(() => {
+                  const lastItem = planRoute[planRoute.length - 1];
+                  const x = lastItem.x || lastItem.x2 || 50;
+                  const y = lastItem.y || lastItem.y2 || 50;
+                  return (
+                    <>
+                      <circle cx={x} cy={y} r="5" fill="none" stroke="#ef4444" strokeWidth="2" opacity="0.9">
+                        <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite" />
+                      </circle>
+                      <text x={x} y={y - 8} textAnchor="middle" fill="#ef4444" fontSize="3" fontWeight="bold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
+                        END
+                      </text>
+                    </>
+                  );
+                })()}
               </g>
-            )}
-
-            {/* Route path line connecting plan items */}
-            {showPlanRoute && planRoute && planRoute.length > 1 && (
-              <polyline
-                points={planRoute.map(item => {
-                  if (item.type === 'lift') {
-                    return `${item.x2},${item.y2}`;
-                  } else {
-                    return `${item.x},${item.y}`;
-                  }
-                }).join(' ')}
-                fill="none"
-                stroke="#fbbf24"
-                strokeWidth="0.5"
-                strokeDasharray="1,1"
-                opacity="0.5"
-              />
             )}
           </svg>
         </div>
 
-        {/* Pan hint */}
-        <div className="absolute bottom-4 left-4 bg-slate-900/80 px-3 py-2 rounded-lg text-xs text-slate-400">
+        <div className="absolute bottom-4 left-4 bg-slate-900/90 px-3 py-2 rounded-lg text-xs text-slate-400 border border-slate-700">
           🖱️ Drag to pan • Scroll to zoom
+        </div>
+        
+        <div className="absolute top-4 right-4 bg-slate-900/90 px-3 py-2 rounded-lg text-xs text-slate-400 border border-slate-700">
+          Trail Map Background
         </div>
       </div>
 
-      {/* Route Summary */}
       {planRoute && planRoute.length > 0 && (
         <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
           <h3 className="text-lg font-semibold text-cyan-400 mb-3">Route Summary</h3>
           <div className="flex flex-wrap gap-2">
             {planRoute.filter(item => item.type === 'run').map((item, i) => (
-              <div 
-                key={i}
-                className="flex items-center gap-2 bg-slate-700/50 px-3 py-2 rounded-lg"
-              >
+              <div key={i} className="flex items-center gap-2 bg-slate-700/50 px-3 py-2 rounded-lg">
                 <span className="text-sm font-bold text-slate-400">{i + 1}.</span>
                 <span className="text-sm font-medium">{item.name}</span>
-                <span 
-                  className="text-xs px-2 py-0.5 rounded"
-                  style={{ 
-                    backgroundColor: difficultyColors[item.difficulty],
-                    color: item.difficulty === 'green' || item.difficulty === 'blue' ? 'white' : '#e2e8f0'
-                  }}
-                >
+                <span className="text-xs px-2 py-0.5 rounded" style={{ backgroundColor: difficultyColors[item.difficulty], color: item.difficulty === 'green' || item.difficulty === 'blue' ? 'white' : '#e2e8f0' }}>
                   {item.difficulty}
                 </span>
               </div>

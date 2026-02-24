@@ -1,62 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { lifts, runs, chalets, resortStats, peaks, bowls } from './data';
+import MapView from './MapView';
 
 const parkCityData = {
-  lifts: [
-    { id: 'quicksilver', name: 'Quicksilver Gondola', base: 'Canyons Village', peak: 'Silver Cloud' },
-    { id: 'canyons', name: 'Canyons Gondola', base: 'Canyons Village', peak: 'Canyons Peak' },
-    { id: 'tombstone', name: 'Tombstone Lift', base: 'Canyons Village', peak: 'Tombstone' },
-    { id: 'saddleback', name: 'Saddleback Lift', base: 'Canyons Village', peak: 'Saddleback' },
-    { id: 'redpine', name: 'Red Pine Lift', base: 'Canyons Village', peak: 'Red Pine' },
-    { id: 'homestake', name: 'Homestake Lift', base: 'Canyons Village', peak: 'Homestake' },
-    { id: 'frostwood', name: 'Frostwood Lift', base: 'Canyons Village', peak: 'Frostwood' },
-    { id: 'peak9990', name: 'Peak 9990 Lift', base: 'Canyons Village', peak: 'Peak 9990' },
-    { id: 'ironwood', name: 'Ironwood Lift', base: 'Canyons Village', peak: 'Red Pine' },
-    { id: 'payday', name: 'Payday Lift', base: 'Park City', peak: 'Treasure' },
-    { id: 'bonanza', name: 'Bonanza Lift', base: 'Park City', peak: 'Bonanza' },
-    { id: 'crescent', name: 'Crescent Lift', base: 'Park City', peak: 'Crescent' },
-    { id: 'townlift', name: 'Town Lift', base: 'Park City', peak: 'Town' },
-    { id: 'silvercloud', name: 'Silver Cloud Lift', base: 'Park City', peak: 'Silver Cloud' },
-    { id: 'thaynes', name: 'Thaynes Canyon Lift', base: 'Park City', peak: 'Thaynes' },
-    { id: 'golf', name: 'Golf Lift', base: 'Park City', peak: 'Golf' },
-    { id: 'eagle', name: 'Eagle Lift', base: 'Park City', peak: 'Eagle' },
-    { id: 'cleavage', name: 'Cleavage Lift', base: 'Park City', peak: 'Bonanza' },
-    { id: 'spur', name: 'Spur Lift', base: 'Park City', peak: 'Town' },
-    { id: 'condor', name: 'Condor Lift', base: 'Park City', peak: 'Silver Cloud' },
-    { id: 'drift', name: 'Drift Lift', base: 'Park City', peak: 'Thaynes' },
-    { id: 'float', name: 'Float Lift', base: 'Park City', peak: 'Eagle' },
-  ],
-  runs: [
-    { id: 'homerun', name: 'Homerun', difficulty: 'green', terrain: 'groomed', lift: 'payday', length: 2.5, peak: 'Treasure' },
-    { id: 'claimjumper', name: 'Claimjumper', difficulty: 'blue', terrain: 'groomed', lift: 'payday', length: 2.2, peak: 'Treasure' },
-    { id: 'bonanza', name: 'Bonanza', difficulty: 'blue', terrain: 'groomed', lift: 'bonanza', length: 2.4, peak: 'Bonanza' },
-    { id: 'crescent', name: 'Crescent', difficulty: 'blue', terrain: 'groomed', lift: 'crescent', length: 2.0, peak: 'Crescent' },
-    { id: 'townrun', name: 'Town Run', difficulty: 'blue', terrain: 'groomed', lift: 'townlift', length: 2.2, peak: 'Town' },
-    { id: 'silvercloud_run', name: 'Silver Cloud', difficulty: 'blue', terrain: 'groomed', lift: 'silvercloud', length: 2.3, peak: 'Silver Cloud' },
-    { id: 'quicksilver_run', name: 'Quicksilver', difficulty: 'blue', terrain: 'groomed', lift: 'quicksilver', length: 2.5, peak: 'Silver Cloud' },
-    { id: 'tombstone_run', name: 'Tombstone', difficulty: 'blue', terrain: 'groomed', lift: 'tombstone', length: 2.0, peak: 'Tombstone' },
-    { id: 'redpine_run', name: 'Red Pine', difficulty: 'blue', terrain: 'groomed', lift: 'redpine', length: 2.2, peak: 'Red Pine' },
-    { id: 'homestake_run', name: 'Homestake', difficulty: 'blue', terrain: 'groomed', lift: 'homestake', length: 2.1, peak: 'Homestake' },
-    { id: 'thaynes_run', name: 'Thaynes', difficulty: 'blue', terrain: 'groomed', lift: 'thaynes', length: 2.0, peak: 'Thaynes' },
-    { id: 'saddleback_run', name: 'Saddleback', difficulty: 'blue', terrain: 'groomed', lift: 'saddleback', length: 1.9, peak: 'Saddleback' },
-    { id: 'eagle_run', name: 'Eagle', difficulty: 'blue', terrain: 'groomed', lift: 'eagle', length: 2.0, peak: 'Eagle' },
-    { id: 'peak_run', name: 'Peak 9990', difficulty: 'blue', terrain: 'groomed', lift: 'peak9990', length: 2.0, peak: 'Peak 9990' },
-  ],
-  chalets: [
-    { id: 'midmountain', name: 'Mid-Mountain Lodge' },
-    { id: 'summit', name: 'Summit House' },
-  ]
+  lifts,
+  runs,
+  chalets
 };
 
-// Helper function to get runs for a lift
-const getRunsForLift = (liftId) => parkCityData.runs.filter(r => r.lift === liftId);
+const peakList = [...new Set(parkCityData.runs.map(r => r.peak))];
+const bases = ['Park City', 'Canyons Village'];
 
-// Helper function to get difficulty order for comparison
-const getDifficultyOrder = (diff) => {
-  const order = { 'green': 1, 'blue': 2, 'black': 3, 'double': 4 };
-  return order[diff] || 2;
-};
-
-const peaks = [...new Set(parkCityData.runs.map(r => r.peak))];
+const difficultyOrder = { 'green': 1, 'blue': 2, 'black': 3, 'double': 4 };
 
 const ToggleSwitch = ({ checked, onChange }) => (
   <label className="relative inline-flex items-center cursor-pointer">
@@ -72,29 +27,23 @@ const App = () => {
   const [selectedPeaks, setSelectedPeaks] = useState([]);
   const [difficultyFilter, setDifficultyFilter] = useState('all');
   const [terrainFilter, setTerrainFilter] = useState('all');
+  const [viewMode, setViewMode] = useState('list');
   const [planResults, setPlanResults] = useState(null);
+  const [startBase, setStartBase] = useState('Park City');
+  const [endBase, setEndBase] = useState('Park City');
+  const [difficultyPref, setDifficultyPref] = useState('mix');
+  const [terrainPref, setTerrainPref] = useState('any');
   const [skillLevel, setSkillLevel] = useState('intermediate');
   const [startTime, setStartTime] = useState('09:00');
-  const [excludedRuns, setExcludedRuns] = useState([]);
-  const [replacements, setReplacements] = useState({});
+  const [endTime, setEndTime] = useState('16:00');
+  const [includeLunch, setIncludeLunch] = useState(false);
+  const [lunchChalet, setLunchChalet] = useState('midmountain');
+  const [lunchTime, setLunchTime] = useState('12:00');
 
   useEffect(() => localStorage.setItem('parkcity_lifts', JSON.stringify(liftStatus)), [liftStatus]);
   useEffect(() => localStorage.setItem('parkcity_runs', JSON.stringify(runStatus)), [runStatus]);
 
-  // Lift-Trail Dependency: When lift is toggled OFF, auto-disable all its trails
-  const toggleLift = (id) => {
-    const newStatus = liftStatus[id] === 'closed' ? 'open' : 'closed';
-    setLiftStatus(p => ({ ...p, [id]: newStatus }));
-    
-    // If closing the lift, also close all associated runs
-    if (newStatus === 'closed') {
-      const runsForLift = getRunsForLift(id);
-      runsForLift.forEach(run => {
-        setRunStatus(prev => ({ ...prev, [run.id]: 'closed' }));
-      });
-    }
-  };
-  
+  const toggleLift = (id) => setLiftStatus(p => ({ ...p, [id]: p[id] === 'closed' ? 'open' : 'closed' }));
   const toggleRun = (id) => setRunStatus(p => ({ ...p, [id]: p[id] === 'closed' ? 'open' : 'closed' }));
   const isOpen = (id, type) => (type === 'lift' ? liftStatus[id] : runStatus[id]) !== 'closed';
 
@@ -103,66 +52,7 @@ const App = () => {
     return Math.round((run.length / (speeds[skillLevel] || 15)) * 60);
   };
 
-  // Find alternative run for excluded trail
-  const findAlternative = (excludedRunId, planRuns) => {
-    const excludedRun = parkCityData.runs.find(r => r.id === excludedRunId);
-    if (!excludedRun) return null;
-    
-    const excludedLift = excludedRun.lift;
-    const excludedPeak = excludedRun.peak;
-    const excludedDiff = excludedRun.difficulty;
-    
-    // Get runs from same lift that are open and not already in plan
-    const candidates = parkCityData.runs.filter(r => 
-      r.id !== excludedRunId &&
-      r.lift === excludedLift &&
-      isOpen(r.id, 'run') &&
-      isOpen(r.lift, 'lift') &&
-      !planRuns.some(pr => pr.id === r.id)
-    );
-    
-    if (candidates.length === 0) {
-      // Try runs from same peak with similar difficulty
-      const peakCandidates = parkCityData.runs.filter(r =>
-        r.id !== excludedRunId &&
-        r.peak === excludedPeak &&
-        isOpen(r.id, 'run') &&
-        isOpen(r.lift, 'lift') &&
-        !planRuns.some(pr => pr.id === r.id) &&
-        Math.abs(getDifficultyOrder(r.difficulty) - getDifficultyOrder(excludedDiff)) <= 1
-      );
-      if (peakCandidates.length > 0) {
-        return peakCandidates[Math.floor(Math.random() * peakCandidates.length)];
-      }
-      return null;
-    }
-    
-    // Prefer similar difficulty
-    const similarDiff = candidates.filter(r => r.difficulty === excludedDiff);
-    if (similarDiff.length > 0) {
-      return similarDiff[Math.floor(Math.random() * similarDiff.length)];
-    }
-    return candidates[Math.floor(Math.random() * candidates.length)];
-  };
-
-  const excludeRunFromPlan = (runId, index) => {
-    const alternative = findAlternative(runId, planResults.runs);
-    
-    if (alternative) {
-      const altWithDuration = { ...alternative, duration: getRunDuration(alternative) };
-      const newRuns = [...planResults.runs];
-      newRuns[index] = altWithDuration;
-      
-      setReplacements(prev => ({
-        ...prev,
-        [index]: { original: runId, replacement: alternative.id }
-      }));
-      
-      setPlanResults({ ...planResults, runs: newRuns });
-    }
-    
-    setExcludedRuns(prev => [...prev, runId]);
-  };
+  const getLiftDuration = () => 10;
 
   const filteredRuns = parkCityData.runs.filter(r => isOpen(r.id, 'run') && isOpen(r.lift, 'lift') &&
     (!selectedPeaks.length || selectedPeaks.includes(r.peak)) &&
@@ -171,30 +61,154 @@ const App = () => {
 
   const filteredLifts = parkCityData.lifts.filter(l => !selectedPeaks.length || selectedPeaks.includes(l.peak));
 
-  const planMyDay = () => {
-    let runs = parkCityData.runs.filter(r => isOpen(r.id, 'run') && isOpen(r.lift, 'lift') && !excludedRuns.includes(r.id));
-    if (selectedPeaks.length) runs = runs.filter(r => selectedPeaks.includes(r.peak));
-    
-    const scored = runs.map(r => ({ ...r, duration: getRunDuration(r), score: Math.random() })).sort((a, b) => b.score - a.score);
-    const plan = [];
-    let total = 0, hour = parseInt(startTime);
-    for (const run of scored.slice(0, 8)) {
-      if (total + run.duration > 300) break;
-      plan.push({ ...run, time: `${hour.toString().padStart(2, '0')}:00` });
-      hour += Math.ceil(run.duration / 60);
-      total += run.duration;
+  const groupedRuns = filteredRuns.reduce((acc, run) => {
+    if (!acc[run.difficulty]) acc[run.difficulty] = [];
+    acc[run.difficulty].push(run);
+    return acc;
+  }, {});
+
+  const sortedDifficulties = Object.keys(groupedRuns).sort((a, b) => difficultyOrder[a] - difficultyOrder[b]);
+
+  const findAlternativeTrail = (currentRun, currentPlan) => {
+    const currentLift = currentRun.lift;
+    const currentDifficulty = currentRun.difficulty;
+    let alternatives = parkCityData.runs.filter(r => 
+      r.id !== currentRun.id && 
+      r.lift === currentLift && 
+      isOpen(r.id, 'run') && 
+      isOpen(r.lift, 'lift')
+    );
+    const difficultyLevels = ['green', 'blue', 'black', 'double'];
+    const currentIndex = difficultyLevels.indexOf(currentDifficulty);
+    const similarDifficulties = difficultyLevels.filter((_, idx) => Math.abs(idx - currentIndex) <= 1);
+    alternatives = alternatives.filter(r => similarDifficulties.includes(r.difficulty));
+    const planRunIds = new Set(currentPlan.map(item => item.run?.id).filter(Boolean));
+    alternatives = alternatives.filter(r => !planRunIds.has(r.id));
+    if (alternatives.length === 0) {
+      const currentPeak = currentRun.peak;
+      const liftsOnPeak = parkCityData.lifts.filter(l => l.peak === currentPeak).map(l => l.id);
+      alternatives = parkCityData.runs.filter(r => 
+        r.id !== currentRun.id && 
+        liftsOnPeak.includes(r.lift) && 
+        isOpen(r.id, 'run') && 
+        isOpen(r.lift, 'lift') &&
+        similarDifficulties.includes(r.difficulty) &&
+        !planRunIds.has(r.id)
+      );
     }
-    setPlanResults({ runs: plan, totalTime: total });
-    setReplacements({});
+    if (alternatives.length === 0) return null;
+    return alternatives[Math.floor(Math.random() * alternatives.length)];
   };
 
-  const getDifficultyColor = (diff) => {
-    switch(diff) {
+  const replaceTrail = (segmentIndex) => {
+    if (!planResults || !planResults.segments) return;
+    const currentSegment = planResults.segments[segmentIndex];
+    if (currentSegment.type !== 'run') return;
+    const alternative = findAlternativeTrail(currentSegment.run, planResults.segments);
+    if (!alternative) {
+      alert('No suitable alternative trail found!');
+      return;
+    }
+    const newSegments = [...planResults.segments];
+    newSegments[segmentIndex] = {
+      ...currentSegment,
+      run: { ...alternative, duration: getRunDuration(alternative) },
+      wasReplaced: true,
+      originalRun: currentSegment.run
+    };
+    let currentTime = parseInt(startTime.split(':')[0]) * 60 + parseInt(startTime.split(':')[1]);
+    const updatedSegments = newSegments.map(segment => {
+      const timeStr = `${Math.floor(currentTime / 60).toString().padStart(2, '0')}:${(currentTime % 60).toString().padStart(2, '0')}`;
+      const duration = segment.type === 'lift' ? getLiftDuration() : getRunDuration(segment.run);
+      currentTime += duration;
+      return { ...segment, time: timeStr, duration };
+    });
+    setPlanResults({ ...planResults, segments: updatedSegments });
+  };
+
+  const planMyDay = () => {
+    let availableRuns = parkCityData.runs.filter(r => isOpen(r.id, 'run') && isOpen(r.lift, 'lift'));
+    if (selectedPeaks.length) availableRuns = availableRuns.filter(r => selectedPeaks.includes(r.peak));
+    if (difficultyPref !== 'mix') availableRuns = availableRuns.filter(r => r.difficulty === difficultyPref);
+    if (terrainPref !== 'any') availableRuns = availableRuns.filter(r => r.terrain === terrainPref);
+    const startLifts = parkCityData.lifts.filter(l => l.base === startBase && isOpen(l.id, 'lift'));
+    if (startLifts.length === 0) {
+      alert('No open lifts available at the start base!');
+      return;
+    }
+    const segments = [];
+    let currentTime = parseInt(startTime.split(':')[0]) * 60 + parseInt(startTime.split(':')[1]);
+    const endTimeMinutes = parseInt(endTime.split(':')[0]) * 60 + parseInt(endTime.split(':')[1]);
+    let currentLift = startLifts[Math.floor(Math.random() * startLifts.length)];
+    let runsTaken = new Set();
+    segments.push({
+      type: 'lift',
+      lift: currentLift,
+      time: `${Math.floor(currentTime / 60).toString().padStart(2, '0')}:${(currentTime % 60).toString().padStart(2, '0')}`,
+      duration: getLiftDuration()
+    });
+    currentTime += getLiftDuration();
+    let lunchAdded = false;
+    while (currentTime < endTimeMinutes - 30) {
+      if (includeLunch && !lunchAdded) {
+        const lunchTimeMinutes = parseInt(lunchTime.split(':')[0]) * 60 + parseInt(lunchTime.split(':')[1]);
+        if (currentTime >= lunchTimeMinutes - 15 && currentTime <= lunchTimeMinutes + 15) {
+          const chalet = parkCityData.chalets.find(c => c.id === lunchChalet);
+          segments.push({ type: 'lunch', chalet, time: `${Math.floor(currentTime / 60).toString().padStart(2, '0')}:${(currentTime % 60).toString().padStart(2, '0')}`, duration: 60 });
+          currentTime += 60;
+          lunchAdded = true;
+          continue;
+        }
+      }
+      const possibleRuns = availableRuns.filter(r => r.lift === currentLift.id && !runsTaken.has(r.id));
+      if (possibleRuns.length === 0) {
+        const currentPeak = currentLift.peak;
+        const liftsFromPeak = parkCityData.lifts.filter(l => l.peak === currentPeak && l.id !== currentLift.id && isOpen(l.id, 'lift'));
+        if (liftsFromPeak.length === 0) break;
+        currentLift = liftsFromPeak[Math.floor(Math.random() * liftsFromPeak.length)];
+        segments.push({ type: 'lift', lift: currentLift, time: `${Math.floor(currentTime / 60).toString().padStart(2, '0')}:${(currentTime % 60).toString().padStart(2, '0')}`, duration: getLiftDuration() });
+        currentTime += getLiftDuration();
+        continue;
+      }
+      const run = possibleRuns[Math.floor(Math.random() * possibleRuns.length)];
+      runsTaken.add(run.id);
+      segments.push({ type: 'run', run: { ...run, duration: getRunDuration(run) }, time: `${Math.floor(currentTime / 60).toString().padStart(2, '0')}:${(currentTime % 60).toString().padStart(2, '0')}`, duration: getRunDuration(run) });
+      currentTime += getRunDuration(run);
+      const liftsAtPeak = parkCityData.lifts.filter(l => l.peak === run.peak && isOpen(l.id, 'lift'));
+      if (liftsAtPeak.length === 0) break;
+      currentLift = liftsAtPeak[Math.floor(Math.random() * liftsAtPeak.length)];
+      segments.push({ type: 'lift', lift: currentLift, time: `${Math.floor(currentTime / 60).toString().padStart(2, '0')}:${(currentTime % 60).toString().padStart(2, '0')}`, duration: getLiftDuration() });
+      currentTime += getLiftDuration();
+      if (segments.length > 30) break;
+    }
+    const lastLift = segments[segments.length - 1]?.lift;
+    if (lastLift && lastLift.base !== endBase) {
+      const liftsToEnd = parkCityData.lifts.filter(l => l.base === endBase && isOpen(l.id, 'lift'));
+      if (liftsToEnd.length > 0) {
+        const connectingLift = liftsToEnd[Math.floor(Math.random() * liftsToEnd.length)];
+        segments.push({ type: 'lift', lift: connectingLift, time: `${Math.floor(currentTime / 60).toString().padStart(2, '0')}:${(currentTime % 60).toString().padStart(2, '0')}`, duration: getLiftDuration(), note: 'To base' });
+      }
+    }
+    setPlanResults({ segments, totalTime: currentTime - (parseInt(startTime.split(':')[0]) * 60 + parseInt(startTime.split(':')[1])) });
+  };
+
+  const getDifficultyColor = (difficulty) => {
+    switch (difficulty) {
       case 'green': return 'bg-green-600';
       case 'blue': return 'bg-blue-600';
       case 'black': return 'bg-purple-600';
       case 'double': return 'bg-red-600';
       default: return 'bg-slate-600';
+    }
+  };
+
+  const getDifficultyLabel = (difficulty) => {
+    switch (difficulty) {
+      case 'green': return '● Green';
+      case 'blue': return '● Blue';
+      case 'black': return '● Black';
+      case 'double': return '● Double Black';
+      default: return difficulty;
     }
   };
 
@@ -204,63 +218,43 @@ const App = () => {
         <h1 className="text-4xl font-bold text-center">Park City Ski Planner</h1>
         <p className="text-center text-cyan-100 mt-2">Plan your perfect day on the mountain</p>
       </header>
-
       <nav className="sticky top-0 z-50 bg-slate-800/95 backdrop-blur-sm border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-4 flex gap-2 py-3 overflow-x-auto">
-          {['lifts', 'runs', 'plan'].map(tab => (
-            <button key={tab} onClick={() => setActiveTab(tab)}
-              className={`px-5 py-2 rounded-lg font-semibold whitespace-nowrap transition ${
-                activeTab === tab ? 'bg-cyan-500 text-white shadow-lg' : 'text-slate-300 hover:bg-slate-700'}`}>
-              {tab === 'lifts' ? '🚡 Lifts' : tab === 'runs' ? '⛷️ Trails' : '📋 Plan My Day'}
+          {['lifts', 'runs', 'plan', 'map'].map(tab => (
+            <button key={tab} onClick={() => setActiveTab(tab)} className={`px-5 py-2 rounded-lg font-semibold whitespace-nowrap transition ${activeTab === tab ? 'bg-cyan-500 text-white shadow-lg' : 'text-slate-300 hover:bg-slate-700'}`}>
+              {tab === 'lifts' ? '🚡 Lifts' : tab === 'runs' ? '⛷️ Trails' : tab === 'plan' ? '📋 Plan My Day' : '🗺️ Map'}
             </button>
           ))}
         </div>
       </nav>
-
       <main className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-6">
           <h3 className="text-lg font-semibold mb-3 text-cyan-400">Filter by Peak</h3>
           <div className="flex flex-wrap gap-2">
-            {peaks.map(p => (
-              <button key={p} onClick={() => setSelectedPeaks(prev => prev.includes(p) ? prev.filter(x => x !== p) : [...prev, p])}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-                  selectedPeaks.includes(p) ? 'bg-cyan-500 text-white' : 'bg-slate-700 text-slate-300 hover:bg-slate-600'}`}>
+            {peakList.map(p => (
+              <button key={p} onClick={() => setSelectedPeaks(prev => prev.includes(p) ? prev.filter(x => x !== p) : [...prev, p])} className={`px-4 py-2 rounded-full text-sm font-medium transition ${selectedPeaks.includes(p) ? 'bg-cyan-500 text-white' : 'bg-slate-700 text-slate-300 hover:bg-slate-600'}`}>
                 {p}
               </button>
             ))}
           </div>
         </div>
-
         {activeTab === 'lifts' && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredLifts.map(lift => {
-              const runsForLift = getRunsForLift(lift.id);
-              const openRunsCount = runsForLift.filter(r => isOpen(r.id, 'run')).length;
-              return (
-                <div key={lift.id} className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-                  <div className="flex justify-between items-center mb-2">
-                    <div>
-                      <h3 className="font-bold text-lg">{lift.name}</h3>
-                      <p className="text-sm text-slate-400">{lift.base}</p>
-                    </div>
-                    <ToggleSwitch checked={isOpen(lift.id, 'lift')} onChange={() => toggleLift(lift.id)} />
-                  </div>
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="px-2 py-1 bg-slate-700 rounded">{lift.peak}</span>
-                    <span className="text-slate-400">{openRunsCount} trails open</span>
-                  </div>
-                  {liftStatus[lift.id] === 'closed' && (
-                    <div className="mt-2 text-xs text-red-400">⚠️ All {runsForLift.length} trails auto-disabled</div>
-                  )}
+            {filteredLifts.map(lift => (
+              <div key={lift.id} className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 flex justify-between items-center">
+                <div>
+                  <h3 className="font-bold text-lg">{lift.name}</h3>
+                  <p className="text-sm text-slate-400">{lift.base}</p>
+                  <span className="inline-block mt-1 px-2 py-1 bg-slate-700 rounded text-xs">{lift.peak}</span>
                 </div>
-              );
-            })}
+                <ToggleSwitch checked={isOpen(lift.id, 'lift')} onChange={() => toggleLift(lift.id)} />
+              </div>
+            ))}
           </div>
         )}
-
         {activeTab === 'runs' && (
           <div>
-            <div className="flex flex-wrap gap-4 mb-6">
+            <div className="flex flex-wrap gap-4 mb-6 items-center">
               <select value={difficultyFilter} onChange={(e) => setDifficultyFilter(e.target.value)} className="bg-slate-800 border border-slate-600 rounded-lg px-4 py-2">
                 <option value="all">All Difficulties</option>
                 <option value="green">Green</option><option value="blue">Blue</option><option value="black">Black</option><option value="double">Double Black</option>
@@ -269,84 +263,232 @@ const App = () => {
                 <option value="all">All Terrain</option>
                 <option value="groomed">Groomed</option><option value="moguls">Moguls</option><option value="powders">Powder</option><option value="trees">Trees</option>
               </select>
+              <div className="flex items-center gap-2 bg-slate-800 rounded-lg p-1">
+                <button onClick={() => setViewMode('list')} className={`px-4 py-1.5 rounded-md text-sm transition ${viewMode === 'list' ? 'bg-cyan-500 text-white' : 'text-slate-300 hover:bg-slate-700'}`}>List View</button>
+                <button onClick={() => setViewMode('grouped')} className={`px-4 py-1.5 rounded-md text-sm transition ${viewMode === 'grouped' ? 'bg-cyan-500 text-white' : 'text-slate-300 hover:bg-slate-700'}`}>Grouped by Difficulty</button>
+              </div>
               <span className="text-slate-400 self-center">{filteredRuns.length} runs</span>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filteredRuns.map(run => (
-                <div key={run.id} className={`bg-slate-800/50 rounded-xl p-4 border flex justify-between items-start ${!isOpen(run.lift, 'lift') ? 'border-red-800 opacity-60' : 'border-slate-700'}`}>
-                  <div>
-                    <h3 className="font-bold">{run.name}</h3>
-                    <p className="text-sm text-slate-400">{parkCityData.lifts.find(l => l.id === run.lift)?.name}</p>
-                    <div className="flex gap-2 mt-2">
-                      <span className={`px-2 py-1 rounded text-xs ${getDifficultyColor(run.difficulty)}`}>{run.difficulty}</span>
-                      <span className="px-2 py-1 rounded text-xs bg-slate-600">{run.terrain}</span>
-                      <span className="px-2 py-1 rounded text-xs bg-slate-600">{run.length}mi</span>
+            {viewMode === 'list' ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {filteredRuns.map(run => (
+                  <div key={run.id} className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 flex justify-between items-start">
+                    <div>
+                      <h3 className="font-bold">{run.name}</h3>
+                      <p className="text-sm text-slate-400">{parkCityData.lifts.find(l => l.id === run.lift)?.name}</p>
+                      <div className="flex gap-2 mt-2">
+                        <span className={`px-2 py-1 rounded text-xs ${getDifficultyColor(run.difficulty)}`}>{run.difficulty}</span>
+                        <span className="px-2 py-1 rounded text-xs bg-slate-600">{run.terrain}</span>
+                        <span className="px-2 py-1 rounded text-xs bg-slate-600">{run.length}mi</span>
+                      </div>
                     </div>
-                    {!isOpen(run.lift, 'lift') && (
-                      <div className="mt-2 text-xs text-red-400">⚠️ Lift closed</div>
-                    )}
+                    <ToggleSwitch checked={isOpen(run.id, 'run')} onChange={() => toggleRun(run.id)} />
                   </div>
-                  <ToggleSwitch checked={isOpen(run.id, 'run')} onChange={() => toggleRun(run.id)} />
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div className="space-y-6">
+                {sortedDifficulties.map(difficulty => (
+                  <div key={difficulty} className="bg-slate-800/30 rounded-xl p-4 border border-slate-700">
+                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                      <span className={`w-3 h-3 rounded-full ${getDifficultyColor(difficulty)}`}></span>
+                      <span className={difficulty === 'green' ? 'text-green-400' : difficulty === 'blue' ? 'text-blue-400' : difficulty === 'black' ? 'text-purple-400' : 'text-red-400'}>{getDifficultyLabel(difficulty)}</span>
+                      <span className="text-slate-500 text-sm">({groupedRuns[difficulty].length} runs)</span>
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {groupedRuns[difficulty].map(run => (
+                        <div key={run.id} className="bg-slate-800/70 rounded-lg p-3 border border-slate-600 flex justify-between items-start">
+                          <div>
+                            <h4 className="font-semibold text-sm">{run.name}</h4>
+                            <p className="text-xs text-slate-400">{parkCityData.lifts.find(l => l.id === run.lift)?.name}</p>
+                            <div className="flex gap-2 mt-1">
+                              <span className="px-2 py-0.5 rounded text-xs bg-slate-600">{run.terrain}</span>
+                              <span className="px-2 py-0.5 rounded text-xs bg-slate-600">{run.length}mi</span>
+                            </div>
+                          </div>
+                          <ToggleSwitch checked={isOpen(run.id, 'run')} onChange={() => toggleRun(run.id)} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
-
         {activeTab === 'plan' && (
           <div className="space-y-6">
             <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
               <h2 className="text-2xl font-bold mb-6 text-cyan-400">Configure Your Day</h2>
               <div className="grid md:grid-cols-2 gap-6">
-                <div><label className="block text-sm font-medium text-slate-300 mb-2">Start Time</label><input type="time" value={startTime} onChange={(e) => setStartTime(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2" /></div>
-                <div><label className="block text-sm font-medium text-slate-300 mb-2">Skill Level</label><select value={skillLevel} onChange={(e) => setSkillLevel(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">Start Location (Base)</label>
+                  <select value={startBase} onChange={(e) => setStartBase(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2">
+                    {bases.map(base => <option key={base} value={base}>{base}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">End Location (Base)</label>
+                  <select value={endBase} onChange={(e) => setEndBase(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2">
+                    {bases.map(base => <option key={base} value={base}>{base}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">Start Time</label>
+                  <input type="time" value={startTime} onChange={(e) => setStartTime(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">End Time</label>
+                  <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">Skill Level</label>
+                  <select value={skillLevel} onChange={(e) => setSkillLevel(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2">
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">Difficulty Preference</label>
+                  <select value={difficultyPref} onChange={(e) => setDifficultyPref(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2">
+                    <option value="mix">Mix</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="black">Black</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">Terrain Preference</label>
+                  <select value={terrainPref} onChange={(e) => setTerrainPref(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2">
+                    <option value="any">Any</option>
+                    <option value="groomed">Groomed</option>
+                    <option value="moguls">Moguls</option>
+                    <option value="powders">Powder</option>
+                    <option value="trees">Trees</option>
+                  </select>
+                </div>
               </div>
-              <button onClick={planMyDay} className="mt-6 w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 px-6 py-3 rounded-lg font-bold text-lg">Generate Plan</button>
+              <div className="mt-6 flex items-center gap-4 flex-wrap">
+                <label className="flex items-center gap-2">
+                  <input type="checkbox" checked={includeLunch} onChange={(e) => setIncludeLunch(e.target.checked)} className="w-4 h-4 rounded accent-cyan-500" />
+                  <span>Include Lunch</span>
+                </label>
+                {includeLunch && (
+                  <>
+                    <select value={lunchChalet} onChange={(e) => setLunchChalet(e.target.value)} className="bg-slate-700 border border-slate-600 rounded-lg px-4 py-2">
+                      {parkCityData.chalets.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+                    </select>
+                    <input type="time" value={lunchTime} onChange={(e) => setLunchTime(e.target.value)} className="bg-slate-700 border border-slate-600 rounded-lg px-4 py-2" />
+                  </>
+                )}
+              </div>
+              <button onClick={planMyDay} className="mt-6 w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 px-6 py-3 rounded-lg font-bold text-lg transition">Generate Plan</button>
             </div>
-
-            {planResults && (
+            {planResults && planResults.segments && (
               <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
-                <h2 className="text-2xl font-bold mb-4 text-cyan-400">Your Day Plan ({planResults.totalTime} min)</h2>
-                <div className="space-y-4">
-                  {planResults.runs.map((run, i) => (
-                    <div key={i} className="relative">
-                      <div className="bg-slate-700/50 rounded-lg p-4 flex items-center gap-4">
-                        <span className="text-2xl font-bold text-cyan-400">{i + 1}</span>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className="text-sm font-medium text-amber-400">🚡 {parkCityData.lifts.find(l => l.id === run.lift)?.name}</span>
-                            <span className="text-slate-500">→</span>
-                            <span className="text-sm font-medium text-cyan-300">⛷️ {run.name}</span>
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="text-2xl font-bold text-cyan-400">Your Day Plan</h2>
+                  <div className="text-right">
+                    <p className="text-sm text-slate-400">Total Time: <span className="text-white font-bold">{planResults.totalTime} min</span></p>
+                    <p className="text-xs text-slate-500">{planResults.segments.filter(s => s.type === 'run').length} runs</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 mb-4 pb-4 border-b border-slate-700">
+                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <span className="text-xl">🏁</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-green-400">START</p>
+                    <p className="text-sm text-slate-400">{startBase} at {startTime}</p>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  {planResults.segments.map((segment, i) => (
+                    <div key={i}>
+                      {segment.type === 'lift' && (
+                        <div className="flex items-center gap-4 bg-slate-700/30 p-3 rounded-lg border-l-4 border-cyan-500">
+                          <div className="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
+                            <span className="text-cyan-400 font-bold text-xs">🚡</span>
                           </div>
-                          <p className="text-sm text-slate-400">{run.peak} • {run.time} • {run.duration} min • {run.length} mi</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className={`px-2 py-1 rounded text-xs ${getDifficultyColor(run.difficulty)}`}>{run.difficulty}</span>
-                          <button 
-                            onClick={() => excludeRunFromPlan(run.id, i)}
-                            className="ml-2 px-3 py-1 bg-red-600/20 hover:bg-red-600/40 text-red-400 rounded text-xs font-medium transition"
-                            title="Exclude and find alternative"
-                          >
-                            ✕ Exclude
-                          </button>
-                        </div>
-                      </div>
-                      {replacements[i] && (
-                        <div className="mt-2 ml-12 text-sm">
-                          <span className="text-amber-400">↻ Replaced: </span>
-                          <span className="text-slate-400 line-through">{parkCityData.runs.find(r => r.id === replacements[i].original)?.name}</span>
-                          <span className="text-slate-500 mx-2">→</span>
-                          <span className="text-green-400">{parkCityData.runs.find(r => r.id === replacements[i].replacement)?.name}</span>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2">
+                              <span className="font-bold text-cyan-400">[LIFT]</span>
+                              <span className="font-semibold">{segment.lift.name}</span>
+                              {segment.note && <span className="text-xs text-slate-400">({segment.note})</span>}
+                            </div>
+                            <p className="text-xs text-slate-500">To {segment.lift.peak} • {segment.duration} min</p>
+                          </div>
+                          <span className="text-sm text-slate-400">{segment.time}</span>
                         </div>
                       )}
-                      {i < planResults.runs.length - 1 && (
-                        <div className="absolute left-8 top-full h-4 border-l-2 border-dashed border-slate-600"></div>
+                      {segment.type === 'run' && (
+                        <div className={`flex items-center gap-4 p-3 rounded-lg border-l-4 ${segment.wasReplaced ? 'bg-amber-500/10 border-amber-500' : 'bg-slate-700/50 border-green-500'}`}>
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${getDifficultyColor(segment.run.difficulty)}`}>
+                            <span className="text-white font-bold text-xs">⛷️</span>
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className="font-bold text-green-400">[TRAIL]</span>
+                              <span className="font-semibold">{segment.run.name}</span>
+                              {segment.wasReplaced && <span className="text-xs text-amber-400 bg-amber-500/20 px-2 py-0.5 rounded">↻ Replaced</span>}
+                            </div>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className={`text-xs px-2 py-0.5 rounded ${getDifficultyColor(segment.run.difficulty)}`}>{segment.run.difficulty}</span>
+                              <span className="text-xs text-slate-500">{segment.run.peak} • {segment.duration} min • {segment.run.length} mi</span>
+                            </div>
+                            {segment.originalRun && <p className="text-xs text-slate-500 mt-1">Replaced: {segment.originalRun.name}</p>}
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm text-slate-400">{segment.time}</span>
+                            <button onClick={() => replaceTrail(i)} className="ml-2 px-2 py-1 bg-slate-600 hover:bg-slate-500 rounded text-xs transition" title="Replace with alternative trail">↻ Replace</button>
+                          </div>
+                        </div>
+                      )}
+                      {segment.type === 'lunch' && (
+                        <div className="flex items-center gap-4 bg-amber-500/20 p-3 rounded-lg border-l-4 border-amber-500">
+                          <div className="w-8 h-8 rounded-full bg-amber-500/30 flex items-center justify-center flex-shrink-0">
+                            <span className="text-amber-400 font-bold text-xs">🍽️</span>
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2">
+                              <span className="font-bold text-amber-400">[LUNCH]</span>
+                              <span className="font-semibold">{segment.chalet.name}</span>
+                            </div>
+                            <p className="text-xs text-slate-500">{segment.duration} min break</p>
+                          </div>
+                          <span className="text-sm text-slate-400">{segment.time}</span>
+                        </div>
                       )}
                     </div>
                   ))}
                 </div>
+                <div className="flex items-center gap-3 mt-4 pt-4 border-t border-slate-700">
+                  <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
+                    <span className="text-xl">🏁</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-red-400">END</p>
+                    <p className="text-sm text-slate-400">{endBase}</p>
+                  </div>
+                </div>
               </div>
             )}
+          </div>
+        )}
+        {activeTab === 'map' && (
+          <div>
+            <div className="mb-6">
+              <h2 className="text-2xl font-bold text-cyan-400 mb-2">Mountain Map</h2>
+              <p className="text-slate-400">Interactive trail map with your planned route overlay. Pan and zoom to explore.</p>
+            </div>
+            <MapView 
+              planResults={planResults}
+              parkCityData={parkCityData}
+              liftStatus={liftStatus}
+              runStatus={runStatus}
+              isOpen={isOpen}
+            />
           </div>
         )}
       </main>
