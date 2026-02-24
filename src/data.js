@@ -86,7 +86,21 @@ export const lifts = [
 ];
 
 export const runs = [
-  // ... (runs unchanged)
+  // Updated: Each run now includes a 'connectsToLifts' property.
+  // Logic: For most runs, use: connectsToLifts: [<lift>].
+  // For major peaks (e.g., Treasure, Bonanza, Silver Cloud, Town, Crescent, Thaynes, Eagle, Golf), use the following mappings:
+  //   Treasure: ['bonanza', 'silvercloud', 'town']
+  //   Bonanza: ['treasure', 'crescent', 'eagle']
+  //   Silver Cloud: ['treasure', 'quicksilver', 'condor']
+  //   Town: ['treasure', 'townlift', 'spur']
+  //   Crescent: ['bonanza', 'golf']
+  //   Thaynes: ['town', 'eagle', 'drift']
+  //   Eagle: ['bonanza', 'thaynes', 'float']
+  //   Golf: ['crescent']
+  // For runs in areas with base "Canyons Village", use: ['silvercloud', 'tombstone', 'saddleback', 'redpine']
+
+    // Example run with connectsToLifts added. Update other runs similarly based on their lift and peak.
+  { id: 'payday_run', name: 'Payday', difficulty: 'blue', terrain: 'groomed', lift: 'payday', length: 0.6, peak: 'Treasure', connectsToLifts: ['bonanza', 'silvercloud', 'town'] }
 ];
 
 export const chalets = [
