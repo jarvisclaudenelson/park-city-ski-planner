@@ -71,6 +71,8 @@ export const lifts = [
   { id: 'golf_express', name: 'Golf Express', base: 'Park City', peak: 'Golf' }
 ];
 
+lifts.forEach(lift => { if(lift.x === undefined) { lift.x = 0; lift.y = 0; lift.connectsTo = []; } });
+
 export const runs = [
   // TREASURE PEAK (Payday Lift) - 12 runs
   { id: 'homerun', name: 'Homerun', difficulty: 'green', terrain: 'groomed', lift: 'payday', length: 2.5, peak: 'Treasure', connectsToLifts: ['payday','bonanza','silvercloud','townlift'] },
