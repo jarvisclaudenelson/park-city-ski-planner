@@ -102,7 +102,9 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
     const route = [];
     planResults.segments.forEach((segment, index) => {
       if (segment.type === 'lift') {
-        const liftLayout = mountainLayout.lifts[segment.lift.id];
+        // Ensure consistent key matching by converting to lowercase
+        const liftId = segment.lift.id.toLowerCase();
+        const liftLayout = mountainLayout.lifts[liftId];
         if (liftLayout) {
           route.push({ type: 'lift', name: segment.lift.name, ...liftLayout, index });
         }
