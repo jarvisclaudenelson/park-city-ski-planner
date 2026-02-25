@@ -172,10 +172,16 @@ const App = () => {
           continue;
         }
       }
-      const possibleRuns = availableRuns.filter(r => r.lift === currentLift.id && !runsTaken.has(r.id));
+      // Use connectsToLifts metadata for valid run→lift connections
+const run = parkCityData.runs.find(r => r.lift === currentLift.id);
+const validLiftsFromRun = run?.connectsToLifts || [currentLift.id];
+const possibleRuns = availableRuns.filter(r => validLiftsFromRun.includes(r.lift) && !runsTaken.has(r.id));
       if (possibleRuns.length === 0) {
         const currentPeak = currentLift.peak;
-        const liftsFromPeak = parkCityData.lifts.filter(l => l.peak === currentPeak && l.id !== currentLift.id && isOpen(l.id, 'lift'));
+        // Use connectsTo metadata for valid lift connections
+const currentLiftData = parkCityData.lifts.find(l => l.id === currentLift.id);
+const validLiftIds = currentLiftData?.connectsTo || [];
+const liftsFromPeak = parkCityData.lifts.filter(l => validLiftIds.includes(l.id) && isOpen(l.id, 'lift'));
         if (liftsFromPeak.length === 0) break;
         currentLift = liftsFromPeak[Math.floor(Math.random() * liftsFromPeak.length)];
         segments.push({ type: 'lift', lift: currentLift, time: `${Math.floor(currentTime / 60).toString().padStart(2, '0')}:${(currentTime % 60).toString().padStart(2, '0')}`, duration: getLiftDuration() });
