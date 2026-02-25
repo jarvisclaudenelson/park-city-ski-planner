@@ -95,6 +95,7 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
   const [showTrails, setShowTrails] = useState(true);
   const [showPlanRoute, setShowPlanRoute] = useState(true);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [useTrailMap, setUseTrailMap] = useState(false);
   const containerRef = useRef(null);
 
   const getPlanRoute = () => {
@@ -190,8 +191,9 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
       <div ref={containerRef} className="relative bg-slate-800/50 rounded-xl border border-slate-700 overflow-hidden" style={{ height: '600px' }}>
         <div className="absolute inset-0 cursor-grab active:cursor-grabbing" onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp} onWheel={handleWheel}>
           {/* Background Image */}
-          <div className="absolute inset-0 overflow-hidden">
-            {/* Inline SVG Topographic Background */}
+          {useTrailMap ? (
+            <img src="https://dummyimage.com/600x400/cccccc/000000&text=Resort+Map" onLoad={() => setImageLoaded(true)} className="w-full h-full object-cover" style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, transformOrigin: 'center center' }} />
+          ) : (
             <svg viewBox="0 0 100 100" className="w-full h-full opacity-40" style={{
                 transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
                 transformOrigin: 'center center',
@@ -205,7 +207,8 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
               <rect width="100" height="100" fill="url(#mountainGradient)" />
               <path d="M10,80 Q30,20 50,60 T90,50" fill="none" stroke="#4b5563" strokeWidth="1" />
             </svg>
-          </div>
+          )}
+
           
           {/* SVG Overlay */}
           <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full" style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, transformOrigin: 'center center' }}>
@@ -216,7 +219,7 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
             {Object.entries(mountainLayout.peaks).map(([key, peak]) => (
               <g key={key}>
                 <circle cx={peak.x} cy={peak.y} r="8" fill="#334155" opacity="0.3" />
-                <text x={peak.x} y={peak.y - 12} textAnchor="middle" fill="#e2e8f0" fontSize="2.5" fontWeight="bold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
+                <text x={peak.x} y={peak.y - 12} textAnchor="middle" fill="#e2e8f0" fontSize="2" fontWeight="bold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
                   {peak.name}
                 </text>
               </g>
@@ -267,16 +270,16 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
                     <line x1={item.x1} y1={item.y1} x2={item.x2} y2={item.y2} stroke="#f59e0b" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="3,2" opacity="0.8">
                       <animate attributeName="stroke-dashoffset" from="0" to="5" dur="1s" repeatCount="indefinite" />
                     </line>
-                    <circle cx={item.x2} cy={item.y2} r="3.5" fill="#fbbf24" stroke="#000" strokeWidth="0.5" />
+                    <circle cx={item.x2} cy={item.y2} r="2.5" fill="#fbbf24" stroke="#000" strokeWidth="0.5" />
                     <text x={item.x2} y={item.y2 + 1} textAnchor="middle" fill="#000" fontSize="3" fontWeight="bold">{item.index + 1}</text>
                   </g>
                 );
               } else {
                 return (
                   <g key={`plan-${i}`}>
-                    <circle cx={item.x} cy={item.y} r="3.5" fill={difficultyColors[item.difficulty] || '#3b82f6'} stroke="#fbbf24" strokeWidth="1.5" opacity="0.95" />
-                    <rect x={item.x - 10} y={item.y - 14} width="20" height="5" fill="#1e293b" rx="1" opacity="0.9" />
-                    <text x={item.x} y={item.y - 10} textAnchor="middle" fill="#fbbf24" fontSize="2.5" fontWeight="bold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
+                    <circle cx={item.x} cy={item.y} r="2.5" fill={difficultyColors[item.difficulty] || '#3b82f6'} stroke="#fbbf24" strokeWidth="1.5" opacity="0.95" />
+                    <rect x={item.x - 9} y={item.y - 12} width="18" height="4" fill="#1e293b" rx="1" opacity="0.9" />
+                    <text x={item.x} y={item.y - 9} textAnchor="middle" fill="#fbbf24" fontSize="2" fontWeight="bold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
                       {item.name}
                     </text>
                   </g>
@@ -323,9 +326,9 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
           🖱️ Drag to pan • Scroll to zoom
         </div>
         
-        <div className="absolute top-4 right-4 bg-slate-900/90 px-3 py-2 rounded-lg text-xs text-slate-400 border border-slate-700">
+        <button onClick={() => setUseTrailMap(prev => !prev)} className="absolute top-4 right-4 bg-slate-900/90 px-3 py-2 rounded-lg text-xs text-slate-400 border border-slate-700 hover:bg-slate-700 transition">
           Trail Map Background
-        </div>
+        </button>
       </div>
 
       {planRoute && planRoute.length > 0 && (
