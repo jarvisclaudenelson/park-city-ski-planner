@@ -188,7 +188,7 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
         </div>
       </div>
 
-      <div ref={containerRef} className="relative bg-slate-800/50 rounded-xl border border-slate-700 overflow-hidden" style={{ height: '600px' }}>
+      <div ref={containerRef} className="relative bg-slate-800/50 rounded-xl border border-slate-700 overflow-hidden" className="relative bg-slate-800/50 rounded-xl border border-slate-700 overflow-hidden h-64 md:h-[600px]">
         <div className="absolute inset-0 cursor-grab active:cursor-grabbing" onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp} onWheel={handleWheel}>
           {/* Background Image */}
           {useTrailMap ? (
