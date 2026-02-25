@@ -192,7 +192,7 @@ const MapView = ({ planResults, parkCityData, liftStatus, runStatus, isOpen }) =
         <div className="absolute inset-0 cursor-grab active:cursor-grabbing" onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp} onWheel={handleWheel}>
           {/* Background Image */}
           {useTrailMap ? (
-            <img src="https://dummyimage.com/600x400/cccccc/000000&text=Resort+Map" onLoad={() => setImageLoaded(true)} className="w-full h-full object-cover" style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, transformOrigin: 'center center' }} />
+            <img src="https://www.parkcity.com/-/media/Images/park-city/trail-maps/park-city-trail-map.jpg" onLoad={() => setImageLoaded(true)} className="w-full h-full object-cover" style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, transformOrigin: 'center center' }} />
           ) : (
             <svg viewBox="0 0 100 100" className="w-full h-full opacity-40" style={{
                 transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
