@@ -1,0 +1,7854 @@
+{
+  "resort": "Park City Mountain",
+  "season": "2025-2026",
+  "stats": {
+    "skiable_acres": 7300,
+    "base_elevation_ft": 6800,
+    "summit_elevation_ft": 10026,
+    "vertical_rise_ft": 3226,
+    "total_trails": 349,
+    "total_lifts": 44,
+    "terrain_breakdown": {
+      "beginner_pct": 8,
+      "intermediate_pct": 42,
+      "expert_pct": 50
+    }
+  },
+  "difficulty_levels": {
+    "easy": "Green circle – easiest",
+    "more_difficult": "Blue square",
+    "most_difficult": "Black diamond",
+    "experts_only": "Double black diamond",
+    "terrain_park": "Orange oval"
+  },
+  "areas": [
+    {
+      "id": "town",
+      "name": "Park City Town",
+      "grid": "A-5",
+      "elevation_ft": 6800,
+      "description": "Historic Park City town area, base of Town Lift"
+    },
+    {
+      "id": "park_city_base",
+      "name": "Park City Mountain Village Base",
+      "grid": "A-4",
+      "elevation_ft": 6800,
+      "description": "Main Park City base village with most PC-side lift bases"
+    },
+    {
+      "id": "lower_mountain_pc",
+      "name": "Lower Mountain – Park City Side",
+      "grid": "A-4",
+      "elevation_ft": 7400,
+      "description": "Lower PC-side terrain served by Eagle, Mule Train, 3 Kings, Tommy Knocker"
+    },
+    {
+      "id": "mid_mountain_pc",
+      "name": "Mid Mountain – Park City Side",
+      "grid": "A-3",
+      "elevation_ft": 8100,
+      "description": "Payday / Crescent Express summit hub, access to Bonanza Express"
+    },
+    {
+      "id": "bonanza_area",
+      "name": "Bonanza Area",
+      "grid": "A-2",
+      "elevation_ft": 8700,
+      "description": "Upper PC side, Bonanza Express summit, gateway to McConkey's, Thaynes & Jupiter"
+    },
+    {
+      "id": "mcconkeys_bowl",
+      "name": "McConkey's Bowl",
+      "grid": "A-2",
+      "elevation_ft": 9200,
+      "description": "Upper bowl above Bonanza, base of Jupiter lift"
+    },
+    {
+      "id": "jupiter_peak",
+      "name": "Jupiter Peak",
+      "grid": "B-1",
+      "elevation_ft": 10026,
+      "description": "Highest point, experts-only alpine terrain"
+    },
+    {
+      "id": "thaynes_canyon",
+      "name": "Thaynes Canyon",
+      "grid": "B-2",
+      "elevation_ft": 9400,
+      "description": "Steep expert canyon off the PC upper mountain"
+    },
+    {
+      "id": "silverlode_area",
+      "name": "Silverlode / Motherlode Area",
+      "grid": "B-3",
+      "elevation_ft": 8900,
+      "description": "Silverlode / Motherlode Express summit area"
+    },
+    {
+      "id": "tombstone_ridge",
+      "name": "Tombstone Ridge",
+      "grid": "B-4",
+      "elevation_ft": 9100,
+      "description": "King Con summit ridge connecting PC and Canyons sides"
+    },
+    {
+      "id": "dreamcatcher_area",
+      "name": "Dreamcatcher Area",
+      "grid": "C-3",
+      "elevation_ft": 8600,
+      "description": "Orange Bubble / Quicksilver Gondola upper station hub"
+    },
+    {
+      "id": "tombstone_canyons",
+      "name": "Tombstone Express Summit",
+      "grid": "C-4",
+      "elevation_ft": 9000,
+      "description": "Tombstone Express summit, base of Iron Mountain Express"
+    },
+    {
+      "id": "iron_mountain",
+      "name": "Iron Mountain",
+      "grid": "D-4",
+      "elevation_ft": 9300,
+      "description": "Iron Mountain Express summit, expert terrain"
+    },
+    {
+      "id": "ninety_nine_90",
+      "name": "Ninety-Nine 90 Peak",
+      "grid": "D-2",
+      "elevation_ft": 9990,
+      "description": "Highest Canyons-side peak"
+    },
+    {
+      "id": "dreamscape_area",
+      "name": "Dreamscape / DayBreak Area",
+      "grid": "D-2",
+      "elevation_ft": 9700,
+      "description": "DayBreak Express summit area below 9990"
+    },
+    {
+      "id": "canyons_mid",
+      "name": "Canyons Mid-Mountain",
+      "grid": "D-3",
+      "elevation_ft": 8200,
+      "description": "Red Pine Lodge mid-mountain hub on Canyons Village side"
+    },
+    {
+      "id": "canyons_base",
+      "name": "Canyons Village Base",
+      "grid": "E-5",
+      "elevation_ft": 6800,
+      "description": "Canyons Village base area"
+    },
+    {
+      "id": "high_meadow",
+      "name": "High Meadow",
+      "grid": "E-3",
+      "elevation_ft": 9000,
+      "description": "High Meadow quad summit area, far Canyons side"
+    },
+    {
+      "id": "saddleback",
+      "name": "Saddleback",
+      "grid": "E-3",
+      "elevation_ft": 8600,
+      "description": "Saddleback Express summit area"
+    },
+    {
+      "id": "sun_peak",
+      "name": "Sun Peak",
+      "grid": "E-4",
+      "elevation_ft": 8900,
+      "description": "Sun Peak Express summit, gateway to Super Condor"
+    },
+    {
+      "id": "super_condor_area",
+      "name": "Super Condor Area",
+      "grid": "F-4",
+      "elevation_ft": 9200,
+      "description": "Super Condor Express summit, base of Murdock Peak lift"
+    },
+    {
+      "id": "murdock_peak",
+      "name": "Murdock Peak",
+      "grid": "F-3",
+      "elevation_ft": 9380,
+      "description": "Far-right expert terrain summit"
+    },
+    {
+      "id": "frostwood",
+      "name": "Frostwood Area",
+      "grid": "E-5",
+      "elevation_ft": 6900,
+      "description": "Frostwood Gondola base area"
+    }
+  ],
+  "lifts": [
+    {
+      "id": "town_lift",
+      "name": "Town Lift",
+      "type": "gondola",
+      "grid": "A-5",
+      "base_area": "town",
+      "summit_area": "park_city_base",
+      "connects_from": [
+        "town"
+      ],
+      "connects_to": [
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "3_kings",
+        "mule_train",
+        "park_city_base"
+      ]
+    },
+    {
+      "id": "payday_express",
+      "name": "Payday Express",
+      "type": "6-pack",
+      "grid": "A-4",
+      "base_area": "park_city_base",
+      "summit_area": "mid_mountain_pc",
+      "connects_from": [
+        "park_city_base",
+        "town_lift"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "crescent_express"
+      ]
+    },
+    {
+      "id": "crescent_express",
+      "name": "Crescent Express",
+      "type": "6-pack",
+      "grid": "A-4",
+      "base_area": "park_city_base",
+      "summit_area": "mid_mountain_pc",
+      "connects_from": [
+        "park_city_base",
+        "town_lift"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "payday_express"
+      ]
+    },
+    {
+      "id": "eagle",
+      "name": "Eagle",
+      "type": "quad",
+      "grid": "A-4",
+      "base_area": "park_city_base",
+      "summit_area": "lower_mountain_pc",
+      "connects_from": [
+        "park_city_base"
+      ],
+      "connects_to": [
+        "lower_mountain_pc"
+      ]
+    },
+    {
+      "id": "first_time_lift",
+      "name": "First Time",
+      "type": "surface",
+      "grid": "A-4",
+      "base_area": "park_city_base",
+      "summit_area": "park_city_base",
+      "connects_from": [
+        "park_city_base"
+      ],
+      "connects_to": [
+        "park_city_base"
+      ]
+    },
+    {
+      "id": "mine_cart",
+      "name": "Mine Cart",
+      "type": "surface",
+      "grid": "A-4",
+      "base_area": "park_city_base",
+      "summit_area": "lower_mountain_pc",
+      "connects_from": [
+        "park_city_base"
+      ],
+      "connects_to": [
+        "lower_mountain_pc"
+      ]
+    },
+    {
+      "id": "tommy_knocker",
+      "name": "Tommy Knocker",
+      "type": "double",
+      "grid": "A-4",
+      "base_area": "park_city_base",
+      "summit_area": "lower_mountain_pc",
+      "connects_from": [
+        "park_city_base"
+      ],
+      "connects_to": [
+        "lower_mountain_pc"
+      ]
+    },
+    {
+      "id": "mule_train",
+      "name": "Mule Train",
+      "type": "triple",
+      "grid": "A-4",
+      "base_area": "park_city_base",
+      "summit_area": "lower_mountain_pc",
+      "connects_from": [
+        "park_city_base",
+        "town_lift"
+      ],
+      "connects_to": [
+        "lower_mountain_pc"
+      ]
+    },
+    {
+      "id": "3_kings",
+      "name": "3 Kings",
+      "type": "triple",
+      "grid": "A-4",
+      "base_area": "park_city_base",
+      "summit_area": "lower_mountain_pc",
+      "connects_from": [
+        "park_city_base"
+      ],
+      "connects_to": [
+        "lower_mountain_pc"
+      ]
+    },
+    {
+      "id": "bonanza_express",
+      "name": "Bonanza Express",
+      "type": "6-pack",
+      "grid": "A-3",
+      "base_area": "mid_mountain_pc",
+      "summit_area": "bonanza_area",
+      "connects_from": [
+        "mid_mountain_pc",
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "mcconkeys_express",
+        "thaynes",
+        "pioneer_lift"
+      ]
+    },
+    {
+      "id": "pioneer_lift",
+      "name": "Pioneer",
+      "type": "double",
+      "grid": "A-3",
+      "base_area": "bonanza_area",
+      "summit_area": "bonanza_area",
+      "connects_from": [
+        "bonanza_area",
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "bonanza_area"
+      ]
+    },
+    {
+      "id": "mcconkeys_express",
+      "name": "McConkey's Express",
+      "type": "quad",
+      "grid": "A-2",
+      "base_area": "bonanza_area",
+      "summit_area": "mcconkeys_bowl",
+      "connects_from": [
+        "bonanza_area",
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "jupiter",
+      "name": "Jupiter",
+      "type": "quad",
+      "grid": "B-1",
+      "base_area": "mcconkeys_bowl",
+      "summit_area": "jupiter_peak",
+      "connects_from": [
+        "mcconkeys_bowl",
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "jupiter_peak"
+      ]
+    },
+    {
+      "id": "thaynes",
+      "name": "Thaynes",
+      "type": "quad",
+      "grid": "B-2",
+      "base_area": "bonanza_area",
+      "summit_area": "thaynes_canyon",
+      "connects_from": [
+        "bonanza_area",
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "thaynes_canyon"
+      ]
+    },
+    {
+      "id": "silverlode_express",
+      "name": "Silverlode Express",
+      "type": "6-pack",
+      "grid": "B-3",
+      "base_area": "mid_mountain_pc",
+      "summit_area": "silverlode_area",
+      "connects_from": [
+        "mid_mountain_pc",
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "king_con",
+        "iron_horse",
+        "pick_n_shovel"
+      ]
+    },
+    {
+      "id": "motherlode",
+      "name": "Motherlode",
+      "type": "quad",
+      "grid": "B-3",
+      "base_area": "mid_mountain_pc",
+      "summit_area": "silverlode_area",
+      "connects_from": [
+        "mid_mountain_pc"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "iron_horse",
+        "pick_n_shovel"
+      ]
+    },
+    {
+      "id": "iron_horse",
+      "name": "Iron Horse",
+      "type": "surface",
+      "grid": "B-3",
+      "base_area": "silverlode_area",
+      "summit_area": "silverlode_area",
+      "connects_from": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode"
+      ],
+      "connects_to": [
+        "silverlode_area"
+      ]
+    },
+    {
+      "id": "snow_hut",
+      "name": "Snow Hut",
+      "type": "surface",
+      "grid": "B-3",
+      "base_area": "mid_mountain_pc",
+      "summit_area": "silverlode_area",
+      "connects_from": [
+        "mid_mountain_pc"
+      ],
+      "connects_to": [
+        "silverlode_area"
+      ]
+    },
+    {
+      "id": "pick_n_shovel",
+      "name": "Pick N Shovel",
+      "type": "surface",
+      "grid": "B-3",
+      "base_area": "silverlode_area",
+      "summit_area": "silverlode_area",
+      "connects_from": [
+        "silverlode_area",
+        "silverlode_express"
+      ],
+      "connects_to": [
+        "silverlode_area"
+      ]
+    },
+    {
+      "id": "king_con",
+      "name": "King Con",
+      "type": "quad",
+      "grid": "B-3",
+      "base_area": "silverlode_area",
+      "summit_area": "tombstone_ridge",
+      "connects_from": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode"
+      ],
+      "connects_to": [
+        "tombstone_ridge",
+        "plateau",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "plateau",
+      "name": "Plateau",
+      "type": "surface",
+      "grid": "B-4",
+      "base_area": "tombstone_ridge",
+      "summit_area": "tombstone_ridge",
+      "connects_from": [
+        "tombstone_ridge",
+        "king_con"
+      ],
+      "connects_to": [
+        "tombstone_ridge"
+      ]
+    },
+    {
+      "id": "quicksilver_gondola",
+      "name": "Quicksilver Gondola",
+      "type": "gondola",
+      "grid": "C-3",
+      "base_area": "tombstone_ridge",
+      "summit_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_ridge",
+        "king_con",
+        "canyons_base",
+        "frostwood_gondola"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift"
+      ]
+    },
+    {
+      "id": "cabriolet",
+      "name": "Cabriolet",
+      "type": "gondola",
+      "grid": "E-5",
+      "base_area": "canyons_base",
+      "summit_area": "frostwood",
+      "connects_from": [
+        "canyons_base"
+      ],
+      "connects_to": [
+        "frostwood_gondola"
+      ]
+    },
+    {
+      "id": "frostwood_gondola",
+      "name": "Frostwood Gondola",
+      "type": "gondola",
+      "grid": "E-5",
+      "base_area": "frostwood",
+      "summit_area": "canyons_mid",
+      "connects_from": [
+        "frostwood",
+        "canyons_base",
+        "cabriolet"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "quicksilver_gondola",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "kokopelli_lift",
+      "name": "Kokopelli",
+      "type": "surface",
+      "grid": "E-4",
+      "base_area": "canyons_base",
+      "summit_area": "canyons_mid",
+      "connects_from": [
+        "canyons_base"
+      ],
+      "connects_to": [
+        "canyons_mid"
+      ]
+    },
+    {
+      "id": "orange_bubble",
+      "name": "Orange Bubble Express",
+      "type": "6-pack",
+      "grid": "D-3",
+      "base_area": "canyons_mid",
+      "summit_area": "dreamcatcher_area",
+      "connects_from": [
+        "canyons_mid",
+        "frostwood_gondola",
+        "quicksilver_gondola"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "daybreak_express"
+      ]
+    },
+    {
+      "id": "sunglow",
+      "name": "Sunglow",
+      "type": "surface",
+      "grid": "D-3",
+      "base_area": "canyons_mid",
+      "summit_area": "dreamcatcher_area",
+      "connects_from": [
+        "canyons_mid"
+      ],
+      "connects_to": [
+        "dreamcatcher_area"
+      ]
+    },
+    {
+      "id": "flume",
+      "name": "Flume",
+      "type": "surface",
+      "grid": "D-3",
+      "base_area": "canyons_mid",
+      "summit_area": "dreamcatcher_area",
+      "connects_from": [
+        "canyons_mid"
+      ],
+      "connects_to": [
+        "dreamcatcher_area"
+      ]
+    },
+    {
+      "id": "red_pine_lift",
+      "name": "Red Pine",
+      "type": "quad",
+      "grid": "D-3",
+      "base_area": "canyons_mid",
+      "summit_area": "dreamcatcher_area",
+      "connects_from": [
+        "canyons_mid",
+        "frostwood_gondola"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "flatiron_lift"
+      ]
+    },
+    {
+      "id": "saddleback_lift",
+      "name": "Saddleback",
+      "type": "quad",
+      "grid": "E-3",
+      "base_area": "canyons_mid",
+      "summit_area": "saddleback",
+      "connects_from": [
+        "canyons_mid",
+        "frostwood_gondola"
+      ],
+      "connects_to": [
+        "saddleback",
+        "high_meadow_lift",
+        "short_cut_lift"
+      ]
+    },
+    {
+      "id": "short_cut_lift",
+      "name": "Short Cut",
+      "type": "surface",
+      "grid": "E-3",
+      "base_area": "canyons_mid",
+      "summit_area": "saddleback",
+      "connects_from": [
+        "canyons_mid"
+      ],
+      "connects_to": [
+        "saddleback"
+      ]
+    },
+    {
+      "id": "sun_peak_lift",
+      "name": "Sun Peak",
+      "type": "quad",
+      "grid": "E-4",
+      "base_area": "canyons_mid",
+      "summit_area": "sun_peak",
+      "connects_from": [
+        "canyons_mid",
+        "frostwood_gondola"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "tombstone_express",
+      "name": "Tombstone Express",
+      "type": "6-pack",
+      "grid": "C-4",
+      "base_area": "dreamcatcher_area",
+      "summit_area": "tombstone_canyons",
+      "connects_from": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "quicksilver_gondola"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "iron_mountain_express",
+      "name": "Iron Mountain Express",
+      "type": "quad",
+      "grid": "D-4",
+      "base_area": "tombstone_canyons",
+      "summit_area": "iron_mountain",
+      "connects_from": [
+        "tombstone_canyons",
+        "tombstone_express"
+      ],
+      "connects_to": [
+        "iron_mountain"
+      ]
+    },
+    {
+      "id": "iron_mountain_super_pipe",
+      "name": "Iron Mountain Super Pipe",
+      "type": "surface",
+      "grid": "D-4",
+      "base_area": "tombstone_canyons",
+      "summit_area": "iron_mountain",
+      "connects_from": [
+        "tombstone_canyons"
+      ],
+      "connects_to": [
+        "iron_mountain"
+      ]
+    },
+    {
+      "id": "over_and_out_lift",
+      "name": "Over and Out",
+      "type": "quad",
+      "grid": "D-4",
+      "base_area": "dreamcatcher_area",
+      "summit_area": "tombstone_canyons",
+      "connects_from": [
+        "dreamcatcher_area",
+        "tombstone_express"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "iron_mountain_express"
+      ]
+    },
+    {
+      "id": "timberline_lift",
+      "name": "Timberline",
+      "type": "quad",
+      "grid": "D-4",
+      "base_area": "dreamcatcher_area",
+      "summit_area": "tombstone_canyons",
+      "connects_from": [
+        "dreamcatcher_area",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "iron_mountain_express"
+      ]
+    },
+    {
+      "id": "flatiron_lift",
+      "name": "Flatiron",
+      "type": "quad",
+      "grid": "C-3",
+      "base_area": "dreamcatcher_area",
+      "summit_area": "dreamcatcher_area",
+      "connects_from": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "quicksilver_gondola"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "daybreak_express"
+      ]
+    },
+    {
+      "id": "ninety_nine_90_express",
+      "name": "Ninety-Nine 90 Express",
+      "type": "quad",
+      "grid": "D-2",
+      "base_area": "dreamcatcher_area",
+      "summit_area": "ninety_nine_90",
+      "connects_from": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "quicksilver_gondola"
+      ],
+      "connects_to": [
+        "ninety_nine_90",
+        "dreamscape_area",
+        "daybreak_express"
+      ]
+    },
+    {
+      "id": "daybreak_express",
+      "name": "DayBreak Express",
+      "type": "6-pack",
+      "grid": "D-2",
+      "base_area": "dreamscape_area",
+      "summit_area": "dreamscape_area",
+      "connects_from": [
+        "dreamscape_area",
+        "ninety_nine_90_express"
+      ],
+      "connects_to": [
+        "dreamscape_area"
+      ]
+    },
+    {
+      "id": "high_meadow_lift",
+      "name": "High Meadow",
+      "type": "quad",
+      "grid": "E-3",
+      "base_area": "saddleback",
+      "summit_area": "high_meadow",
+      "connects_from": [
+        "saddleback",
+        "saddleback_lift"
+      ],
+      "connects_to": [
+        "high_meadow"
+      ]
+    },
+    {
+      "id": "snow_dancer_lift",
+      "name": "Snow Dancer",
+      "type": "surface",
+      "grid": "E-3",
+      "base_area": "high_meadow",
+      "summit_area": "high_meadow",
+      "connects_from": [
+        "high_meadow"
+      ],
+      "connects_to": [
+        "high_meadow"
+      ]
+    },
+    {
+      "id": "super_condor",
+      "name": "Super Condor Express",
+      "type": "6-pack",
+      "grid": "F-4",
+      "base_area": "canyons_mid",
+      "summit_area": "super_condor_area",
+      "connects_from": [
+        "canyons_mid",
+        "sun_peak_lift",
+        "frostwood_gondola"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "murdock_lift",
+      "name": "Murdock Peak",
+      "type": "quad",
+      "grid": "F-3",
+      "base_area": "super_condor_area",
+      "summit_area": "murdock_peak",
+      "connects_from": [
+        "super_condor_area",
+        "super_condor"
+      ],
+      "connects_to": [
+        "murdock_peak"
+      ]
+    }
+  ],
+  "trails": [
+    {
+      "id": "1_4_load",
+      "name": "1/4 Load",
+      "difficulty": "easy",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "3_4_load",
+      "name": "3/4 Load",
+      "difficulty": "easy",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "blanche",
+      "name": "Blanche",
+      "difficulty": "easy",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "bonanza_access",
+      "name": "Bonanza Access",
+      "difficulty": "easy",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "drift",
+      "name": "Drift",
+      "difficulty": "easy",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "first_time_run",
+      "name": "First Time Run",
+      "difficulty": "easy",
+      "area": "Payday/Town/Crescent",
+      "top_area": "lower_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "first_time_lift",
+        "mine_cart"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "homerun_lower",
+      "name": "Homerun (Lower)",
+      "difficulty": "easy",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "stope",
+      "name": "Stope",
+      "difficulty": "easy",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "turtle_trail",
+      "name": "Turtle Trail",
+      "difficulty": "easy",
+      "area": "Payday/Town/Crescent",
+      "top_area": "lower_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "eagle",
+        "mine_cart"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "upper_first_time",
+      "name": "Upper First Time",
+      "difficulty": "easy",
+      "area": "Payday/Town/Crescent",
+      "top_area": "lower_mountain_pc",
+      "bottom_area": "lower_mountain_pc",
+      "connects_from": [
+        "mine_cart"
+      ],
+      "connects_to": [
+        "lower_mountain_pc",
+        "payday_express",
+        "crescent_express"
+      ]
+    },
+    {
+      "id": "1_2_load",
+      "name": "1/2 Load",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "alloy_alley",
+      "name": "Alloy Alley",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "creole",
+      "name": "Creole",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "dividend",
+      "name": "Dividend",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "silverlode_area",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "heckler",
+      "name": "Heckler",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "kings_crown",
+      "name": "King's Crown",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "ladies_slalom",
+      "name": "Ladies' Slalom",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "lower_silver_skis",
+      "name": "Lower Silver Skis",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "lower_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "payday_run",
+      "name": "PayDay Run",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "quit_n_time",
+      "name": "Quit 'N Time",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "rdr",
+      "name": "RDR",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "silver_hollow",
+      "name": "Silver Hollow",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "town_run",
+      "name": "Town Run",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "town",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "town",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "treasure_hollow",
+      "name": "Treasure Hollow",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "crescent",
+      "name": "Crescent",
+      "difficulty": "most_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "erikas_gold",
+      "name": "Erika's Gold",
+      "difficulty": "most_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "mens_slalom",
+      "name": "Men's Slalom",
+      "difficulty": "most_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "nail_driver",
+      "name": "Nail Driver",
+      "difficulty": "most_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "silverlode_area",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "pick_n_shovel"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "shaft",
+      "name": "Shaft",
+      "difficulty": "most_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "silverlode_area",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "silver_king",
+      "name": "Silver King",
+      "difficulty": "most_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "silver_skis",
+      "name": "Silver Skis",
+      "difficulty": "most_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "waterfall",
+      "name": "Waterfall",
+      "difficulty": "most_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "silverlode_area",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "widowmaker",
+      "name": "Widowmaker",
+      "difficulty": "most_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "willys_run",
+      "name": "Willy's Run",
+      "difficulty": "most_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "silverlode_area",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "3_kings",
+      "name": "3 Kings",
+      "difficulty": "terrain_park",
+      "area": "Payday/Town/Crescent",
+      "top_area": "lower_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "3_kings"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "half_pipe",
+      "name": "Half Pipe",
+      "difficulty": "terrain_park",
+      "area": "Payday/Town/Crescent",
+      "top_area": "silverlode_area",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "mini_pipe",
+      "name": "Mini Pipe",
+      "difficulty": "terrain_park",
+      "area": "Payday/Town/Crescent",
+      "top_area": "lower_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "eagle",
+        "mine_cart"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "pick_n_shovel",
+      "name": "Pick 'N Shovel",
+      "difficulty": "terrain_park",
+      "area": "Payday/Town/Crescent",
+      "top_area": "silverlode_area",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "pick_n_shovel"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "bonanza",
+      "name": "Bonanza",
+      "difficulty": "easy",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "flat_iron",
+      "name": "Flat Iron",
+      "difficulty": "easy",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "homerun_full",
+      "name": "Homerun (Full)",
+      "difficulty": "easy",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express",
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "mid_mountain",
+      "name": "Mid-Mountain",
+      "difficulty": "easy",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "mid_mountain_cutoff",
+      "name": "Mid-Mountain Cutoff",
+      "difficulty": "easy",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "shortline",
+      "name": "Shortline",
+      "difficulty": "easy",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "woodside",
+      "name": "Woodside",
+      "difficulty": "easy",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "blaster",
+      "name": "Blaster",
+      "difficulty": "more_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "comstock",
+      "name": "Comstock",
+      "difficulty": "more_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "georgeanna",
+      "name": "Georgeanna",
+      "difficulty": "more_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "hawkeye",
+      "name": "Hawkeye",
+      "difficulty": "more_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "jonesys",
+      "name": "Jonesy's",
+      "difficulty": "more_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "lucky_boy",
+      "name": "Lucky Boy",
+      "difficulty": "more_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "mid_mountain_meadows",
+      "name": "Mid-Mountain Meadows",
+      "difficulty": "more_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "muckers",
+      "name": "Muckers",
+      "difficulty": "more_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "powder_monkey",
+      "name": "Powder Monkey",
+      "difficulty": "more_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "red_fox",
+      "name": "Red Fox",
+      "difficulty": "more_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "silver_queen",
+      "name": "Silver Queen",
+      "difficulty": "more_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "10th_mountain",
+      "name": "10th Mountain",
+      "difficulty": "most_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "bonanza_express",
+        "pioneer_lift"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "belmont",
+      "name": "Belmont",
+      "difficulty": "most_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "buckeye",
+      "name": "Buckeye",
+      "difficulty": "most_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "pioneer",
+      "name": "Pioneer",
+      "difficulty": "most_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "pioneer_lift"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "sampson",
+      "name": "Sampson",
+      "difficulty": "most_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "sundog",
+      "name": "Sundog",
+      "difficulty": "most_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "tycoon",
+      "name": "Tycoon",
+      "difficulty": "most_difficult",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "bergs_bowl",
+      "name": "Berg's Bowl",
+      "difficulty": "experts_only",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "black_forest",
+      "name": "Black Forest",
+      "difficulty": "experts_only",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "pioneer_lift"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "blueslip_bowl",
+      "name": "Blueslip Bowl",
+      "difficulty": "experts_only",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "mcconkeys_bowl",
+      "name": "McConkey's Bowl",
+      "difficulty": "experts_only",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "mollys",
+      "name": "Molly's",
+      "difficulty": "experts_only",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "o_zone",
+      "name": "O-Zone",
+      "difficulty": "experts_only",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "p_zone",
+      "name": "P-Zone",
+      "difficulty": "experts_only",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "pinyon_ridge",
+      "name": "Pinyon Ridge",
+      "difficulty": "experts_only",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "pioneer_ridge",
+      "name": "Pioneer Ridge",
+      "difficulty": "experts_only",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "pioneer_lift"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "puma_bowl",
+      "name": "Puma Bowl",
+      "difficulty": "experts_only",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "the_chutes",
+      "name": "The Chutes",
+      "difficulty": "experts_only",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "little_kings",
+      "name": "Little Kings",
+      "difficulty": "terrain_park",
+      "area": "Bonanza/McConkey's/Pioneer",
+      "top_area": "bonanza_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "bonanza_express"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "claimjumper",
+      "name": "Claimjumper",
+      "difficulty": "easy",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "assessment",
+      "name": "Assessment",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "carbide_cut",
+      "name": "Carbide Cut",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "thaynes_canyon",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "thaynes"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "detonator",
+      "name": "Detonator",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "hidden_splendor",
+      "name": "Hidden Splendor",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "jupiter_access",
+      "name": "Jupiter Access",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "bonanza_area",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "bonanza_express",
+        "mcconkeys_express"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "keystone",
+      "name": "Keystone",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "mels_alley",
+      "name": "Mel's Alley",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "mule_train",
+        "3_kings",
+        "tommy_knocker",
+        "mine_cart",
+        "first_time_lift",
+        "town_lift"
+      ]
+    },
+    {
+      "id": "parleys_park",
+      "name": "Parley's Park",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "powder_keg",
+      "name": "Powder Keg",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "short_fuse",
+      "name": "Short Fuse",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "single_jack",
+      "name": "Single Jack",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "sunnyside",
+      "name": "Sunnyside",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "tnt",
+      "name": "TNT",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "thaynes_canyon",
+      "name": "Thaynes Canyon",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "thaynes_canyon",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "thaynes"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "zekes_road",
+      "name": "Zeke's Road",
+      "difficulty": "more_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "double_jack",
+      "name": "Double Jack",
+      "difficulty": "most_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "dynamite",
+      "name": "Dynamite",
+      "difficulty": "most_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "fools_gold",
+      "name": "Fool's Gold",
+      "difficulty": "most_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "glory_hole",
+      "name": "Glory Hole",
+      "difficulty": "most_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "lost_prospector",
+      "name": "Lost Prospector",
+      "difficulty": "most_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "mikeys",
+      "name": "Mikey's",
+      "difficulty": "most_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "thaynes_canyon",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "thaynes"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "newport",
+      "name": "Newport",
+      "difficulty": "most_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "prospector",
+      "name": "Prospector",
+      "difficulty": "most_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "thaynes",
+      "name": "Thaynes",
+      "difficulty": "most_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "thaynes_canyon",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "thaynes"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "the_hoist",
+      "name": "The Hoist",
+      "difficulty": "most_difficult",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "motherlode_meadows",
+      "name": "Motherlode Meadows",
+      "difficulty": "experts_only",
+      "area": "Silverlode/Thaynes/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "mid_mountain_pc",
+      "connects_from": [
+        "silverlode_express",
+        "motherlode"
+      ],
+      "connects_to": [
+        "mid_mountain_pc",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
+      ]
+    },
+    {
+      "id": "broadway",
+      "name": "Broadway",
+      "difficulty": "easy",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "king_con_access",
+      "name": "King Con Access",
+      "difficulty": "easy",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "road_to_thaynes_canyon",
+      "name": "Road to Thaynes Canyon",
+      "difficulty": "easy",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "rosebud",
+      "name": "Rosebud",
+      "difficulty": "easy",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "chance",
+      "name": "Chance",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "courchevel",
+      "name": "Courchevel",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "eureka",
+      "name": "Eureka",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "gotcha_cut_off",
+      "name": "Gotcha Cut-Off",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "high_card",
+      "name": "High Card",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "hot_spot",
+      "name": "Hot Spot",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "king_con_ridge",
+      "name": "King Con Ridge",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "king_con_run",
+      "name": "King Con Run",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "liberty",
+      "name": "Liberty",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "monitor",
+      "name": "Monitor",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "shamus",
+      "name": "Shamus",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "silver_star",
+      "name": "Silver Star",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "sitka",
+      "name": "Sitka",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "spiro",
+      "name": "Spiro",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "temptation",
+      "name": "Temptation",
+      "difficulty": "more_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "cbs_run",
+      "name": "C.B.'s Run",
+      "difficulty": "most_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "climax",
+      "name": "Climax",
+      "difficulty": "most_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "combustion",
+      "name": "Combustion",
+      "difficulty": "most_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "commitment",
+      "name": "Commitment",
+      "difficulty": "most_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "ligety_split",
+      "name": "Ligety Split",
+      "difficulty": "most_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "picabos",
+      "name": "Picabo's",
+      "difficulty": "most_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "seldom_seen",
+      "name": "Seldom Seen",
+      "difficulty": "most_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "vista",
+      "name": "Vista",
+      "difficulty": "most_difficult",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "pick_axe",
+      "name": "Pick Axe",
+      "difficulty": "terrain_park",
+      "area": "King Con",
+      "top_area": "tombstone_ridge",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "king_con",
+        "plateau"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "silverlode_express",
+        "motherlode",
+        "iron_horse",
+        "pick_n_shovel",
+        "king_con"
+      ]
+    },
+    {
+      "id": "1st_bowl",
+      "name": "1st Bowl",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "6_bells",
+      "name": "6 Bells",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "constellation",
+      "name": "Constellation",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "dead_tree",
+      "name": "Dead Tree",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "fortune_teller",
+      "name": "Fortune Teller",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "half_moon",
+      "name": "Half Moon",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "homelite",
+      "name": "Homelite",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "bonanza_area",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "bonanza_area",
+        "bonanza_express",
+        "pioneer_lift",
+        "mcconkeys_express",
+        "thaynes"
+      ]
+    },
+    {
+      "id": "indicator",
+      "name": "Indicator",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "limelite",
+      "name": "Limelite",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "lites_out",
+      "name": "Lite's Out",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "main_bowl",
+      "name": "Main Bowl",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "new_moon",
+      "name": "New Moon",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "pinecone_bowl",
+      "name": "Pinecone Bowl",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "pinecone_ridge",
+      "name": "Pinecone Ridge",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "portuguese_gap",
+      "name": "Portuguese Gap",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "quarter_moon",
+      "name": "Quarter Moon",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "rhino",
+      "name": "Rhino",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "sams_knob",
+      "name": "Sam's Knob",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "scotts_bowl",
+      "name": "Scott's Bowl",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "shadow_ridge",
+      "name": "Shadow Ridge",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "silver_cliff",
+      "name": "Silver Cliff",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "two_goons",
+      "name": "Two Goons",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "war_zone",
+      "name": "War Zone",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "west_face",
+      "name": "West Face",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "west_scotts_bowl",
+      "name": "West Scott's Bowl",
+      "difficulty": "experts_only",
+      "area": "Jupiter",
+      "top_area": "jupiter_peak",
+      "bottom_area": "mcconkeys_bowl",
+      "connects_from": [
+        "jupiter"
+      ],
+      "connects_to": [
+        "mcconkeys_bowl",
+        "mcconkeys_express",
+        "jupiter"
+      ]
+    },
+    {
+      "id": "blaises_way",
+      "name": "Blaise's Way",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "cascade",
+      "name": "Cascade",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "chrome_alley",
+      "name": "Chrome Alley",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "copperhead",
+      "name": "Copperhead",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "double_nickel",
+      "name": "Double Nickel",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "golden_spruce",
+      "name": "Golden Spruce",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "lead_foot",
+      "name": "Lead Foot",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "mercury",
+      "name": "Mercury",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "mimis_way",
+      "name": "Mimi's Way",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "silver_streak",
+      "name": "Silver Streak",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "snowonder",
+      "name": "Snowonder",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "the_highway",
+      "name": "The Highway",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "tin_cup",
+      "name": "Tin Cup",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "upper_white_pine",
+      "name": "Upper White Pine",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "white_pine",
+      "name": "White Pine",
+      "difficulty": "more_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "cobalt_woods",
+      "name": "Cobalt Woods",
+      "difficulty": "most_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "goldfinger",
+      "name": "Goldfinger",
+      "difficulty": "most_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "heavy_metal",
+      "name": "Heavy Metal",
+      "difficulty": "most_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "iron_man",
+      "name": "Iron Man",
+      "difficulty": "most_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "platinum_woods",
+      "name": "Platinum Woods",
+      "difficulty": "most_difficult",
+      "area": "Iron Mountain",
+      "top_area": "iron_mountain",
+      "bottom_area": "tombstone_canyons",
+      "connects_from": [
+        "iron_mountain_express",
+        "iron_mountain_super_pipe"
+      ],
+      "connects_to": [
+        "tombstone_canyons",
+        "tombstone_express",
+        "iron_mountain_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ]
+    },
+    {
+      "id": "alpenglow",
+      "name": "Alpenglow",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamscape_area",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "apparition",
+      "name": "Apparition",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "backstreet",
+      "name": "Backstreet",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "bliss",
+      "name": "Bliss",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamscape_area",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "bugle_ridge_bypass",
+      "name": "Bugle Ridge Bypass",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "dawn",
+      "name": "Dawn",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamscape_area",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "day_dream",
+      "name": "Day Dream",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamscape_area",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "dej_vu",
+      "name": "Déjà Vu",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "elk_dance",
+      "name": "Elk Dance",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "lazy_day",
+      "name": "Lazy Day",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamscape_area",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "mcdonalds_meadow",
+      "name": "McDonalds Meadow",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "mirage",
+      "name": "Mirage",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "oo2",
+      "name": "OO2",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamscape_area",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "oops",
+      "name": "Oops",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamscape_area",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "panorama",
+      "name": "Panorama",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "reaper",
+      "name": "Reaper",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "sandman",
+      "name": "Sandman",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamscape_area",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "snow_meadow",
+      "name": "Snow Meadow",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "trance",
+      "name": "Trance",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamscape_area",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "twilight",
+      "name": "Twilight",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "whitewater",
+      "name": "Whitewater",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "winter_way",
+      "name": "Winter Way",
+      "difficulty": "more_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "boogeyman",
+      "name": "Boogeyman",
+      "difficulty": "most_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "bugle_ridge",
+      "name": "Bugle Ridge",
+      "difficulty": "most_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "chimera",
+      "name": "Chimera",
+      "difficulty": "most_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamscape_area",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "fools_paradise",
+      "name": "Fools Paradise",
+      "difficulty": "most_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "illusion",
+      "name": "Illusion",
+      "difficulty": "most_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "phantasm",
+      "name": "Phantasm",
+      "difficulty": "most_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "pipe_dream",
+      "name": "Pipe Dream",
+      "difficulty": "most_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "shadow_lands",
+      "name": "Shadow Lands",
+      "difficulty": "most_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "sleeper",
+      "name": "Sleeper",
+      "difficulty": "most_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "specter",
+      "name": "Specter",
+      "difficulty": "most_difficult",
+      "area": "DayBreak/Dreamscape/Dreamcatcher",
+      "top_area": "dreamcatcher_area",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "daybreak_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "orange_bubble"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "another_world",
+      "name": "Another World",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "chicane",
+      "name": "Chicane",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "encore",
+      "name": "Encore",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "escape",
+      "name": "Escape",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "lower_crowning_glory",
+      "name": "Lower Crowning Glory",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "lower_harmony",
+      "name": "Lower Harmony",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "middle_crowning_glory",
+      "name": "Middle Crowning Glory",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "peace",
+      "name": "Peace",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "power_alley",
+      "name": "Power Alley",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "red_pine_road",
+      "name": "Red Pine Road",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "rhapsody",
+      "name": "Rhapsody",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "ripsaw",
+      "name": "Ripsaw",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "royal",
+      "name": "Royal",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "sanctuary",
+      "name": "Sanctuary",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "serenity",
+      "name": "Serenity",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "showcase",
+      "name": "Showcase",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "silver_spur",
+      "name": "Silver Spur",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "south_fork",
+      "name": "South Fork",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "tombstone_alley",
+      "name": "Tombstone Alley",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift",
+        "plateau"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "upper_crowning_glory",
+      "name": "Upper Crowning Glory",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "upper_harmony",
+      "name": "Upper Harmony",
+      "difficulty": "more_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "cloud_9",
+      "name": "Cloud 9",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "diamond_ridge",
+      "name": "Diamond Ridge",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "escapade_woods",
+      "name": "Escapade Woods",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "lightning",
+      "name": "Lightning",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "mystic_pines",
+      "name": "Mystic Pines",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "paradise",
+      "name": "Paradise",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "paradise_bowl",
+      "name": "Paradise Bowl",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "paradise_chutes",
+      "name": "Paradise Chutes",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "pinball_alley",
+      "name": "Pinball Alley",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "sidewinder",
+      "name": "Sidewinder",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "solace",
+      "name": "Solace",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "the_drop",
+      "name": "The Drop",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "thunder",
+      "name": "Thunder",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "tranquility",
+      "name": "Tranquility",
+      "difficulty": "most_difficult",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "tombstone_canyons",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "tombstone_express",
+        "over_and_out_lift",
+        "timberline_lift"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "94_turns",
+      "name": "94 Turns",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "aspen_grove",
+      "name": "Aspen Grove",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "charlie_brown",
+      "name": "Charlie Brown",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "deschutes",
+      "name": "Deschutes",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "dutch_hollow",
+      "name": "Dutch Hollow",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "end_zone",
+      "name": "End Zone",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "fright_gully",
+      "name": "Fright Gully",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "grande",
+      "name": "Grande",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "lower_east_face",
+      "name": "Lower East Face",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "magic_line",
+      "name": "Magic Line",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "moraine",
+      "name": "Moraine",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "red_pine_chutes",
+      "name": "Red Pine Chutes",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "talus_garden",
+      "name": "Talus Garden",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "the_abyss",
+      "name": "The Abyss",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "upper_east_face",
+      "name": "Upper East Face",
+      "difficulty": "experts_only",
+      "area": "Peak 5/9990/Tombstone",
+      "top_area": "ninety_nine_90",
+      "bottom_area": "dreamcatcher_area",
+      "connects_from": [
+        "ninety_nine_90_express",
+        "daybreak_express"
+      ],
+      "connects_to": [
+        "dreamcatcher_area",
+        "orange_bubble",
+        "tombstone_express",
+        "ninety_nine_90_express",
+        "flatiron_lift",
+        "quicksilver_gondola"
+      ]
+    },
+    {
+      "id": "alley_cat",
+      "name": "Alley Cat",
+      "difficulty": "easy",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "high_meadow",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "high_meadow_lift",
+        "snow_dancer_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "hidden_bear",
+      "name": "Hidden Bear",
+      "difficulty": "easy",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "high_meadow",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "high_meadow_lift",
+        "snow_dancer_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "mellow_moose",
+      "name": "Mellow Moose",
+      "difficulty": "easy",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "high_meadow",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "high_meadow_lift",
+        "snow_dancer_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "sweet_pea",
+      "name": "Sweet Pea",
+      "difficulty": "easy",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "upper_mainline",
+      "name": "Upper Mainline",
+      "difficulty": "easy",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "arrowhead",
+      "name": "Arrowhead",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "badgers_bypass",
+      "name": "Badger's Bypass",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "boomer",
+      "name": "Boomer",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "broken_arrow",
+      "name": "Broken Arrow",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "docs_run",
+      "name": "Doc's Run",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "echo",
+      "name": "Echo",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "eclipse",
+      "name": "Eclipse",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "flume",
+      "name": "Flume",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "flying_salmon",
+      "name": "Flying Salmon",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "high_meadow",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "high_meadow_lift",
+        "snow_dancer_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "hurricane_alley",
+      "name": "Hurricane Alley",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "kokopelli",
+      "name": "Kokopelli",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "lookout_ridge",
+      "name": "Lookout Ridge",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "mainline",
+      "name": "Mainline",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "high_meadow",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "high_meadow_lift",
+        "snow_dancer_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "outlaw",
+      "name": "Outlaw",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "painted_horse",
+      "name": "Painted Horse",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "pine_draw",
+      "name": "Pine Draw",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "high_meadow",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "high_meadow_lift",
+        "snow_dancer_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "raptor_way",
+      "name": "Raptor Way",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "retreat",
+      "name": "Retreat",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "road_do",
+      "name": "Road D.O.",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "sixes",
+      "name": "Sixes",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "snow_dancer",
+      "name": "Snow Dancer",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "high_meadow",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "high_meadow_lift",
+        "snow_dancer_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "spider_monkey",
+      "name": "Spider Monkey",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "high_meadow",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "high_meadow_lift",
+        "snow_dancer_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "sunrise",
+      "name": "Sunrise",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "the_drain",
+      "name": "The Drain",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "thunder_rd",
+      "name": "Thunder Rd.",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "tunnel_of_fun",
+      "name": "Tunnel of Fun",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "upper_lookout_ridge",
+      "name": "Upper Lookout Ridge",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "willow_draw",
+      "name": "Willow Draw",
+      "difficulty": "more_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "badlands",
+      "name": "Badlands",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "black_hole",
+      "name": "Black Hole",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "diablo",
+      "name": "Diablo",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "eagle",
+      "name": "Eagle",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "ecstasy",
+      "name": "Ecstasy",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "elk_ridge",
+      "name": "Elk Ridge",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "g_force",
+      "name": "G-Force",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "gallery",
+      "name": "Gallery",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "golden_glades",
+      "name": "Golden Glades",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "high_meadow",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "high_meadow_lift",
+        "snow_dancer_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "grizzly",
+      "name": "Grizzly",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "lynx",
+      "name": "Lynx",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "massacre",
+      "name": "Massacre",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "mine_shaft",
+      "name": "Mine Shaft",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "sth",
+      "name": "STH",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "shadows",
+      "name": "Shadows",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "silver_horse",
+      "name": "Silver Horse",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "silverado",
+      "name": "Silverado",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "silverado_bowl",
+      "name": "Silverado Bowl",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "super_fury",
+      "name": "Super Fury",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "the_aspens",
+      "name": "The Aspens",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "the_pines",
+      "name": "The Pines",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "tower",
+      "name": "Tower",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "tree_time",
+      "name": "Tree Time",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "high_meadow",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "high_meadow_lift",
+        "snow_dancer_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "tube",
+      "name": "Tube",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "saddleback",
+      "bottom_area": "canyons_base",
+      "connects_from": [
+        "saddleback_lift",
+        "short_cut_lift"
+      ],
+      "connects_to": [
+        "canyons_base",
+        "frostwood_gondola",
+        "cabriolet",
+        "kokopelli_lift"
+      ]
+    },
+    {
+      "id": "wapiti",
+      "name": "Wapiti",
+      "difficulty": "most_difficult",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "high_meadow",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "high_meadow_lift",
+        "snow_dancer_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "transitions_terrain_park",
+      "name": "Transitions Terrain Park",
+      "difficulty": "terrain_park",
+      "area": "OBX/Saddleback/Sun Peak",
+      "top_area": "sun_peak",
+      "bottom_area": "canyons_mid",
+      "connects_from": [
+        "sun_peak_lift"
+      ],
+      "connects_to": [
+        "canyons_mid",
+        "orange_bubble",
+        "red_pine_lift",
+        "saddleback_lift",
+        "sun_peak_lift",
+        "super_condor",
+        "frostwood_gondola",
+        "sunglow",
+        "flume"
+      ]
+    },
+    {
+      "id": "alley",
+      "name": "Alley",
+      "difficulty": "more_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "apex_ridge",
+      "name": "Apex Ridge",
+      "difficulty": "more_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "ez_street",
+      "name": "EZ Street",
+      "difficulty": "more_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "lower_boa",
+      "name": "Lower Boa",
+      "difficulty": "more_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "spur",
+      "name": "Spur",
+      "difficulty": "more_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "upper_apex_ridge",
+      "name": "Upper Apex Ridge",
+      "difficulty": "more_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "upper_boa",
+      "name": "Upper Boa",
+      "difficulty": "more_difficult",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "aplande",
+      "name": "Aplande",
+      "difficulty": "most_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "canis_lupus",
+      "name": "Canis Lupus",
+      "difficulty": "most_difficult",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "devils_friend",
+      "name": "Devil's Friend",
+      "difficulty": "most_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "kestrel",
+      "name": "Kestrel",
+      "difficulty": "most_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "rendezvous_bowl",
+      "name": "Rendezvous Bowl",
+      "difficulty": "most_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "rendezvous_ridge",
+      "name": "Rendezvous Ridge",
+      "difficulty": "most_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "renegade",
+      "name": "Renegade",
+      "difficulty": "most_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "snow_draw",
+      "name": "Snow Draw",
+      "difficulty": "most_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "thrasher",
+      "name": "Thrasher",
+      "difficulty": "most_difficult",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "twister",
+      "name": "Twister",
+      "difficulty": "most_difficult",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "a_chute",
+      "name": "A-Chute",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "after_shock",
+      "name": "After Shock",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "condor_woods",
+      "name": "Condor Woods",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "five_trees",
+      "name": "Five Trees",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "funnel_cloud",
+      "name": "Funnel Cloud",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "high_peak",
+      "name": "High Peak",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "junipers",
+      "name": "Junipers",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "lone_pine",
+      "name": "Lone Pine",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "murdock_bowl",
+      "name": "Murdock Bowl",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "one_hundred_turns",
+      "name": "One Hundred Turns",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "rennys_ridge",
+      "name": "Renny's Ridge",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "saddle_chutes",
+      "name": "Saddle Chutes",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "sticks_and_stones",
+      "name": "Sticks & Stones",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "super_condor_area",
+      "bottom_area": "sun_peak",
+      "connects_from": [
+        "super_condor"
+      ],
+      "connects_to": [
+        "sun_peak",
+        "sun_peak_lift",
+        "super_condor"
+      ]
+    },
+    {
+      "id": "western_boundary",
+      "name": "Western Boundary",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "whippets_chutes",
+      "name": "Whippets Chutes",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    },
+    {
+      "id": "yard_sale",
+      "name": "Yard Sale",
+      "difficulty": "experts_only",
+      "area": "Condor",
+      "top_area": "murdock_peak",
+      "bottom_area": "super_condor_area",
+      "connects_from": [
+        "murdock_lift"
+      ],
+      "connects_to": [
+        "super_condor_area",
+        "super_condor",
+        "murdock_lift"
+      ]
+    }
+  ]
+}
