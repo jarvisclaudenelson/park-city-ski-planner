@@ -15,7 +15,7 @@
     }
   },
   "difficulty_levels": {
-    "easy": "Green circle – easiest",
+    "easy": "Green circle \u2013 easiest",
     "more_difficult": "Blue square",
     "most_difficult": "Black diamond",
     "experts_only": "Double black diamond",
@@ -38,14 +38,14 @@
     },
     {
       "id": "lower_mountain_pc",
-      "name": "Lower Mountain – Park City Side",
+      "name": "Lower Mountain \u2013 Park City Side",
       "grid": "A-4",
       "elevation_ft": 7400,
       "description": "Lower PC-side terrain served by Eagle, Mule Train, 3 Kings, Tommy Knocker"
     },
     {
       "id": "mid_mountain_pc",
-      "name": "Mid Mountain – Park City Side",
+      "name": "Mid Mountain \u2013 Park City Side",
       "grid": "A-3",
       "elevation_ft": 8100,
       "description": "Payday / Crescent Express summit hub, access to Bonanza Express"
@@ -1172,7 +1172,7 @@
       "difficulty": "more_difficult",
       "area": "Payday/Town/Crescent",
       "top_area": "mid_mountain_pc",
-      "bottom_area": "park_city_base",
+      "bottom_area": "town",
       "connects_from": [
         "payday_express",
         "crescent_express"
@@ -1342,7 +1342,7 @@
       "difficulty": "more_difficult",
       "area": "Payday/Town/Crescent",
       "top_area": "mid_mountain_pc",
-      "bottom_area": "park_city_base",
+      "bottom_area": "town",
       "connects_from": [
         "payday_express",
         "crescent_express"
@@ -1405,22 +1405,6 @@
         "tommy_knocker",
         "mine_cart",
         "first_time_lift",
-        "town_lift"
-      ]
-    },
-    {
-      "id": "town_run",
-      "name": "Town Run",
-      "difficulty": "more_difficult",
-      "area": "Payday/Town/Crescent",
-      "top_area": "mid_mountain_pc",
-      "bottom_area": "town",
-      "connects_from": [
-        "payday_express",
-        "crescent_express"
-      ],
-      "connects_to": [
-        "town",
         "town_lift"
       ]
     },
@@ -4457,7 +4441,7 @@
     },
     {
       "id": "dej_vu",
-      "name": "Déjà Vu",
+      "name": "D\u00e9j\u00e0 Vu",
       "difficulty": "more_difficult",
       "area": "DayBreak/Dreamscape/Dreamcatcher",
       "top_area": "dreamcatcher_area",
