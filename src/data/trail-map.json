@@ -1172,7 +1172,7 @@
       "difficulty": "more_difficult",
       "area": "Payday/Town/Crescent",
       "top_area": "mid_mountain_pc",
-      "bottom_area": "town",
+      "bottom_area": "park_city_base",
       "connects_from": [
         "payday_express",
         "crescent_express"
@@ -1342,7 +1342,7 @@
       "difficulty": "more_difficult",
       "area": "Payday/Town/Crescent",
       "top_area": "mid_mountain_pc",
-      "bottom_area": "town",
+      "bottom_area": "park_city_base",
       "connects_from": [
         "payday_express",
         "crescent_express"
@@ -7832,6 +7832,21 @@
         "super_condor_area",
         "super_condor",
         "murdock_lift"
+      ]
+    },
+    {
+      "id": "town_run",
+      "name": "Town Run",
+      "difficulty": "more_difficult",
+      "area": "Payday/Town/Crescent",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "town",
+      "connects_from": [
+        "payday_express",
+        "crescent_express"
+      ],
+      "connects_to": [
+        "town_lift"
       ]
     }
   ]
