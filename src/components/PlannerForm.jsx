@@ -143,12 +143,12 @@ export default function PlannerForm({ onCalculate, calculating }) {
         )}
       </section>
 
-      {/* Park hours */}
+      {/* Skiing window */}
       <section>
-        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Park Hours</h3>
+        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Skiing Hours</h3>
         <div className="grid grid-cols-2 gap-2">
           <div>
-            <label className="block text-xs text-slate-400 mb-1">Opens</label>
+            <label className="block text-xs text-slate-400 mb-1">Start Skiing</label>
             <input
               type="time"
               value={parkOpen}
@@ -157,7 +157,7 @@ export default function PlannerForm({ onCalculate, calculating }) {
             />
           </div>
           <div>
-            <label className="block text-xs text-slate-400 mb-1">Closes</label>
+            <label className="block text-xs text-slate-400 mb-1">Stop Skiing</label>
             <input
               type="time"
               value={parkClose}

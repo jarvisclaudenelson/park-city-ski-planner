@@ -7312,7 +7312,7 @@
       "difficulty": "more_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7328,7 +7328,7 @@
       "difficulty": "more_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7344,7 +7344,7 @@
       "difficulty": "more_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7360,7 +7360,7 @@
       "difficulty": "more_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7376,7 +7376,7 @@
       "difficulty": "more_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7392,7 +7392,7 @@
       "difficulty": "more_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7424,7 +7424,7 @@
       "difficulty": "most_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7456,7 +7456,7 @@
       "difficulty": "most_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7472,7 +7472,7 @@
       "difficulty": "most_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7488,7 +7488,7 @@
       "difficulty": "most_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7504,7 +7504,7 @@
       "difficulty": "most_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7520,7 +7520,7 @@
       "difficulty": "most_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7536,7 +7536,7 @@
       "difficulty": "most_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7552,7 +7552,7 @@
       "difficulty": "most_difficult",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7600,7 +7600,7 @@
       "difficulty": "experts_only",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7616,7 +7616,7 @@
       "difficulty": "experts_only",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],
@@ -7776,7 +7776,7 @@
       "difficulty": "experts_only",
       "area": "Condor",
       "top_area": "super_condor_area",
-      "bottom_area": "sun_peak",
+      "bottom_area": "canyons_mid",
       "connects_from": [
         "super_condor"
       ],

@@ -139,7 +139,10 @@ export function planRoute(trailData, config) {
   const maxLaps      = calcMaxLaps(parkOpen, parkClose, lunchStop && !!lunchChalet);
   const raw          = [];
   let   current      = startArea;
-  const visitedAreas = new Set([startArea]);
+  // Pre-mark base/village areas as visited so they never get "new area" explore bonuses;
+  // skiers don't want to be routed to a base lodge as a fun new destination mid-day.
+  const BASE_AREAS   = ['town', 'park_city_base', 'canyons_base', 'frostwood'];
+  const visitedAreas = new Set([startArea, ...BASE_AREAS]);
   const visitedTrail = new Set();
   const visitedLifts = new Set();
   let   lunchDone    = false;
