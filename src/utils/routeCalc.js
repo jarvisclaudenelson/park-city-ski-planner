@@ -24,7 +24,21 @@ export const END_LOCATIONS = [
   { id: 'canyons_base',   name: 'Canyons Village'            },
 ];
 
-const DEFAULT_LAPS = 7;
+const LUNCH_DURATION  = 45; // minutes at the chalet
+const AVG_LAP_MINUTES = 18; // realistic average including brief rests
+
+function parseTimeToMinutes(timeStr = '09:00') {
+  const [h, m] = timeStr.split(':').map(Number);
+  return (h || 0) * 60 + (m || 0);
+}
+
+function calcMaxLaps(parkOpen, parkClose, hasLunch) {
+  const openMin  = parseTimeToMinutes(parkOpen);
+  const closeMin = parseTimeToMinutes(parkClose);
+  const total    = Math.max(0, closeMin - openMin);
+  const skiing   = total - (hasLunch ? LUNCH_DURATION : 0);
+  return Math.min(24, Math.max(3, Math.floor(skiing / AVG_LAP_MINUTES)));
+}
 
 /* ── Internal helpers ─────────────────────────────────────────────────────── */
 
@@ -107,6 +121,8 @@ export function planRoute(trailData, config) {
     closedLifts    = [],
     closedTrails   = [],
     bannedSegments = new Set(),
+    parkOpen       = '09:00',
+    parkClose      = '16:00',
   } = config;
 
   if (!startArea || !endArea) return { error: 'Please choose a start and end location.' };
@@ -120,15 +136,16 @@ export function planRoute(trailData, config) {
   const graph     = buildGraph(trailData, allClosedLifts, allClosedTrails, preferred);
   const opts      = { preferredDifficulties: preferred, optimizeFor };
 
+  const maxLaps      = calcMaxLaps(parkOpen, parkClose, lunchStop && !!lunchChalet);
   const raw          = [];
   let   current      = startArea;
   const visitedAreas = new Set([startArea]);
   const visitedTrail = new Set();
   const visitedLifts = new Set();
   let   lunchDone    = false;
-  const lunchAt      = Math.ceil(DEFAULT_LAPS / 2);
+  const lunchAt      = Math.ceil(maxLaps / 2);
 
-  for (let lap = 0; lap < DEFAULT_LAPS; lap++) {
+  for (let lap = 0; lap < maxLaps; lap++) {
     // Lunch break at midpoint
     if (lunchStop && !lunchDone && lap === lunchAt && lunchChalet) {
       if (current !== lunchChalet.area) {
@@ -187,17 +204,20 @@ export function planRoute(trailData, config) {
   const deduped = raw.filter((seg, i) =>
     i === 0 || !(seg.type === raw[i-1].type && seg.id === raw[i-1].id && seg.from === raw[i-1].from));
 
-  // Annotate
-  let liftNum = 0, runNum = 0;
+  // Annotate with sequence numbers and elapsed time
+  let liftNum = 0, runNum = 0, elapsed = 0;
+  const DIFF_COST_LOCAL = { easy: 5, more_difficult: 7, most_difficult: 9, experts_only: 12, terrain_park: 4 };
   const segments = deduped.map((seg, idx) => {
-    if (seg.type === 'lift')  return { ...seg, liftNum: ++liftNum, segIdx: idx };
-    if (seg.type === 'trail') return { ...seg, runNum:  ++runNum,  segIdx: idx };
-    return { ...seg, segIdx: idx };
+    const minutesFromOpen = elapsed;
+    if (seg.type === 'lift')  { elapsed += 8; return { ...seg, liftNum: ++liftNum, segIdx: idx, minutesFromOpen }; }
+    if (seg.type === 'trail') { elapsed += DIFF_COST_LOCAL[seg.difficulty] ?? 7; return { ...seg, runNum: ++runNum, segIdx: idx, minutesFromOpen }; }
+    if (seg.type === 'lunch') { elapsed += LUNCH_DURATION; return { ...seg, segIdx: idx, minutesFromOpen }; }
+    return { ...seg, segIdx: idx, minutesFromOpen };
   });
 
   const runs    = segments.filter(s => s.type === 'trail').length;
   const lifts   = segments.filter(s => s.type === 'lift').length;
-  const minutes = lifts * 8 + runs * 7;
+  const totalMinutes = elapsed;
 
-  return { segments, runs, lifts, totalMinutes: minutes };
+  return { segments, runs, lifts, totalMinutes, parkOpen };
 }

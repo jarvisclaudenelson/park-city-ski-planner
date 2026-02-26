@@ -20,10 +20,12 @@ export default function PlannerForm({ onCalculate, calculating }) {
   const [optimizeFor, setOptimizeFor] = useState('terrain');
   const [lunchStop,   setLunchStop]   = useState(false);
   const [lunchChalet, setLunchChalet] = useState(CHALETS[0]);
+  const [parkOpen,    setParkOpen]    = useState('09:00');
+  const [parkClose,   setParkClose]   = useState('16:00');
 
   function handleSubmit(e) {
     e.preventDefault();
-    onCalculate({ startArea, endArea, skillLevel, optimizeFor, lunchStop, lunchChalet: lunchStop ? lunchChalet : null });
+    onCalculate({ startArea, endArea, skillLevel, optimizeFor, lunchStop, lunchChalet: lunchStop ? lunchChalet : null, parkOpen, parkClose });
   }
 
   return (
@@ -139,6 +141,31 @@ export default function PlannerForm({ onCalculate, calculating }) {
             </select>
           </div>
         )}
+      </section>
+
+      {/* Park hours */}
+      <section>
+        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Park Hours</h3>
+        <div className="grid grid-cols-2 gap-2">
+          <div>
+            <label className="block text-xs text-slate-400 mb-1">Opens</label>
+            <input
+              type="time"
+              value={parkOpen}
+              onChange={e => setParkOpen(e.target.value)}
+              className="w-full bg-slate-700 border border-slate-600 text-white rounded-md px-3 py-2 text-sm focus:outline-none focus:border-sky-500"
+            />
+          </div>
+          <div>
+            <label className="block text-xs text-slate-400 mb-1">Closes</label>
+            <input
+              type="time"
+              value={parkClose}
+              onChange={e => setParkClose(e.target.value)}
+              className="w-full bg-slate-700 border border-slate-600 text-white rounded-md px-3 py-2 text-sm focus:outline-none focus:border-sky-500"
+            />
+          </div>
+        </div>
       </section>
 
       {/* Submit */}

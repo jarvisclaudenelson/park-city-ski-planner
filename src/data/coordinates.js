@@ -3,40 +3,40 @@
  * Coordinates are in pixels relative to the original image dimensions.
  * Used to draw SVG route overlays.
  *
- * Map orientation: north = top, Park City side = right, Canyons = left.
+ * Map orientation: Park City side = LEFT, Canyons Village = RIGHT.
  */
 export const MAP_W = 3687;
 export const MAP_H = 2337;
 
 export const AREA_COORDS = {
-  // ── Park City side (right / east) ────────────────────────────────────────
-  town:                { x: 3200, y: 2140 },
-  park_city_base:      { x: 3000, y: 1970 },
-  lower_mountain_pc:   { x: 2820, y: 1760 },
-  mid_mountain_pc:     { x: 2620, y: 1490 },
-  bonanza_area:        { x: 2380, y: 1140 },
-  mcconkeys_bowl:      { x: 2180, y:  830 },
-  jupiter_peak:        { x: 1980, y:  430 },
-  thaynes_canyon:      { x: 2320, y:  790 },
-  silverlode_area:     { x: 2560, y: 1240 },
-  tombstone_ridge:     { x: 2520, y: 1320 },
+  // ── Park City side (left) ─────────────────────────────────────────────────
+  town:                { x:  100, y: 1810 },  // Historic Park City / Town Lift base
+  park_city_base:      { x:  350, y: 1700 },  // Park City Mountain Village
+  lower_mountain_pc:   { x:  275, y: 1380 },  // Lower mountain lifts (Payday Express, Crescent)
+  mid_mountain_pc:     { x:  490, y:  960 },  // Mid-Mountain Lodge
+  bonanza_area:        { x:  665, y:  455 },  // Summit House (top of Bonanza lift)
+  mcconkeys_bowl:      { x:  455, y:  250 },  // McConkey's Bowl
+  jupiter_peak:        { x:  625, y:   60 },  // Jupiter Peak (10,026 ft)
+  thaynes_canyon:      { x:  890, y:  430 },  // Thaynes Canyon
+  silverlode_area:     { x: 1060, y:  700 },  // Silverlode / Viking Yurt
+  tombstone_ridge:     { x: 1080, y:  960 },  // Tombstone Ridge (PC side)
 
   // ── Cross-resort connector ────────────────────────────────────────────────
-  dreamcatcher_area:   { x: 1920, y: 1380 },
+  dreamcatcher_area:   { x: 1010, y: 1160 },  // Dreamcatcher / cross-resort connection
 
-  // ── Canyons side (left / west) ────────────────────────────────────────────
-  tombstone_canyons:   { x: 1720, y: 1280 },
-  iron_mountain:       { x: 1660, y: 1060 },
-  ninety_nine_90:      { x: 1450, y:  620 },
-  dreamscape_area:     { x: 1530, y:  840 },
-  canyons_mid:         { x: 1310, y: 1560 },
-  canyons_base:        { x:  820, y: 2060 },
-  frostwood:           { x:  980, y: 1940 },
-  saddleback:          { x: 1040, y: 1480 },
-  high_meadow:         { x:  800, y: 1280 },
-  sun_peak:            { x: 1120, y: 1520 },
-  super_condor_area:   { x:  680, y: 1400 },
-  murdock_peak:        { x:  520, y: 1200 },
+  // ── Canyons side (right) ──────────────────────────────────────────────────
+  canyons_mid:         { x:  950, y:  920 },  // Miner's Camp (Quicksilver gondola exit)
+  tombstone_canyons:   { x: 1160, y: 1060 },  // Tombstone BBQ (Canyons side)
+  iron_mountain:       { x: 1460, y:  830 },  // Iron Mountain area
+  ninety_nine_90:      { x: 1630, y:  150 },  // Ninety-Nine 90 Peak (9,990 ft)
+  dreamscape_area:     { x: 1760, y:  550 },  // Dreamscape area
+  saddleback:          { x: 2360, y: 1260 },  // Saddleback area
+  high_meadow:         { x: 2610, y: 1110 },  // High Meadow
+  canyons_base:        { x: 2260, y: 1680 },  // Canyons Village base
+  frostwood:           { x: 2120, y: 1770 },  // Frostwood (Sunrise lift base)
+  sun_peak:            { x: 2920, y:  900 },  // Sun Peak / Sun Lodge
+  super_condor_area:   { x: 3160, y:  760 },  // Super Condor area
+  murdock_peak:        { x: 3400, y:  190 },  // Murdock Peak (highest Canyons peak)
 };
 
 /** Colour per difficulty for SVG trail lines */
