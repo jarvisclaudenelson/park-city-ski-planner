@@ -521,7 +521,7 @@
       "name": "Quicksilver Gondola",
       "type": "gondola",
       "grid": "C-3",
-      "base_area": "tombstone_ridge",
+      "base_area": "canyons_mid",
       "summit_area": "dreamcatcher_area",
       "connects_from": [
         "tombstone_ridge",
@@ -2514,8 +2514,8 @@
       "name": "Jupiter Access",
       "difficulty": "more_difficult",
       "area": "Silverlode/Thaynes/Motherlode",
-      "top_area": "bonanza_area",
-      "bottom_area": "mcconkeys_bowl",
+      "top_area": "mcconkeys_bowl",
+      "bottom_area": "bonanza_area",
       "connects_from": [
         "bonanza_express",
         "mcconkeys_express"
