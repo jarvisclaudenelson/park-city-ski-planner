@@ -1753,7 +1753,11 @@
       "top_area": "silverlode_area",
       "bottom_area": "silverlode_area",
       "connects_from": [
-        "pick_n_shovel"
+        "pick_n_shovel",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode",
+        "snow_hut"
       ],
       "connects_to": [
         "silverlode_area",
@@ -1761,7 +1765,35 @@
         "motherlode",
         "iron_horse",
         "pick_n_shovel",
-        "king_con"
+        "king_con",
+        "mcconkeys_express",
+        "thaynes",
+        "pioneer_lift",
+        "bonanza_express"
+      ]
+    },
+    {
+      "id": "summit_traverse",
+      "name": "Summit Traverse",
+      "difficulty": "easy",
+      "area": "Silverlode/Bonanza/Motherlode",
+      "top_area": "silverlode_area",
+      "bottom_area": "silverlode_area",
+      "connects_from": [
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode",
+        "snow_hut"
+      ],
+      "connects_to": [
+        "silverlode_area",
+        "mcconkeys_express",
+        "thaynes",
+        "pioneer_lift",
+        "king_con",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ]
     },
     {
@@ -2118,7 +2150,6 @@
       "top_area": "bonanza_area",
       "bottom_area": "bonanza_area",
       "connects_from": [
-        "bonanza_express",
         "pioneer_lift"
       ],
       "connects_to": [
