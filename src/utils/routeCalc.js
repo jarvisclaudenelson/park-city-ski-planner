@@ -42,12 +42,16 @@ function calcMaxLaps(parkOpen, parkClose, hasLunch) {
 
 /* ── Internal helpers ─────────────────────────────────────────────────────── */
 
-/** BFS using ONLY lift edges → Map<summitArea, liftSegArray> */
-function liftsOnlyBFS(graph, startArea) {
+/** BFS using ONLY lift edges → Map<summitArea, liftSegArray>
+ *  maxHops limits how many consecutive lifts we chain (default 2).
+ *  This prevents routes with 3+ lifts in a row without a run. */
+function liftsOnlyBFS(graph, startArea, maxHops = 2) {
   const reached = new Map([[startArea, []]]);
   const queue   = [startArea];
   while (queue.length) {
-    const cur = queue.shift();
+    const cur  = queue.shift();
+    const hops = reached.get(cur).length;
+    if (hops >= maxHops) continue;
     for (const { to, edge } of (graph[cur] || [])) {
       if (edge.type !== 'lift' || reached.has(to)) continue;
       const path = [...reached.get(cur), { ...edge, from: cur, to }];
@@ -74,7 +78,7 @@ function scoreLiftPath(liftPath, summit, visitedAreas, visitedLifts, optimizeFor
   let s = 0;
   if (!visitedAreas.has(summit))                                      s += (optimizeFor === 'coverage' ? 12 : 4);
   if (liftPath.some(l => !visitedLifts.has(l.id)))                   s += 4;
-  s -= (liftPath.length - 1) * 1; // minor penalty for multi-lift chains
+  s -= (liftPath.length - 1) * 8; // strong penalty for multi-lift chains — prefer one lift per lap
   return s;
 }
 
