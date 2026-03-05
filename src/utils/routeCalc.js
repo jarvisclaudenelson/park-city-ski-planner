@@ -66,19 +66,31 @@ function trailEdgesFrom(graph, area) {
   return (graph[area] || []).filter(e => e.edge.type === 'trail');
 }
 
-function scoreTrail(trailEdge, visitedAreas, visitedTrails, preferred, optimizeFor) {
+// Areas at the base of the resort — penalise trails that dump you here mid-day
+const BASE_AREA_SET = new Set(['town', 'park_city_base', 'canyons_base', 'frostwood', 'lower_mountain_pc']);
+
+function scoreTrail(trailEdge, areaVisitCounts, trailVisitCounts, preferred, optimizeFor) {
   let s = 0;
   if (preferred.includes(trailEdge.edge.difficulty)) s += 6;
-  if (!visitedTrails.has(trailEdge.edge.id))         s += 8;  // strong bonus for new trail
-  if (!visitedAreas.has(trailEdge.to))               s += (optimizeFor === 'coverage' ? 10 : 4);
+  const trailVisits = trailVisitCounts.get(trailEdge.edge.id) || 0;
+  if (trailVisits === 0)      s += 8;   // bonus for new trail
+  else                        s -= trailVisits * 6; // increasing penalty for repeats
+  const areaVisits = areaVisitCounts.get(trailEdge.to) || 0;
+  if (areaVisits === 0)       s += (optimizeFor === 'coverage' ? 10 : 4);
+  else                        s -= areaVisits * 2;  // penalty for revisiting areas
+  // Penalise trails ending at base areas — keeps skiers mid-mountain
+  if (BASE_AREA_SET.has(trailEdge.to)) s -= 10;
   return s;
 }
 
-function scoreLiftPath(liftPath, summit, visitedAreas, visitedLifts, optimizeFor) {
+function scoreLiftPath(liftPath, summit, areaVisitCounts, visitedLifts, optimizeFor) {
   let s = 0;
-  if (!visitedAreas.has(summit))                                      s += (optimizeFor === 'coverage' ? 12 : 4);
+  const summitVisits = areaVisitCounts.get(summit) || 0;
+  if (summitVisits === 0)                                             s += (optimizeFor === 'coverage' ? 12 : 4);
+  else                                                                s -= summitVisits * 2;
   if (liftPath.some(l => !visitedLifts.has(l.id)))                   s += 4;
-  s -= (liftPath.length - 1) * 8; // strong penalty for multi-lift chains — prefer one lift per lap
+  // Mild penalty for 2-lift chains (common for getting up from base); steep for 3+
+  s -= (liftPath.length - 1) * 3;
   return s;
 }
 
@@ -87,28 +99,50 @@ function scoreLiftPath(liftPath, summit, visitedAreas, visitedLifts, optimizeFor
  * trail from any reachable summit.
  * Returns { liftSegs, trailSeg, nextArea } or null.
  */
-function oneLap(graph, area, visitedAreas, visitedTrails, visitedLifts, preferred, optimizeFor) {
-  const reachable = liftsOnlyBFS(graph, area);
-
+function oneLap(graph, area, areaVisitCounts, trailVisitCounts, visitedLifts, preferred, optimizeFor) {
   let best = null, bestScore = -Infinity;
 
-  for (const [summit, liftPath] of reachable) {
-    if (summit === area && liftPath.length === 0) continue;
-    const liftScore = scoreLiftPath(liftPath, summit, visitedAreas, visitedLifts, optimizeFor);
+  // Helper: evaluate all lift→trail options from a given start area, optionally
+  // prefixed by a connecting trail segment.
+  function evaluate(startArea, connectTrailSeg) {
+    const reachable = liftsOnlyBFS(graph, startArea);
+    for (const [summit, liftPath] of reachable) {
+      if (summit === startArea && liftPath.length === 0) continue;
+      const liftScore = scoreLiftPath(liftPath, summit, areaVisitCounts, visitedLifts, optimizeFor);
 
-    for (const trailEdge of trailEdgesFrom(graph, summit)) {
-      const tScore = scoreTrail(trailEdge, visitedAreas, visitedTrails, preferred, optimizeFor);
-      const total  = liftScore + tScore;
-      if (total > bestScore) {
-        bestScore = total;
-        best = {
-          liftSegs: liftPath,
-          trailSeg: { ...trailEdge.edge, from: summit, to: trailEdge.to },
-          nextArea: trailEdge.to,
-        };
+      for (const trailEdge of trailEdgesFrom(graph, summit)) {
+        // Don't ski the same connecting trail we just used
+        if (connectTrailSeg && trailEdge.edge.id === connectTrailSeg.id) continue;
+        const tScore = scoreTrail(trailEdge, areaVisitCounts, trailVisitCounts, preferred, optimizeFor);
+        let total = liftScore + tScore;
+        // Small penalty for needing a connector trail (prefer direct lifts)
+        if (connectTrailSeg) total -= 2;
+        if (total > bestScore) {
+          bestScore = total;
+          const liftSegs = connectTrailSeg ? [connectTrailSeg, ...liftPath] : liftPath;
+          best = {
+            liftSegs,
+            trailSeg: { ...trailEdge.edge, from: summit, to: trailEdge.to },
+            nextArea: trailEdge.to,
+          };
+        }
       }
     }
   }
+
+  // Phase 1: direct lifts from current area
+  evaluate(area, null);
+
+  // Phase 2: ski a connecting trail to another non-base area, then take lifts
+  // from there. This handles cases like silverlode → Claimjumper → mid_mountain → lift.
+  for (const trailEdge of trailEdgesFrom(graph, area)) {
+    const dest = trailEdge.to;
+    if (dest === area) continue;              // no loops
+    if (BASE_AREA_SET.has(dest)) continue;    // don't route through base
+    const connSeg = { ...trailEdge.edge, from: area, to: dest, type: 'trail' };
+    evaluate(dest, connSeg);
+  }
+
   return best;
 }
 
@@ -143,12 +177,14 @@ export function planRoute(trailData, config) {
   const maxLaps      = calcMaxLaps(parkOpen, parkClose, lunchStop && !!lunchChalet);
   const raw          = [];
   let   current      = startArea;
-  // Pre-mark base/village areas as visited so they never get "new area" explore bonuses;
-  // skiers don't want to be routed to a base lodge as a fun new destination mid-day.
-  const BASE_AREAS   = ['town', 'park_city_base', 'canyons_base', 'frostwood'];
-  const visitedAreas = new Set([startArea, ...BASE_AREAS]);
-  const visitedTrail = new Set();
-  const visitedLifts = new Set();
+  // Use visit count maps so repeated visits get increasing penalties
+  const areaVisitCounts  = new Map();  // area → visit count
+  const trailVisitCounts = new Map();  // trail_id → visit count
+  const visitedLifts     = new Set();
+  // Pre-mark base areas with high counts so the algorithm avoids routing there
+  const BASE_AREAS = ['town', 'park_city_base', 'canyons_base', 'frostwood', 'lower_mountain_pc'];
+  BASE_AREAS.forEach(a => areaVisitCounts.set(a, 5));
+  areaVisitCounts.set(startArea, (areaVisitCounts.get(startArea) || 0) + 1);
   let   lunchDone    = false;
   const lunchAt      = Math.ceil(maxLaps / 2);
 
@@ -156,11 +192,15 @@ export function planRoute(trailData, config) {
     // Lunch break at midpoint
     if (lunchStop && !lunchDone && lap === lunchAt && lunchChalet) {
       if (current !== lunchChalet.area) {
-        const path = dijkstra(graph, current, lunchChalet.area, { ...opts, visitedAreas })
+        const visitedAreaSet = new Set(areaVisitCounts.keys());
+        const path = dijkstra(graph, current, lunchChalet.area, { ...opts, visitedAreas: visitedAreaSet })
                   || bfs(graph, current, lunchChalet.area);
         if (path?.length) {
           raw.push(...path);
-          path.forEach(s => { visitedAreas.add(s.to); visitedAreas.add(s.from); });
+          path.forEach(s => {
+            areaVisitCounts.set(s.to, (areaVisitCounts.get(s.to) || 0) + 1);
+            areaVisitCounts.set(s.from, (areaVisitCounts.get(s.from) || 0) + 1);
+          });
           current = lunchChalet.area;
         }
       }
@@ -172,25 +212,27 @@ export function planRoute(trailData, config) {
       lunchDone = true;
     }
 
-    const lap_ = oneLap(graph, current, visitedAreas, visitedTrail, visitedLifts, preferred, optimizeFor);
+    const lap_ = oneLap(graph, current, areaVisitCounts, trailVisitCounts, visitedLifts, preferred, optimizeFor);
     if (!lap_) break;
 
-    // Add lift sequence
+    // Add approach segments (connecting trail + lifts)
     lap_.liftSegs.forEach(seg => {
       raw.push(seg);
-      visitedAreas.add(seg.to);
-      visitedLifts.add(seg.id);
+      areaVisitCounts.set(seg.to, (areaVisitCounts.get(seg.to) || 0) + 1);
+      if (seg.type === 'lift') visitedLifts.add(seg.id);
+      if (seg.type === 'trail') trailVisitCounts.set(seg.id, (trailVisitCounts.get(seg.id) || 0) + 1);
     });
-    // Add trail
+    // Add main trail
     raw.push(lap_.trailSeg);
-    visitedAreas.add(lap_.trailSeg.to);
-    visitedTrail.add(lap_.trailSeg.id);
+    areaVisitCounts.set(lap_.trailSeg.to, (areaVisitCounts.get(lap_.trailSeg.to) || 0) + 1);
+    trailVisitCounts.set(lap_.trailSeg.id, (trailVisitCounts.get(lap_.trailSeg.id) || 0) + 1);
     current = lap_.nextArea;
   }
 
   // Route back to end if needed
   if (current !== endArea) {
-    const returnPath = dijkstra(graph, current, endArea, { ...opts, visitedAreas })
+    const visitedAreaSet = new Set(areaVisitCounts.keys());
+    const returnPath = dijkstra(graph, current, endArea, { ...opts, visitedAreas: visitedAreaSet })
                     || bfs(graph, current, endArea);
     if (returnPath?.length) {
       raw.push(...returnPath);
