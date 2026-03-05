@@ -1,9 +1,8 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import { MAP_W, MAP_H, AREA_COORDS, DIFF_COLOR, LIFT_COLOR, areaCoord } from '../data/coordinates.js';
 
 const VIEWBOX = `0 0 ${MAP_W} ${MAP_H}`;
 
-/** Arrow marker IDs per colour */
 const MARKERS = [
   { id: 'arr-lift',  color: LIFT_COLOR   },
   { id: 'arr-easy',  color: DIFF_COLOR.easy   },
@@ -25,7 +24,6 @@ function segColor(seg) {
   return DIFF_COLOR[seg.difficulty] || '#94a3b8';
 }
 
-/** Small pulsing dot for start/end markers */
 function Marker({ x, y, color, label }) {
   return (
     <g>
@@ -39,7 +37,6 @@ function Marker({ x, y, color, label }) {
   );
 }
 
-/** Legend component */
 function Legend() {
   const items = [
     { color: LIFT_COLOR,                    label: 'Lift' },
@@ -60,6 +57,11 @@ function Legend() {
   );
 }
 
+/** Calculate distance between two touch points */
+function touchDist(t1, t2) {
+  return Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+}
+
 export default function MapView({ result, trailData }) {
   const containerRef = useRef(null);
   const [activeIdx,   setActiveIdx]   = useState(null);
@@ -68,23 +70,79 @@ export default function MapView({ result, trailData }) {
   const [dragging,    setDragging]    = useState(false);
   const [dragStart,   setDragStart]   = useState(null);
 
-  // Reset view when result changes
+  // Touch gesture state
+  const touchRef = useRef({ lastDist: 0, lastCenter: null, startPan: null });
+
   useEffect(() => { setZoom(1); setPan({ x: 0, y: 0 }); setActiveIdx(null); }, [result]);
 
   const segments = result?.segments?.filter(s => s.type === 'lift' || s.type === 'trail') || [];
 
-  /* ── Zoom / pan handlers ─────────────────────────────────────────────── */
+  /* ── Mouse handlers (desktop) ──────────────────────────────────────── */
   function onWheel(e) {
     e.preventDefault();
     const delta = e.deltaY > 0 ? 0.85 : 1.15;
     setZoom(z => Math.min(6, Math.max(1, z * delta)));
   }
-  function onMouseDown(e) { setDragging(true); setDragStart({ x: e.clientX - pan.x, y: e.clientY - pan.y }); }
+  function onMouseDown(e) {
+    if (e.touches) return; // handled by touch
+    setDragging(true);
+    setDragStart({ x: e.clientX - pan.x, y: e.clientY - pan.y });
+  }
   function onMouseMove(e) {
-    if (!dragging || !dragStart) return;
+    if (!dragging || !dragStart || e.touches) return;
     setPan({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y });
   }
   function onMouseUp() { setDragging(false); setDragStart(null); }
+
+  /* ── Touch handlers (mobile) ───────────────────────────────────────── */
+  const onTouchStart = useCallback((e) => {
+    if (e.touches.length === 2) {
+      // Pinch start
+      const d = touchDist(e.touches[0], e.touches[1]);
+      touchRef.current.lastDist = d;
+      touchRef.current.startPan = { ...pan };
+      touchRef.current.lastCenter = {
+        x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
+        y: (e.touches[0].clientY + e.touches[1].clientY) / 2,
+      };
+    } else if (e.touches.length === 1) {
+      // Single finger drag
+      setDragging(true);
+      setDragStart({ x: e.touches[0].clientX - pan.x, y: e.touches[0].clientY - pan.y });
+    }
+  }, [pan]);
+
+  const onTouchMove = useCallback((e) => {
+    e.preventDefault(); // prevent page scroll
+    if (e.touches.length === 2) {
+      const d = touchDist(e.touches[0], e.touches[1]);
+      const scale = d / (touchRef.current.lastDist || d);
+      setZoom(z => Math.min(6, Math.max(1, z * scale)));
+      touchRef.current.lastDist = d;
+
+      const cx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+      const cy = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+      if (touchRef.current.lastCenter) {
+        setPan(p => ({
+          x: p.x + (cx - touchRef.current.lastCenter.x),
+          y: p.y + (cy - touchRef.current.lastCenter.y),
+        }));
+      }
+      touchRef.current.lastCenter = { x: cx, y: cy };
+    } else if (e.touches.length === 1 && dragging && dragStart) {
+      setPan({
+        x: e.touches[0].clientX - dragStart.x,
+        y: e.touches[0].clientY - dragStart.y,
+      });
+    }
+  }, [dragging, dragStart]);
+
+  const onTouchEnd = useCallback(() => {
+    setDragging(false);
+    setDragStart(null);
+    touchRef.current.lastDist = 0;
+    touchRef.current.lastCenter = null;
+  }, []);
 
   /* ── Build SVG path data from segments ──────────────────────────────── */
   const routeLines = segments.map((seg, i) => {
@@ -96,21 +154,23 @@ export default function MapView({ result, trailData }) {
   const startCoord = segments.length ? areaCoord(segments[0].from)  : null;
   const endCoord   = segments.length ? areaCoord(segments[segments.length - 1].to) : null;
 
-  /* ── Active segment tooltip data ─────────────────────────────────────── */
   const activeSeg = activeIdx !== null ? segments[activeIdx] : null;
 
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-full overflow-hidden bg-slate-900 select-none"
+      className="relative w-full h-full overflow-hidden bg-slate-900 select-none touch-none"
       onWheel={onWheel}
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseUp}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      onTouchCancel={onTouchEnd}
       style={{ cursor: dragging ? 'grabbing' : 'grab' }}
     >
-      {/* Map image + SVG overlay, transformed together */}
       <div
         className="absolute inset-0 flex items-center justify-center"
         style={{
@@ -119,7 +179,6 @@ export default function MapView({ result, trailData }) {
           transition:      dragging ? 'none' : 'transform 0.1s ease-out',
         }}
       >
-        {/* Trail map image */}
         <img
           src="/trail-map.jpg"
           alt="Park City Mountain Trail Map"
@@ -128,13 +187,11 @@ export default function MapView({ result, trailData }) {
           draggable={false}
         />
 
-        {/* SVG overlay — same dimensions as image */}
         <svg
           viewBox={VIEWBOX}
           className="absolute inset-0 w-full h-full pointer-events-none"
           style={{ overflow: 'visible' }}
         >
-          {/* Arrow marker defs */}
           <defs>
             {MARKERS.map(m => (
               <marker key={m.id} id={m.id} viewBox="0 0 10 10" refX="9" refY="5"
@@ -142,14 +199,12 @@ export default function MapView({ result, trailData }) {
                 <path d="M 0 0 L 10 5 L 0 10 z" fill={m.color} />
               </marker>
             ))}
-            {/* Glow filter */}
             <filter id="glow">
               <feGaussianBlur stdDeviation="6" result="blur" />
               <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
             </filter>
           </defs>
 
-          {/* Route lines */}
           {routeLines.map(({ seg, from, to, i }) => {
             const color   = segColor(seg);
             const isLift  = seg.type === 'lift';
@@ -172,7 +227,6 @@ export default function MapView({ result, trailData }) {
             );
           })}
 
-          {/* Area node dots along route */}
           {routeLines.map(({ seg, from, to, i }) => (
             <g key={`dot-${i}`}>
               <circle cx={from.x} cy={from.y} r={12} fill="white" opacity="0.8" />
@@ -180,11 +234,9 @@ export default function MapView({ result, trailData }) {
             </g>
           ))}
 
-          {/* Start / End markers */}
           {startCoord && <Marker x={startCoord.x} y={startCoord.y} color="#22c55e" label="S" />}
           {endCoord   && endCoord !== startCoord && <Marker x={endCoord.x} y={endCoord.y} color="#ef4444" label="E" />}
 
-          {/* Tooltip for active segment */}
           {activeSeg && (() => {
             const mp = routeLines[activeIdx];
             const cx = (mp.from.x + mp.to.x) / 2;
@@ -210,7 +262,6 @@ export default function MapView({ result, trailData }) {
         </svg>
       </div>
 
-      {/* Legend */}
       <Legend />
 
       {/* Zoom controls */}
@@ -221,13 +272,12 @@ export default function MapView({ result, trailData }) {
               if (val === 'reset') { setZoom(1); setPan({ x: 0, y: 0 }); }
               else setZoom(z => Math.min(6, Math.max(1, z * val)));
             }}
-            className="w-8 h-8 bg-black/70 hover:bg-black/90 text-white rounded text-sm font-bold
+            className="w-10 h-10 md:w-8 md:h-8 bg-black/70 active:bg-black/90 hover:bg-black/90 text-white rounded-lg md:rounded text-sm font-bold
               flex items-center justify-center backdrop-blur-sm transition-colors"
           >{lbl}</button>
         ))}
       </div>
 
-      {/* Empty state */}
       {!segments.length && (
         <div className="absolute inset-0 flex items-end justify-center pb-10 pointer-events-none">
           <div className="bg-black/60 backdrop-blur-sm text-white text-sm px-4 py-2 rounded-lg">

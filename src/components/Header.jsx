@@ -6,7 +6,7 @@ export default function Header({ activeTab, setActiveTab, routeReady }) {
   ];
 
   return (
-    <header className="bg-slate-900 border-b border-slate-700 shrink-0">
+    <header className="bg-slate-900 border-b border-slate-700 shrink-0 hidden md:block">
       <div className="flex items-center gap-6 px-4 py-3">
         {/* Logo / title */}
         <div className="flex items-center gap-2.5 shrink-0">
@@ -37,7 +37,7 @@ export default function Header({ activeTab, setActiveTab, routeReady }) {
         </nav>
 
         {/* Info chip */}
-        <div className="ml-auto text-xs text-slate-500 hidden sm:block">
+        <div className="ml-auto text-xs text-slate-500">
           349 trails · 44 lifts · 7,300 acres
         </div>
       </div>

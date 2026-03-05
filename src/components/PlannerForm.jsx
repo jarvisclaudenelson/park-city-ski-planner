@@ -29,18 +29,27 @@ export default function PlannerForm({ onCalculate, calculating }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5 p-4 overflow-y-auto h-full">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5 p-4 overflow-y-auto h-full pb-safe">
+
+      {/* Mobile title */}
+      <div className="flex items-center gap-2.5 md:hidden">
+        <span className="text-2xl">⛷️</span>
+        <div>
+          <div className="text-white font-bold text-lg leading-tight">Park City Mountain</div>
+          <div className="text-slate-400 text-xs">Plan Your Ski Day</div>
+        </div>
+      </div>
 
       {/* Start / End */}
       <section>
-        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Locations</h3>
-        <div className="grid grid-cols-2 gap-2">
+        <h3 className="section-label">Locations</h3>
+        <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-xs text-slate-400 mb-1">Starting At</label>
+            <label className="field-label">Starting At</label>
             <select
               value={startArea}
               onChange={e => setStartArea(e.target.value)}
-              className="w-full bg-slate-700 border border-slate-600 text-white rounded-md px-3 py-2 text-sm focus:outline-none focus:border-sky-500"
+              className="form-select"
             >
               {START_LOCATIONS.map(l => (
                 <option key={l.id} value={l.id}>{l.name}</option>
@@ -48,11 +57,11 @@ export default function PlannerForm({ onCalculate, calculating }) {
             </select>
           </div>
           <div>
-            <label className="block text-xs text-slate-400 mb-1">Ending At</label>
+            <label className="field-label">Ending At</label>
             <select
               value={endArea}
               onChange={e => setEndArea(e.target.value)}
-              className="w-full bg-slate-700 border border-slate-600 text-white rounded-md px-3 py-2 text-sm focus:outline-none focus:border-sky-500"
+              className="form-select"
             >
               {END_LOCATIONS.map(l => (
                 <option key={l.id} value={l.id}>{l.name}</option>
@@ -64,17 +73,17 @@ export default function PlannerForm({ onCalculate, calculating }) {
 
       {/* Skill level */}
       <section>
-        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Skill Level</h3>
+        <h3 className="section-label">Skill Level</h3>
         <div className="grid grid-cols-2 gap-2">
           {SKILL_OPTIONS.map(opt => (
             <button
               key={opt.id}
               type="button"
               onClick={() => setSkillLevel(opt.id)}
-              className={`flex flex-col items-start text-left p-3 rounded-lg border transition-colors
+              className={`flex flex-col items-start text-left p-3 rounded-xl border transition-colors touch-target
                 ${skillLevel === opt.id
                   ? 'border-sky-500 bg-sky-900/40 text-white'
-                  : 'border-slate-600 bg-slate-700/50 text-slate-300 hover:border-slate-500'}`}
+                  : 'border-slate-600 bg-slate-700/50 text-slate-300 active:border-slate-400'}`}
             >
               <span className="text-lg mb-0.5">{opt.icon}</span>
               <span className="text-sm font-medium">{opt.label}</span>
@@ -86,21 +95,21 @@ export default function PlannerForm({ onCalculate, calculating }) {
 
       {/* Optimization */}
       <section>
-        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Route Style</h3>
+        <h3 className="section-label">Route Style</h3>
         <div className="flex flex-col gap-2">
           {OPT_OPTIONS.map(opt => (
             <button
               key={opt.id}
               type="button"
               onClick={() => setOptimizeFor(opt.id)}
-              className={`flex items-start gap-3 p-3 rounded-lg border text-left transition-colors
+              className={`flex items-start gap-3 p-3.5 rounded-xl border text-left transition-colors touch-target
                 ${optimizeFor === opt.id
                   ? 'border-sky-500 bg-sky-900/40 text-white'
-                  : 'border-slate-600 bg-slate-700/50 text-slate-300 hover:border-slate-500'}`}
+                  : 'border-slate-600 bg-slate-700/50 text-slate-300 active:border-slate-400'}`}
             >
-              <span className={`mt-0.5 w-4 h-4 rounded-full border-2 shrink-0 flex items-center justify-center
+              <span className={`mt-0.5 w-5 h-5 rounded-full border-2 shrink-0 flex items-center justify-center
                 ${optimizeFor === opt.id ? 'border-sky-400' : 'border-slate-500'}`}>
-                {optimizeFor === opt.id && <span className="w-2 h-2 rounded-full bg-sky-400 block" />}
+                {optimizeFor === opt.id && <span className="w-2.5 h-2.5 rounded-full bg-sky-400 block" />}
               </span>
               <div>
                 <div className="text-sm font-medium">{opt.label}</div>
@@ -113,27 +122,27 @@ export default function PlannerForm({ onCalculate, calculating }) {
 
       {/* Lunch stop */}
       <section>
-        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Lunch</h3>
-        <label className="flex items-center gap-3 cursor-pointer">
+        <h3 className="section-label">Lunch</h3>
+        <label className="flex items-center gap-3 cursor-pointer touch-target py-1">
           <button
             type="button"
             onClick={() => setLunchStop(!lunchStop)}
-            className={`relative w-10 h-5 rounded-full transition-colors
+            className={`relative w-12 h-7 rounded-full transition-colors shrink-0
               ${lunchStop ? 'bg-sky-600' : 'bg-slate-600'}`}
           >
-            <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform
-              ${lunchStop ? 'translate-x-5' : 'translate-x-0.5'}`} />
+            <span className={`absolute top-1 w-5 h-5 rounded-full bg-white shadow transition-transform
+              ${lunchStop ? 'translate-x-6' : 'translate-x-1'}`} />
           </button>
           <span className="text-sm text-slate-300">Stop for lunch</span>
         </label>
 
         {lunchStop && (
           <div className="mt-3">
-            <label className="block text-xs text-slate-400 mb-1">Lunch Chalet</label>
+            <label className="field-label">Lunch Chalet</label>
             <select
               value={lunchChalet.id}
               onChange={e => setLunchChalet(CHALETS.find(c => c.id === e.target.value))}
-              className="w-full bg-slate-700 border border-slate-600 text-white rounded-md px-3 py-2 text-sm focus:outline-none focus:border-sky-500"
+              className="form-select"
             >
               {CHALETS.map(c => (
                 <option key={c.id} value={c.id}>{c.name} ({c.side})</option>
@@ -145,38 +154,38 @@ export default function PlannerForm({ onCalculate, calculating }) {
 
       {/* Skiing window */}
       <section>
-        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Skiing Hours</h3>
-        <div className="grid grid-cols-2 gap-2">
+        <h3 className="section-label">Skiing Hours</h3>
+        <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-xs text-slate-400 mb-1">Start Skiing</label>
+            <label className="field-label">Start Skiing</label>
             <input
               type="time"
               value={parkOpen}
               onChange={e => setParkOpen(e.target.value)}
-              className="w-full bg-slate-700 border border-slate-600 text-white rounded-md px-3 py-2 text-sm focus:outline-none focus:border-sky-500"
+              className="form-select"
             />
           </div>
           <div>
-            <label className="block text-xs text-slate-400 mb-1">Stop Skiing</label>
+            <label className="field-label">Stop Skiing</label>
             <input
               type="time"
               value={parkClose}
               onChange={e => setParkClose(e.target.value)}
-              className="w-full bg-slate-700 border border-slate-600 text-white rounded-md px-3 py-2 text-sm focus:outline-none focus:border-sky-500"
+              className="form-select"
             />
           </div>
         </div>
       </section>
 
       {/* Submit */}
-      <div className="mt-auto pt-2">
+      <div className="mt-auto pt-3 sticky bottom-0 bg-slate-800 -mx-4 px-4 pb-4 md:static md:mx-0 md:px-0 md:bg-transparent md:pb-0">
         <button
           type="submit"
           disabled={calculating}
-          className="w-full py-3 rounded-lg bg-sky-600 hover:bg-sky-500 active:bg-sky-700
-            text-white font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full py-3.5 rounded-xl bg-sky-600 active:bg-sky-700 hover:bg-sky-500
+            text-white font-semibold text-base transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {calculating ? 'Calculating…' : '⛷️  Calculate My Route'}
+          {calculating ? 'Calculating...' : 'Calculate My Route'}
         </button>
       </div>
     </form>

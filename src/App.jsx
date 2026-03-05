@@ -5,17 +5,17 @@ import PlannerForm from './components/PlannerForm.jsx';
 import StatusPanel from './components/StatusPanel.jsx';
 import RouteResult from './components/RouteResult.jsx';
 import MapView     from './components/MapView.jsx';
+import BottomNav   from './components/BottomNav.jsx';
 import { planRoute } from './utils/routeCalc.js';
 
 export default function App() {
-  // ── Persistent state ────────────────────────────────────────────────────
   const [closedLifts,   setClosedLifts]   = useState(new Set());
   const [closedTrails,  setClosedTrails]  = useState(new Set());
   const [result,        setResult]        = useState(null);
   const [routeConfig,   setRouteConfig]   = useState(null);
   const [bannedSegs,    setBannedSegs]    = useState(new Set());
   const [calculating,   setCalculating]   = useState(false);
-  const [activeTab,     setActiveTab]     = useState('plan');  // 'plan' | 'status' | 'route'
+  const [activeTab,     setActiveTab]     = useState('plan');
 
   // ── Lift / trail status toggles ─────────────────────────────────────────
   const toggleLift = useCallback(id => {
@@ -45,7 +45,6 @@ export default function App() {
     setBannedSegs(new Set());
     setRouteConfig(formConfig);
 
-    // Small timeout to let the "calculating…" state render
     setTimeout(() => {
       const res = planRoute(trailMapData, {
         ...formConfig,
@@ -59,7 +58,6 @@ export default function App() {
     }, 80);
   }, [closedLifts, closedTrails]);
 
-  // ── Remove a segment and recalculate ────────────────────────────────────
   const removeSegment = useCallback((segId) => {
     const newBanned = new Set(bannedSegs);
     newBanned.add(segId);
@@ -84,16 +82,11 @@ export default function App() {
     setActiveTab('map');
   }, []);
 
-  // ── Sidebar content by tab ───────────────────────────────────────────────
-  const sidebarContent = () => {
+  // ── Tab panel content ──────────────────────────────────────────────────
+  const panelContent = () => {
     switch (activeTab) {
       case 'plan':
-        return (
-          <PlannerForm
-            onCalculate={calculate}
-            calculating={calculating}
-          />
-        );
+        return <PlannerForm onCalculate={calculate} calculating={calculating} />;
       case 'status':
         return (
           <StatusPanel
@@ -120,37 +113,54 @@ export default function App() {
     }
   };
 
+  const showMap = activeTab === 'map';
+
   return (
-    <div className="h-screen flex flex-col bg-slate-900 text-white overflow-hidden">
+    <div className="app-shell">
+      {/* Desktop header — hidden on mobile */}
       <Header
-        activeTab={activeTab === 'map' ? 'route' : activeTab}
-        setActiveTab={tab => setActiveTab(tab)}
+        activeTab={showMap ? 'route' : activeTab}
+        setActiveTab={setActiveTab}
         routeReady={!!result && !result.error}
       />
 
-      <div className="flex flex-1 overflow-hidden">
-        {/* Sidebar — hidden on map-fullscreen view on small screens */}
+      {/* ── Mobile: full-screen panels ──────────────────────────────────── */}
+      <div className="flex-1 overflow-hidden flex flex-col md:hidden">
+        {showMap ? (
+          <div className="flex-1 relative">
+            <MapView result={result} trailData={trailMapData} />
+            <button
+              onClick={() => setActiveTab('route')}
+              className="absolute top-3 left-3 z-10 bg-black/70 active:bg-black/90 text-white
+                text-sm px-3 py-2 rounded-lg backdrop-blur-sm"
+            >
+              ← Route
+            </button>
+          </div>
+        ) : (
+          <div className="flex-1 overflow-hidden">
+            {panelContent()}
+          </div>
+        )}
+      </div>
+
+      {/* ── Desktop: sidebar + map ──────────────────────────────────────── */}
+      <div className="flex-1 overflow-hidden hidden md:flex">
         <aside
           className={`
             shrink-0 border-r border-slate-700 bg-slate-800 flex flex-col overflow-hidden
             transition-all duration-200
-            ${activeTab === 'map'
-              ? 'w-0 opacity-0 pointer-events-none'
-              : 'w-full sm:w-80 md:w-96'}
+            ${showMap ? 'w-0 opacity-0 pointer-events-none' : 'w-96'}
           `}
         >
-          {/* Tab-specific content */}
           <div className="flex-1 overflow-hidden flex flex-col">
-            {sidebarContent()}
+            {panelContent()}
           </div>
         </aside>
 
-        {/* Map — always rendered, takes remaining space */}
         <main className="flex-1 overflow-hidden relative">
           <MapView result={result} trailData={trailMapData} />
-
-          {/* "Back to plan" button when map is fullscreen */}
-          {activeTab === 'map' && (
+          {showMap && (
             <button
               onClick={() => setActiveTab('route')}
               className="absolute top-3 left-3 z-10 bg-black/70 hover:bg-black/90 text-white
@@ -161,6 +171,13 @@ export default function App() {
           )}
         </main>
       </div>
+
+      {/* Bottom tab bar — mobile only */}
+      <BottomNav
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        routeReady={!!result && !result.error}
+      />
     </div>
   );
 }

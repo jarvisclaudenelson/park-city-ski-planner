@@ -13,9 +13,8 @@ const DIFF_LABEL = {
 
 export default function StatusPanel({ trailData, closedLifts, closedTrails, onToggleLift, onToggleTrail, onReset }) {
   const [expandedGroup, setExpandedGroup] = useState(null);
-  const [view, setView] = useState('lifts'); // 'lifts' | 'trails'
+  const [view, setView] = useState('lifts');
 
-  // Group trails by area
   const trailGroups = useMemo(() => {
     if (!trailData) return {};
     const groups = {};
@@ -29,7 +28,7 @@ export default function StatusPanel({ trailData, closedLifts, closedTrails, onTo
   const closedLiftCount  = closedLifts.size;
   const closedTrailCount = closedTrails.size;
 
-  if (!trailData) return <div className="p-4 text-slate-400 text-sm">Loading…</div>;
+  if (!trailData) return <div className="p-4 text-slate-400 text-sm">Loading...</div>;
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
@@ -39,17 +38,17 @@ export default function StatusPanel({ trailData, closedLifts, closedTrails, onTo
           <h2 className="text-sm font-semibold text-white">Trail & Lift Status</h2>
           <button
             onClick={onReset}
-            className="text-xs text-slate-400 hover:text-white underline"
+            className="text-xs text-slate-400 active:text-white hover:text-white underline py-1 px-2"
           >
             Reset All Open
           </button>
         </div>
         {/* Status summary */}
         <div className="flex gap-2 text-xs text-slate-400">
-          <span className="bg-slate-700 px-2 py-1 rounded">
+          <span className="bg-slate-700 px-2.5 py-1.5 rounded-lg">
             {closedLiftCount > 0 ? `⚠ ${closedLiftCount} lift${closedLiftCount > 1 ? 's' : ''} closed` : '✓ All lifts open'}
           </span>
-          <span className="bg-slate-700 px-2 py-1 rounded">
+          <span className="bg-slate-700 px-2.5 py-1.5 rounded-lg">
             {closedTrailCount > 0 ? `⚠ ${closedTrailCount} trail${closedTrailCount > 1 ? 's' : ''} closed` : '✓ All trails open'}
           </span>
         </div>
@@ -59,8 +58,8 @@ export default function StatusPanel({ trailData, closedLifts, closedTrails, onTo
             <button
               key={v}
               onClick={() => setView(v)}
-              className={`flex-1 py-1.5 text-xs font-medium rounded capitalize transition-colors
-                ${view === v ? 'bg-sky-700 text-white' : 'text-slate-400 hover:text-white'}`}
+              className={`flex-1 py-2 text-xs font-medium rounded-lg capitalize transition-colors
+                ${view === v ? 'bg-sky-700 text-white' : 'text-slate-400 active:text-white hover:text-white'}`}
             >
               {v}
             </button>
@@ -76,17 +75,17 @@ export default function StatusPanel({ trailData, closedLifts, closedTrails, onTo
               const closed = closedLifts.has(lift.id);
               return (
                 <li key={lift.id}
-                  className="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-700/30 transition-colors">
-                  <button
-                    onClick={() => onToggleLift(lift.id)}
-                    className={`w-5 h-5 rounded border-2 shrink-0 flex items-center justify-center transition-colors
+                  onClick={() => onToggleLift(lift.id)}
+                  className="flex items-center gap-3 px-4 py-3 active:bg-slate-700/30 transition-colors cursor-pointer">
+                  <span
+                    className={`w-6 h-6 rounded border-2 shrink-0 flex items-center justify-center transition-colors
                       ${closed ? 'bg-red-600 border-red-500' : 'border-green-500 bg-green-900/30'}`}
                   >
                     {closed
                       ? <span className="text-white text-xs font-bold">✕</span>
                       : <span className="text-green-400 text-xs">✓</span>
                     }
-                  </button>
+                  </span>
                   <div className="flex-1 min-w-0">
                     <div className={`text-sm truncate ${closed ? 'line-through text-slate-500' : 'text-white'}`}>
                       {lift.name}
@@ -107,11 +106,10 @@ export default function StatusPanel({ trailData, closedLifts, closedTrails, onTo
               const closedInGroup = trails.filter(t => closedTrails.has(t.id)).length;
               return (
                 <div key={groupName}>
-                  {/* Group header */}
                   <button
                     onClick={() => setExpandedGroup(expanded ? null : groupName)}
-                    className="w-full flex items-center justify-between px-4 py-2.5
-                      hover:bg-slate-700/30 text-left transition-colors"
+                    className="w-full flex items-center justify-between px-4 py-3
+                      active:bg-slate-700/30 text-left transition-colors"
                   >
                     <div>
                       <div className="text-sm font-medium text-white">{groupName}</div>
@@ -123,21 +121,20 @@ export default function StatusPanel({ trailData, closedLifts, closedTrails, onTo
                     <span className={`text-slate-400 text-xs transition-transform ${expanded ? 'rotate-90' : ''}`}>▶</span>
                   </button>
 
-                  {/* Trails in group */}
                   {expanded && (
                     <ul className="pb-1">
                       {trails.map(trail => {
                         const closed = closedTrails.has(trail.id);
                         return (
                           <li key={trail.id}
-                            className="flex items-center gap-2.5 pl-6 pr-4 py-2 hover:bg-slate-700/20">
-                            <button
-                              onClick={() => onToggleTrail(trail.id)}
-                              className={`w-4 h-4 rounded border shrink-0 flex items-center justify-center transition-colors
+                            onClick={() => onToggleTrail(trail.id)}
+                            className="flex items-center gap-2.5 pl-6 pr-4 py-2.5 active:bg-slate-700/20 cursor-pointer">
+                            <span
+                              className={`w-5 h-5 rounded border shrink-0 flex items-center justify-center transition-colors
                                 ${closed ? 'bg-red-600 border-red-500' : 'border-slate-500 bg-slate-700'}`}
                             >
                               {closed && <span className="text-white text-xs leading-none">✕</span>}
-                            </button>
+                            </span>
                             <div className="flex-1 min-w-0 flex items-center gap-1.5">
                               <span className={`text-xs px-1.5 py-0.5 rounded font-bold shrink-0
                                 ${DIFF_COLORS[trail.difficulty]}`}>

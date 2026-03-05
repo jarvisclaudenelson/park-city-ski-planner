@@ -8,8 +8,102 @@ html, body, #root {
   padding: 0;
 }
 
-/* Custom scrollbar */
+/* App shell — mobile-first full-height layout */
+.app-shell {
+  height: 100vh;
+  height: 100dvh; /* dynamic viewport height for mobile browsers */
+  display: flex;
+  flex-direction: column;
+  background: #0f172a;
+  color: white;
+  overflow: hidden;
+}
+
+/* ── Bottom navigation bar (mobile) ────────────────────────────────────── */
+.bottom-nav {
+  display: flex;
+  border-top: 1px solid #334155;
+  background: #0f172a;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  flex-shrink: 0;
+}
+
+.bottom-nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0 6px;
+  color: #94a3b8;
+  transition: color 0.15s;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bottom-nav-item.active {
+  color: #38bdf8;
+}
+
+/* ── Safe area padding utility ─────────────────────────────────────────── */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* ── Form utility classes ──────────────────────────────────────────────── */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-bottom: 0.25rem;
+}
+
+.form-select {
+  width: 100%;
+  background: #334155;
+  border: 1px solid #475569;
+  color: white;
+  border-radius: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-select:focus {
+  border-color: #0ea5e9;
+}
+
+/* ── Touch targets — min 44px per Apple HIG ────────────────────────────── */
+.touch-target {
+  min-height: 44px;
+}
+
+/* ── Scrollbar (desktop) ───────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: #1e293b; }
 ::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+/* ── Prevent overscroll on iOS ─────────────────────────────────────────── */
+body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── PWA standalone mode — extra top padding for status bar ────────────── */
+@media all and (display-mode: standalone) {
+  .app-shell {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+}
