@@ -1,32 +1,77 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useCallback } from 'react';
 
 export default function MapView() {
   const containerRef = useRef(null);
-  const [zoom,      setZoom]      = useState(1);
-  const [pan,       setPan]       = useState({ x: 0, y: 0 });
-  const [dragging,  setDragging]  = useState(false);
-  const [dragStart, setDragStart] = useState(null);
+  const [zoom, setZoom]     = useState(1);
+  const [pan, setPan]       = useState({ x: 0, y: 0 });
+  const [dragging, setDragging] = useState(false);
 
+  // Use refs for values needed in handlers to avoid stale closures
+  const panRef  = useRef(pan);
+  const zoomRef = useRef(zoom);
+  const dragRef = useRef(null);         // { x, y } of pointer at drag start
+  const panAtDragStart = useRef(null);   // pan snapshot at drag start
   const touchRef = useRef({ lastDist: 0, lastCenter: null });
 
+  panRef.current  = pan;
+  zoomRef.current = zoom;
+
   function clampZoom(z) { return Math.min(6, Math.max(1, z)); }
+
+  /**
+   * Zoom toward a point in screen space.
+   * Adjusts pan so the point under the cursor stays fixed.
+   */
+  function zoomAtPoint(factor, clientX, clientY) {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+
+    const oldZoom = zoomRef.current;
+    const newZoom = clampZoom(oldZoom * factor);
+    if (newZoom === oldZoom) return;
+
+    const p = panRef.current;
+
+    // Point in container-local coords
+    const cx = clientX - rect.left - rect.width  / 2;
+    const cy = clientY - rect.top  - rect.height / 2;
+
+    // Keep the world point under the cursor fixed:
+    // (cx - pan) / zoom  must stay constant before and after
+    const newPanX = cx - (cx - p.x) * (newZoom / oldZoom);
+    const newPanY = cy - (cy - p.y) * (newZoom / oldZoom);
+
+    setZoom(newZoom);
+    setPan({ x: newPanX, y: newPanY });
+  }
 
   /* ── Mouse handlers (desktop) ──────────────────────────────────────── */
   function onWheel(e) {
     e.preventDefault();
-    const delta = e.deltaY > 0 ? 0.85 : 1.15;
-    setZoom(z => clampZoom(z * delta));
+    const factor = e.deltaY > 0 ? 0.85 : 1.15;
+    zoomAtPoint(factor, e.clientX, e.clientY);
   }
+
   function onMouseDown(e) {
-    if (e.touches) return;
+    if (e.button !== 0) return;           // left-click only
     setDragging(true);
-    setDragStart({ x: e.clientX - pan.x, y: e.clientY - pan.y });
+    dragRef.current = { x: e.clientX, y: e.clientY };
+    panAtDragStart.current = { ...panRef.current };
   }
+
   function onMouseMove(e) {
-    if (!dragging || !dragStart || e.touches) return;
-    setPan({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y });
+    if (!dragRef.current || !panAtDragStart.current) return;
+    setPan({
+      x: panAtDragStart.current.x + (e.clientX - dragRef.current.x),
+      y: panAtDragStart.current.y + (e.clientY - dragRef.current.y),
+    });
   }
-  function onMouseUp() { setDragging(false); setDragStart(null); }
+
+  function onMouseUp() {
+    setDragging(false);
+    dragRef.current = null;
+    panAtDragStart.current = null;
+  }
 
   /* ── Touch handlers (mobile) ───────────────────────────────────────── */
   function touchDist(t1, t2) {
@@ -43,41 +88,62 @@ export default function MapView() {
       };
     } else if (e.touches.length === 1) {
       setDragging(true);
-      setDragStart({ x: e.touches[0].clientX - pan.x, y: e.touches[0].clientY - pan.y });
+      dragRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      panAtDragStart.current = { ...panRef.current };
     }
-  }, [pan]);
+  }, []);
 
   const onTouchMove = useCallback((e) => {
     e.preventDefault();
     if (e.touches.length === 2) {
       const d = touchDist(e.touches[0], e.touches[1]);
-      const scale = d / (touchRef.current.lastDist || d);
-      setZoom(z => clampZoom(z * scale));
-      touchRef.current.lastDist = d;
-
       const cx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
       const cy = (e.touches[0].clientY + e.touches[1].clientY) / 2;
-      if (touchRef.current.lastCenter) {
-        setPan(p => ({
-          x: p.x + (cx - touchRef.current.lastCenter.x),
-          y: p.y + (cy - touchRef.current.lastCenter.y),
-        }));
+
+      // Pinch-zoom toward center of the two fingers
+      const ratio = d / (touchRef.current.lastDist || d);
+      const rect = containerRef.current?.getBoundingClientRect();
+      if (rect) {
+        const oldZoom = zoomRef.current;
+        const newZoom = clampZoom(oldZoom * ratio);
+
+        const lx = cx - rect.left - rect.width  / 2;
+        const ly = cy - rect.top  - rect.height / 2;
+
+        const p = panRef.current;
+        let newPanX = lx - (lx - p.x) * (newZoom / oldZoom);
+        let newPanY = ly - (ly - p.y) * (newZoom / oldZoom);
+
+        // Also apply finger-drag offset
+        if (touchRef.current.lastCenter) {
+          newPanX += cx - touchRef.current.lastCenter.x;
+          newPanY += cy - touchRef.current.lastCenter.y;
+        }
+
+        setZoom(newZoom);
+        setPan({ x: newPanX, y: newPanY });
       }
+
+      touchRef.current.lastDist = d;
       touchRef.current.lastCenter = { x: cx, y: cy };
-    } else if (e.touches.length === 1 && dragging && dragStart) {
+    } else if (e.touches.length === 1 && dragRef.current && panAtDragStart.current) {
       setPan({
-        x: e.touches[0].clientX - dragStart.x,
-        y: e.touches[0].clientY - dragStart.y,
+        x: panAtDragStart.current.x + (e.touches[0].clientX - dragRef.current.x),
+        y: panAtDragStart.current.y + (e.touches[0].clientY - dragRef.current.y),
       });
     }
-  }, [dragging, dragStart]);
+  }, []);
 
   const onTouchEnd = useCallback(() => {
     setDragging(false);
-    setDragStart(null);
+    dragRef.current = null;
+    panAtDragStart.current = null;
     touchRef.current.lastDist = 0;
     touchRef.current.lastCenter = null;
   }, []);
+
+  /* ── Transform: scale first, then translate (pan is in screen px) ── */
+  const transform = `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`;
 
   return (
     <div
@@ -97,9 +163,10 @@ export default function MapView() {
       <div
         className="absolute inset-0 flex items-center justify-center"
         style={{
-          transform:       `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
+          transform,
           transformOrigin: 'center center',
           transition:      dragging ? 'none' : 'transform 0.1s ease-out',
+          willChange:      'transform',
         }}
       >
         <img
@@ -117,7 +184,12 @@ export default function MapView() {
           <button key={lbl}
             onClick={() => {
               if (val === 'reset') { setZoom(1); setPan({ x: 0, y: 0 }); }
-              else setZoom(z => clampZoom(z * val));
+              else {
+                const rect = containerRef.current?.getBoundingClientRect();
+                if (rect) {
+                  zoomAtPoint(val, rect.left + rect.width / 2, rect.top + rect.height / 2);
+                }
+              }
             }}
             className="w-10 h-10 md:w-8 md:h-8 bg-black/70 active:bg-black/90 hover:bg-black/90 text-white rounded-lg md:rounded text-sm font-bold
               flex items-center justify-center backdrop-blur-sm transition-colors"
