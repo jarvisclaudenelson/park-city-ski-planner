@@ -253,10 +253,38 @@ export function planRoute(trailData, config) {
   const deduped = raw.filter((seg, i) =>
     i === 0 || !(seg.type === raw[i-1].type && seg.id === raw[i-1].id && seg.from === raw[i-1].from));
 
+  // Insert connector trails between consecutive lifts that share an area.
+  // E.g. Payday Express → Bonanza Express needs "Bonanza Access" in between.
+  const connectorTrails = trailData.trails.filter(t => t.top_area === t.bottom_area);
+  const withConnectors = [];
+  for (let i = 0; i < deduped.length; i++) {
+    withConnectors.push(deduped[i]);
+    if (i < deduped.length - 1
+        && deduped[i].type === 'lift' && deduped[i+1].type === 'lift'
+        && deduped[i].to === deduped[i+1].from) {
+      const sharedArea = deduped[i].to;
+      const fromLift   = deduped[i].id;
+      const toLift     = deduped[i+1].id;
+      const conn = connectorTrails.find(t =>
+        t.top_area === sharedArea
+        && t.connects_from.includes(fromLift)
+        && t.connects_to.includes(toLift)
+      );
+      if (conn) {
+        withConnectors.push({
+          type: 'trail', id: conn.id, name: conn.name,
+          difficulty: conn.difficulty, area: conn.area,
+          top_area: conn.top_area, bottom_area: conn.bottom_area,
+          from: sharedArea, to: sharedArea,
+        });
+      }
+    }
+  }
+
   // Annotate with sequence numbers and elapsed time
   let liftNum = 0, runNum = 0, elapsed = 0;
   const DIFF_COST_LOCAL = { easy: 5, more_difficult: 7, most_difficult: 9, experts_only: 12, terrain_park: 4 };
-  const segments = deduped.map((seg, idx) => {
+  const segments = withConnectors.map((seg, idx) => {
     const minutesFromOpen = elapsed;
     if (seg.type === 'lift')  { elapsed += 8; return { ...seg, liftNum: ++liftNum, segIdx: idx, minutesFromOpen }; }
     if (seg.type === 'trail') { elapsed += DIFF_COST_LOCAL[seg.difficulty] ?? 7; return { ...seg, runNum: ++runNum, segIdx: idx, minutesFromOpen }; }
