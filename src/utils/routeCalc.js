@@ -4,7 +4,7 @@ export { SKILL_LEVELS };
 
 export const CHALETS = [
   { id: 'mid_mountain_lodge', name: 'Mid-Mountain Lodge',  area: 'mid_mountain_pc',   side: 'Park City' },
-  { id: 'summit_house',       name: 'Summit House',        area: 'bonanza_area',       side: 'Park City' },
+  { id: 'summit_house',       name: 'Summit House',        area: 'silverlode_area',    side: 'Park City' },
   { id: 'viking_yurt',        name: 'Viking Yurt',         area: 'silverlode_area',    side: 'Park City' },
   { id: 'miners_camp',        name: "Miner's Camp",        area: 'canyons_mid',        side: 'Canyons'   },
   { id: 'norwegian',          name: 'Norwegian',           area: 'dreamcatcher_area',  side: 'Canyons'   },

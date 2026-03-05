@@ -14,11 +14,11 @@ export const AREA_COORDS = {
   park_city_base:      { x:  350, y: 1700 },  // Park City Mountain Village
   lower_mountain_pc:   { x:  275, y: 1380 },  // Lower mountain lifts (Payday Express, Crescent)
   mid_mountain_pc:     { x:  490, y:  960 },  // Mid-Mountain Lodge
-  bonanza_area:        { x:  665, y:  455 },  // Summit House (top of Bonanza lift)
+  bonanza_area:        { x:  665, y:  455 },  // Pioneer lift summit (above shared summit)
   mcconkeys_bowl:      { x:  455, y:  250 },  // McConkey's Bowl
   jupiter_peak:        { x:  625, y:   60 },  // Jupiter Peak (10,026 ft)
   thaynes_canyon:      { x:  890, y:  430 },  // Thaynes Canyon
-  silverlode_area:     { x: 1060, y:  700 },  // Silverlode / Viking Yurt
+  silverlode_area:     { x: 1060, y:  700 },  // Shared summit: Bonanza / Silverlode / Motherlode
   tombstone_ridge:     { x: 1080, y:  960 },  // Tombstone Ridge (PC side)
 
   // ── Cross-resort connector ────────────────────────────────────────────────

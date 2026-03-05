@@ -52,10 +52,10 @@
     },
     {
       "id": "bonanza_area",
-      "name": "Bonanza Area",
+      "name": "Pioneer Lift Summit",
       "grid": "A-2",
       "elevation_ft": 8700,
-      "description": "Upper PC side, Bonanza Express summit, gateway to McConkey's, Thaynes & Jupiter"
+      "description": "Pioneer lift summit area, above the shared mid-mountain summit"
     },
     {
       "id": "mcconkeys_bowl",
@@ -80,10 +80,10 @@
     },
     {
       "id": "silverlode_area",
-      "name": "Silverlode / Motherlode Area",
+      "name": "Silverlode / Bonanza / Motherlode Summit",
       "grid": "B-3",
       "elevation_ft": 8900,
-      "description": "Silverlode / Motherlode Express summit area"
+      "description": "Shared summit area for Bonanza Express, Silverlode Express, and Motherlode lifts; gateway to McConkey's, Thaynes & Jupiter"
     },
     {
       "id": "tombstone_ridge",
@@ -329,14 +329,14 @@
       "type": "6-pack",
       "grid": "A-3",
       "base_area": "mid_mountain_pc",
-      "summit_area": "bonanza_area",
+      "summit_area": "silverlode_area",
       "connects_from": [
         "mid_mountain_pc",
         "payday_express",
         "crescent_express"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "mcconkeys_express",
         "thaynes",
         "pioneer_lift"
@@ -347,11 +347,13 @@
       "name": "Pioneer",
       "type": "double",
       "grid": "A-3",
-      "base_area": "bonanza_area",
+      "base_area": "silverlode_area",
       "summit_area": "bonanza_area",
       "connects_from": [
-        "bonanza_area",
-        "bonanza_express"
+        "silverlode_area",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "bonanza_area"
@@ -362,11 +364,13 @@
       "name": "McConkey's Express",
       "type": "quad",
       "grid": "A-2",
-      "base_area": "bonanza_area",
+      "base_area": "silverlode_area",
       "summit_area": "mcconkeys_bowl",
       "connects_from": [
-        "bonanza_area",
-        "bonanza_express"
+        "silverlode_area",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mcconkeys_bowl",
@@ -393,11 +397,13 @@
       "name": "Thaynes",
       "type": "quad",
       "grid": "B-2",
-      "base_area": "bonanza_area",
+      "base_area": "silverlode_area",
       "summit_area": "thaynes_canyon",
       "connects_from": [
-        "bonanza_area",
-        "bonanza_express"
+        "silverlode_area",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "thaynes_canyon"
@@ -1782,16 +1788,18 @@
       "name": "Flat Iron",
       "difficulty": "easy",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
         "bonanza_express",
         "silverlode_express",
-        "motherlode"
+        "motherlode",
+        "jonesys"
       ]
     },
     {
@@ -1804,7 +1812,9 @@
       "connects_from": [
         "payday_express",
         "crescent_express",
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "park_city_base",
@@ -1824,10 +1834,12 @@
       "name": "Mid-Mountain",
       "difficulty": "easy",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -1841,10 +1853,12 @@
       "name": "Mid-Mountain Cutoff",
       "difficulty": "easy",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -1858,10 +1872,12 @@
       "name": "Shortline",
       "difficulty": "easy",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -1875,10 +1891,12 @@
       "name": "Woodside",
       "difficulty": "easy",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -1892,10 +1910,12 @@
       "name": "Blaster",
       "difficulty": "more_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -1910,12 +1930,12 @@
       "difficulty": "more_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "mcconkeys_express"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -1928,12 +1948,12 @@
       "difficulty": "more_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "mcconkeys_express"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -1946,12 +1966,12 @@
       "difficulty": "more_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "mcconkeys_express"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -1963,10 +1983,12 @@
       "name": "Jonesy's",
       "difficulty": "more_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "flat_iron",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -1980,10 +2002,12 @@
       "name": "Lucky Boy",
       "difficulty": "more_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -1997,10 +2021,12 @@
       "name": "Mid-Mountain Meadows",
       "difficulty": "more_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2014,10 +2040,12 @@
       "name": "Muckers",
       "difficulty": "more_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2031,10 +2059,12 @@
       "name": "Powder Monkey",
       "difficulty": "more_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2049,12 +2079,12 @@
       "difficulty": "more_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "mcconkeys_express"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2066,10 +2096,12 @@
       "name": "Silver Queen",
       "difficulty": "more_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2090,7 +2122,7 @@
         "pioneer_lift"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2102,10 +2134,12 @@
       "name": "Belmont",
       "difficulty": "most_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2119,10 +2153,12 @@
       "name": "Buckeye",
       "difficulty": "most_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2136,7 +2172,7 @@
       "name": "Pioneer",
       "difficulty": "most_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
         "pioneer_lift"
@@ -2153,10 +2189,12 @@
       "name": "Sampson",
       "difficulty": "most_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2170,10 +2208,12 @@
       "name": "Sundog",
       "difficulty": "most_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2187,10 +2227,12 @@
       "name": "Tycoon",
       "difficulty": "most_difficult",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2205,12 +2247,12 @@
       "difficulty": "experts_only",
       "area": "Bonanza/McConkey's/Pioneer",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "mcconkeys_express"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2228,7 +2270,7 @@
         "pioneer_lift"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2241,12 +2283,15 @@
       "difficulty": "experts_only",
       "area": "Bonanza/McConkey's/Pioneer",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
-        "mcconkeys_express"
+        "mcconkeys_express",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2259,12 +2304,12 @@
       "difficulty": "experts_only",
       "area": "Bonanza/McConkey's/Pioneer",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "mcconkeys_express"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2277,12 +2322,12 @@
       "difficulty": "experts_only",
       "area": "Bonanza/McConkey's/Pioneer",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "mcconkeys_express"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2295,12 +2340,12 @@
       "difficulty": "experts_only",
       "area": "Bonanza/McConkey's/Pioneer",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "mcconkeys_express"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2313,12 +2358,12 @@
       "difficulty": "experts_only",
       "area": "Bonanza/McConkey's/Pioneer",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "mcconkeys_express"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2331,12 +2376,12 @@
       "difficulty": "experts_only",
       "area": "Bonanza/McConkey's/Pioneer",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "mcconkeys_express"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2354,7 +2399,7 @@
         "pioneer_lift"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2367,12 +2412,12 @@
       "difficulty": "experts_only",
       "area": "Bonanza/McConkey's/Pioneer",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "mcconkeys_express"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2385,12 +2430,12 @@
       "difficulty": "experts_only",
       "area": "Bonanza/McConkey's/Pioneer",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "mcconkeys_express"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2402,10 +2447,12 @@
       "name": "Little Kings",
       "difficulty": "terrain_park",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
+      "top_area": "silverlode_area",
       "bottom_area": "mid_mountain_pc",
       "connects_from": [
-        "bonanza_express"
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2459,12 +2506,12 @@
       "difficulty": "more_difficult",
       "area": "Silverlode/Thaynes/Motherlode",
       "top_area": "thaynes_canyon",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "thaynes"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2502,7 +2549,8 @@
         "silverlode_express",
         "motherlode",
         "iron_horse",
-        "snow_hut"
+        "snow_hut",
+        "bonanza_express"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2517,10 +2565,12 @@
       "difficulty": "more_difficult",
       "area": "Silverlode/Thaynes/Motherlode",
       "top_area": "mcconkeys_bowl",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
+        "mcconkeys_express",
         "bonanza_express",
-        "mcconkeys_express"
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "mcconkeys_bowl",
@@ -2557,7 +2607,10 @@
       "bottom_area": "park_city_base",
       "connects_from": [
         "payday_express",
-        "crescent_express"
+        "crescent_express",
+        "bonanza_express",
+        "silverlode_express",
+        "motherlode"
       ],
       "connects_to": [
         "park_city_base",
@@ -2583,7 +2636,8 @@
         "silverlode_express",
         "motherlode",
         "iron_horse",
-        "snow_hut"
+        "snow_hut",
+        "bonanza_express"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2698,12 +2752,12 @@
       "difficulty": "more_difficult",
       "area": "Silverlode/Thaynes/Motherlode",
       "top_area": "thaynes_canyon",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "thaynes"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2741,7 +2795,8 @@
         "silverlode_express",
         "motherlode",
         "iron_horse",
-        "snow_hut"
+        "snow_hut",
+        "bonanza_express"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2821,7 +2876,8 @@
         "silverlode_express",
         "motherlode",
         "iron_horse",
-        "snow_hut"
+        "snow_hut",
+        "bonanza_express"
       ],
       "connects_to": [
         "mid_mountain_pc",
@@ -2836,12 +2892,12 @@
       "difficulty": "most_difficult",
       "area": "Silverlode/Thaynes/Motherlode",
       "top_area": "thaynes_canyon",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "thaynes"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -2894,12 +2950,12 @@
       "difficulty": "most_difficult",
       "area": "Silverlode/Thaynes/Motherlode",
       "top_area": "thaynes_canyon",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "thaynes"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
@@ -3606,12 +3662,12 @@
       "difficulty": "experts_only",
       "area": "Jupiter",
       "top_area": "jupiter_peak",
-      "bottom_area": "bonanza_area",
+      "bottom_area": "silverlode_area",
       "connects_from": [
         "jupiter"
       ],
       "connects_to": [
-        "bonanza_area",
+        "silverlode_area",
         "bonanza_express",
         "pioneer_lift",
         "mcconkeys_express",
