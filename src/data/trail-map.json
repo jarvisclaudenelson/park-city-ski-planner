@@ -1763,16 +1763,18 @@
       "name": "Bonanza",
       "difficulty": "easy",
       "area": "Bonanza/McConkey's/Pioneer",
-      "top_area": "bonanza_area",
-      "bottom_area": "mid_mountain_pc",
+      "top_area": "mid_mountain_pc",
+      "bottom_area": "park_city_base",
       "connects_from": [
-        "bonanza_express"
+        "payday_express",
+        "crescent_express"
       ],
       "connects_to": [
-        "mid_mountain_pc",
-        "bonanza_express",
-        "silverlode_express",
-        "motherlode"
+        "park_city_base",
+        "payday_express",
+        "crescent_express",
+        "eagle",
+        "town_lift"
       ]
     },
     {
